@@ -36,6 +36,8 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.9.2",
     "express": "^4.10.1",
+    "grunt": "^0.4.5",
+    "grunt-libsass": "^0.2.0",
     "jwt-simple": "^0.2.0",
     "mongoose": "^3.8.18",
     "passport": "^0.2.1",
