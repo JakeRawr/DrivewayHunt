@@ -4,7 +4,7 @@ var User = require('../models/user');
 
 module.exports = function(app, passport) {
   app.get('/api/users', passport.authenticate('basic', {session: false}), function(req, res) {
-    res.json({'jwt': req.user.generateToken(app.get('jwtSecret'))});
+    res.json({jwt: req.user.generateToken(app.get('jwtSecret'))});
   });
 
   app.post('/api/users', function(req, res) {
@@ -23,7 +23,7 @@ module.exports = function(app, passport) {
       newUser.phone = req.body.phone;
       newUser.save(function(err) {
         if (err) return res.status(500).send('server error');
-        res.json({'jwt': newUser.generateToken(app.get('jwtSecret'))});
+        res.json({jwt: newUser.generateToken(app.get('jwtSecret'))});
       });
     });
   });
