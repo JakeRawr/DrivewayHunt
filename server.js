@@ -15,14 +15,14 @@ mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/notes_development
 //set up middlewares
 app.use(passport.initialize());
 require('./server/lib/passport')(passport);
-var jwtauth = require('./lib/jwt_auth')(app.get('jwtSecret'));
+var jwtauth = require('./server/lib/jwt_auth')(app.get('jwtSecret'));
 
 //start index.html
 //app.use(express.static(__dirname + '/build'));
 
 //set up all routes
 require('./server/routes/user_routes')(app, passport);
-
+require('./server/routes/sales_routes')(app);
 //start server
 app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), function() {
