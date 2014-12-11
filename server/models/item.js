@@ -11,5 +11,4 @@ var itemSchema = mongoose.Schema({
   condition: {type: String, required: false}
 });
 
-
 module.exports = mongoose.model('Item', itemSchema);

@@ -9,7 +9,7 @@ module.exports = function(secret) {
     var decoded;
     try {
       decoded = jwt.decode(token, secret);
-    } catch(err) {
+    } catch (err) {
       console.log(err);
       return res.status(403).send('access denied');
     }
