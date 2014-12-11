@@ -7,17 +7,15 @@ module.exports = function(app, jwtauth) {
   //Returns list of sales objects with an input of city, zip, address
   app.get('/search/sales/:location', function(req, res) {
     var location = req.params.location;
-    var lat;
-    var lng;
     ///////api key should be environmental variable/////
     request('https://maps.googleapis.com/maps/api/geocode/json?address=' + location + '&key=AIzaSyDxYYhIoY5cEDP5GIszT2RA7R3UGc3PcEw',
-    function(error,response,body) {
+    function(error, response, body) {
       if(error) return res.status(500).send('internal server error');
       var data = JSON.parse(body).results[0];
       if(!data) return res.status(403).send('could not find location');
       var latLng = (data.geometry.location);
-      lat = latLng.lat;
-      lng = latLng.lng;
+      var lat = latLng.lat;
+      var lng = latLng.lng;
       res.send({lat:lat, lng:lng});
     });
   });
@@ -50,10 +48,3 @@ module.exports = function(app, jwtauth) {
   });
 
 };
-
-
-
-
-
-
-
