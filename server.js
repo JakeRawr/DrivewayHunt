@@ -22,7 +22,7 @@ var jwtauth = require('./server/lib/jwt_auth')(app.get('jwtSecret'));
 
 //set up all routes
 require('./server/routes/user_routes')(app, passport);
-require('./server/routes/sales_routes')(app);
+require('./server/routes/sales_routes')(app, jwtauth);
 //start server
 app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), function() {
