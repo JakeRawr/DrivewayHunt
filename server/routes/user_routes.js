@@ -15,6 +15,12 @@ module.exports = function(app, passport) {
       var newUser = new User();
       newUser.basic.email = req.body.email;
       newUser.basic.password = newUser.generateHash(req.body.password);
+      newUser.firstName = req.body.firstName;
+      newUser.lastName = req.body.lastName;
+      newUser.city = req.body.city;
+      newUser.state = req.body.state;
+      newUser.zip = req.body.zip;
+      newUser.phone = req.body.phone;
       newUser.save(function(err) {
         if (err) return res.status(500).send('server error');
         res.json({'jwt': newUser.generateToken(app.get('jwtSecret'))});
