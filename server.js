@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/notes_development
 //set up middlewares
 app.use(passport.initialize());
 require('./server/lib/passport')(passport);
-var jwtauth = require('./server/lib/jwt_auth')(app.get('jwtSecret'));
+var jwtAuth = require('./server/lib/jwt_auth')(app.get('jwtSecret'));
 
 //start index.html
 //app.use(express.static(__dirname + '/build'));
