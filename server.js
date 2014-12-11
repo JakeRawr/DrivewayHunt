@@ -10,7 +10,7 @@ var app = express();
 app.use(bodyparser.urlencoded({extended: true}));
 app.use(bodyparser.json());
 app.set('jwtSecret', process.env.JWT_SECRET || 'changethisordie');
-mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/notes_development');
+mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/gsale_development');
 
 //set up middlewares
 app.use(passport.initialize());
@@ -28,3 +28,5 @@ app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), function() {
   console.log('The server is running on port: ' + app.get('port'));
 });
+
+module.exports = app;
