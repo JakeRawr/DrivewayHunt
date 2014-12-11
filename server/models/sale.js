@@ -17,7 +17,8 @@ var saleSchema = mongoose.Schema({
   lat: {type: Number, required: true},
   lng: {type: Number, required: true},
   phone: {type: String, required: false},
-  email: {type: String, required: false}
+  email: {type: String, required: false},
+  publish: {type: Boolean, required: true}
 });
 
 module.exports = mongoose.model('Sale', saleSchema);

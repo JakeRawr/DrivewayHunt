@@ -3,11 +3,11 @@
 //var Sale = require('../models/sale');
 var request = require('request');
 
-module.exports = function(app, jwtauth) {
+module.exports = function(app, jwtauth, sale) {
   //Returns list of sales objects with an input of city, zip, address
   app.get('/search/sales/:location', function(req, res) {
     var location = req.params.location;
-    ///////api key should be environmental variable/////
+    ///////api key should be envi ronmental variable/////
     request('https://maps.googleapis.com/maps/api/geocode/json?address=' + location + '&key=AIzaSyDxYYhIoY5cEDP5GIszT2RA7R3UGc3PcEw',
     function(error, response, body) {
       if (error) return res.status(500).send('internal server error');
@@ -28,23 +28,18 @@ module.exports = function(app, jwtauth) {
     res.send('send');
   });
 
-  //posts a new Item into an existing Garage Sale. Takes a Garage Sale id in request Body
-  // along with other necessary information such as name, price, condition, etc.
-  app.post('/newItem', jwtauth, function(req, res) {
-    //var user = req.user;
-    //do a mongoDB find and save
-    res.send('success');
-  });
-
   //submits a sale for the public to view
-  app.post('/submitSale', jwtauth, function(req, res) {
-    //var user = req.user;
-    //mongoDB save into Sales Collection with Boolean flag set to True;
-    res.send('success');
+  app.put('/modifyPublish', jwtauth, sale, function(req, res) {
+    if(req.sale.userId !== req.user._id) return res.status(403).send('Not Authorized');
+    req.sale.publish = req.body.publish;
+    req.sale.save(function(err) {
+        if (err) return res.status(500).send('server error');
+        res.send('success');
+    });
   });
 
   //edit and existing sale
-  app.put('/editSale:id', jwtauth, function(req, res) {
+  app.put('/editSale/:id', jwtauth, function(req, res) {
     //var user = req.user;
     //findOneAndUpdate in mongoDB given a sale id in req.params
     res.send('success');
