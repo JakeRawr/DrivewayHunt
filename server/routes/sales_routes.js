@@ -1,8 +1,7 @@
 'use strict';
 
-//var Sale = require('../models/sale');
+var Sale = require('../models/sale');
 var request = require('request');
-
 module.exports = function(app, jwtauth) {
   //Returns list of sales objects with an input of city, zip, address
   app.get('/search/sales/:location', function(req, res) {
@@ -11,12 +10,18 @@ module.exports = function(app, jwtauth) {
     request('https://maps.googleapis.com/maps/api/geocode/json?address=' + location + '&key=AIzaSyDxYYhIoY5cEDP5GIszT2RA7R3UGc3PcEw',
     function(error, response, body) {
       if (error) return res.status(500).send('internal server error');
-      var data = JSON.parse(body).results[0];
+      var data = JSON.parse(body).results;
+      if(data[1]) return res.status(403).send('be more specific')
       if (!data) return res.status(403).send('could not find location');
-      var latLng = (data.geometry.location);
+      var latLng = (data[0].geometry.location);
       var lat = latLng.lat;
       var lng = latLng.lng;
-      res.send({lat:lat, lng:lng});
+      Sale.find({lat: lat < lat + .3|| lat > lat - .3, lng: lng < lng + .3 || lng > lng - .3 }, function(err, data) {
+        if (err) console.log(err); return res.status(500).send('there was an error');
+        res.json(data);
+      })
+
+      //res.send({lat:lat, lng:lng});
     });
   });
 
