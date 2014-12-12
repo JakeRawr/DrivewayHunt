@@ -23,7 +23,7 @@ module.exports = function(app, jwtauth) {
   });
 
   app.get('/listItems/sale/:id', jwtauth, function(req, res) {
-    Item.find({'saleId': req.params.id}, function(err, data) {
+    Item.find({saleId: req.params.id}, function(err, data) {
       if (err) return res.status(500).send('there was an error');
       res.json(data);
     });
@@ -31,9 +31,9 @@ module.exports = function(app, jwtauth) {
 
   app.put('/item/:id', jwtauth, function(req, res) {
     var item = req.body;
-    if(item.userId !== req.user._id) return res.status(403).send('Not Authorized');
+    if (item.userId !== req.user._id) return res.status(403).send('Not Authorized');
     delete item._id;
-    Item.findOneAndUpdate({'_id': req.params.id}, item, function(err, data) {
+    Item.findOneAndUpdate({_id: req.params.id}, item, function(err, data) {
       if (err) return res.status(500).send('there was an error');
       res.json(data);
     });
@@ -41,10 +41,10 @@ module.exports = function(app, jwtauth) {
 
   app.delete('/item/:id', jwtauth, function(req, res) {
     var item = req.body;
-    if(item.userId !== req.user._id) return res.status(403).send('Not Authorized');
+    if (item.userId !== req.user._id) return res.status(403).send('Not Authorized');
     delete item._id;
 
-    Item.remove({'_id': req.params.id}, function(err) {
+    Item.remove({_id: req.params.id}, function(err) {
       if (err) return res.status(500).send('there was an error');
       res.send('success');
     });

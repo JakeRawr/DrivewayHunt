@@ -50,10 +50,10 @@ module.exports = function(app, jwtauth) {
 
   app.put('/sale/:id', jwtauth, function(req, res) {
     var sale = req.body;
-    if(sale.userId !== req.user._id) return res.status(403).send('Not Authorized');
+    if (sale.userId !== req.user._id) return res.status(403).send('Not Authorized');
     delete sale._id;
 
-    Sale.findOneAndUpdate({'_id': req.params.id}, sale, function(err, data) {
+    Sale.findOneAndUpdate({_id: req.params.id}, sale, function(err, data) {
       if (err) return res.status(500).send('there was an error');
       res.json(data);
     });
@@ -61,10 +61,10 @@ module.exports = function(app, jwtauth) {
 
   app.delete('/sale/:id', jwtauth, function(req, res) {
     var sale = req.body;
-    if(sale.userId !== req.user._id) return res.status(403).send('Not Authorized');
+    if (sale.userId !== req.user._id) return res.status(403).send('Not Authorized');
     delete sale._id;
 
-    Sale.remove({'_id': req.params.id}, function(err) {
+    Sale.remove({_id: req.params.id}, function(err) {
       if (err) return res.status(500).send('there was an error');
       res.send('success');
     });
