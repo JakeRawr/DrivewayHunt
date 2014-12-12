@@ -25,22 +25,22 @@ module.exports = function(app, jwtauth) {
   app.post('/newSale', jwtauth, function(req, res) {
     var sale = new Sale();
 
-    req.sale.userId = req.body.userId;
-    req.sale.title = req.body.title;
-    req.sale.description = req.body.description;
-    req.sale.address = req.body.sale;
-    req.sale.city = req.body.city;
-    req.sale.state = req.body.state;
-    req.sale.zip = req.body.zip;
-    req.sale.dataStart = req.body.dataStart;
-    req.sale.dateEnd = req.body.dateEnd;
-    req.sale.timeStart = req.body.timeStart;
-    req.sale.timeEnd = req.body.timeEnd;
-    req.sale.lat = req.body.lat;
-    req.sale.lng = req.body.lng;
-    req.sale.phone = req.body.phone;
-    req.sale.email = req.body.email;
-    req.sale.publish = req.body.publish;
+    sale.userId = req.body.userId;
+    sale.title = req.body.title;
+    sale.description = req.body.description;
+    sale.address = req.body.sale;
+    sale.city = req.body.city;
+    sale.state = req.body.state;
+    sale.zip = req.body.zip;
+    sale.dataStart = req.body.dataStart;
+    sale.dateEnd = req.body.dateEnd;
+    sale.timeStart = req.body.timeStart;
+    sale.timeEnd = req.body.timeEnd;
+    sale.lat = req.body.lat;
+    sale.lng = req.body.lng;
+    sale.phone = req.body.phone;
+    sale.email = req.body.email;
+    sale.publish = req.body.publish;
 
     sale.save(function(err, data) {
       if (err) return res.status(500).send('there was an error');
@@ -52,6 +52,7 @@ module.exports = function(app, jwtauth) {
     var sale = req.body;
     if(sale.userId !== req.user._id) return res.status(403).send('Not Authorized');
     delete sale._id;
+
     Sale.findOneAndUpdate({'_id': req.params.id}, sale, function(err, data) {
       if (err) return res.status(500).send('there was an error');
       res.json(data);
