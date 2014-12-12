@@ -10,18 +10,20 @@ module.exports = function(app, jwtauth) {
     function(error, response, body) {
       if (error) return res.status(500).send('internal server error');
       var data = JSON.parse(body).results;
-      if(data[1]) return res.status(403).send('be more specific')
+      if (data[1]) return res.status(403).send('be more specific');
       if (!data) return res.status(403).send('could not find location');
       var latLng = (data[0].geometry.location);
       var lat = latLng.lat;
       var lng = latLng.lng;
-      var box1 = [lat + .3, lat - .3];
-      var box2 = [lng + .3, lng - .3];
-      /*
-      Sale.find({},function(err,data) {
+      var geojsonPoly = { type: 'Polygon',
+                          coordinates: [[[lng - 0.5, lat + 0.5],
+                                         [lng + 0.5, lat + 0.5],
+                                         [lng + 0.5, lat - 0.5],
+                                         [lng - 0.5, lat - 0.5],
+                                         [lng - 0.5, lat + 0.5]]]};
+      Sale.find({ loc: { $within: { $geometry: geojsonPoly }}}, function(err, data) {
         res.send(data);
-      })
-    */
+      });
     });
   });
 
@@ -46,11 +48,10 @@ module.exports = function(app, jwtauth) {
     sale.phone = req.body.phone;
     sale.email = req.body.email;
     sale.publish = req.body.publish;
-    sale.add(req.body.lng,req.body.lat);
-    console.log(sale);
+    sale.loc = [req.body.lng, req.body.lat];
 
     sale.save(function(err, data) {
-      if (err) console.log(err); return res.status(500).send('there was an error');
+      if (err) return res.status(500).send('there was an error');
       res.json(data);
     });
   });
