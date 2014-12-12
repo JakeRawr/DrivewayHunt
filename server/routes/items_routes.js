@@ -2,14 +2,16 @@
 
 var Item = require('../models/item');
 
-module.exports = function(app, jwtauth) {
+module.exports = function(app, jwtauth, mongoose) {
+  var formParser = require('../lib/form-parser')(mongoose.connection.db, mongoose.mongo);
+  var removeImage = require('../lib/remove-image')(mongoose.connection.db, mongoose.mongo);
 
   /**
    * Post new item into an existing garage sale.
    * Requires garage sale id in request
    * along with other necessary information such as name, price, condition, etc.
    */
-  app.post('/api/items', jwtauth, function(req, res) {
+  app.post('/api/items', jwtauth, formParser, function(req, res) {
     var newItem = new Item();
     newItem.saleId = req.body.saleId;
     newItem.userId = req.body.userId;
@@ -38,7 +40,7 @@ module.exports = function(app, jwtauth) {
   /**
    * Update single garage sale item
    */
-  app.put('/api/items/single/:id', jwtauth, function(req, res) {
+  app.put('/api/items/single/:id', jwtauth, formParser, removeImage, function(req, res) {
     var updateItem = req.body;
     if (updateItem.userId !== req.user._id) return res.status(403).send('Not Authorized');
 
