@@ -6,8 +6,7 @@ module.exports = function(app, jwtauth) {
   //Returns list of sales objects with an input of city, zip, address
   app.get('/search/sales/:location', function(req, res) {
     var location = req.params.location;
-    ///////api key should be environmental variable/////
-    request('https://maps.googleapis.com/maps/api/geocode/json?address=' + location + '&key=AIzaSyDxYYhIoY5cEDP5GIszT2RA7R3UGc3PcEw',
+    request('https://maps.googleapis.com/maps/api/geocode/json?address=' + location + '&key=' + process.env.GEOCODE_API,
     function(error, response, body) {
       if (error) return res.status(500).send('internal server error');
       var data = JSON.parse(body).results;
@@ -16,14 +15,58 @@ module.exports = function(app, jwtauth) {
       var latLng = (data[0].geometry.location);
       var lat = latLng.lat;
       var lng = latLng.lng;
-      Sale.find({lat: lat < lat + .3|| lat > lat - .3, lng: lng < lng + .3 || lng > lng - .3 }, function(err, data) {
-        if (err) console.log(err); return res.status(500).send('there was an error');
-        res.json(data);
-      })
+      var box1 = [lat + .3, lat - .3];
+      var box2 = [lng + .3, lng - .3];
+      
+      
+      Sale.find({ "loc": {
+          "$geoWithin": {
+            "$geometry": {
+              "type": "Polygon",
+              "coordinates": [[
+                [ lng - .3, lat + .3],
+                [ lng + .3, lat + .3],
+                [ lng + .3, lat - .3],
+                [ lng - .3, lat - .3],
+                [ lng - .3, lat + .3]
+              ]]
+            }
+          }
+        }}, function(err, data) {
+        if (err){
+          console.log(err); 
+          return res.status(500).send('there was an error');
+        } 
+        res.send(data);
+      });
 
+  /*
+       Sale.find({ loc: {
+      $nearSphere: [ lng, lat ],
+  $minDistance: 3,
+  $maxDistance: 3
+   }}, function(err, data) {
+        if (err){
+          console.log(err); 
+          return res.status(500).send('there was an error');
+        } 
+        res.send(data);
+      });
+       */
       //res.send({lat:lat, lng:lng});
     });
   });
+/*
+  Person
+.find({ occupation: /host/ })
+.where('name.last').equals('Ghost')
+.where('age').gt(17).lt(66)
+.where('likes').in(['vaporizing', 'talking'])
+.limit(10)
+.sort('-occupation')
+.select('name occupation')
+.exec(callback);
+*/
 
   //Creates a new Garage Sale with the necessary information in the request Body
   //such as location, name, user, etc.

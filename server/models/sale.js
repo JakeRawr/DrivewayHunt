@@ -3,6 +3,7 @@
 var mongoose = require('mongoose');
 
 var saleSchema = mongoose.Schema({
+  /*
   userId: mongoose.Schema.Types.ObjectId,
   title: {type: String, required: true},
   description: {type: String, required: true},
@@ -17,7 +18,16 @@ var saleSchema = mongoose.Schema({
   lat: {type: Number, required: true},
   lng: {type: Number, required: true},
   phone: {type: String, required: false},
-  email: {type: String, required: false}
+  email: {type: String, required: false},
+  */
+   loc: {
+      type: { type: String },
+      coordinates: [] //[long,lat]
+      //,index: '2dsphere'
+  }    // create the geospatial index
+  /*
+  loc: { type: [Number], index: '2dsphere' }
+  */
 });
-
+saleSchema.index({ 'loc': '2dsphere' });
 module.exports = mongoose.model('Sale', saleSchema);
