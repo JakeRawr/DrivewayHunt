@@ -18,7 +18,8 @@ var saleSchema = mongoose.Schema({
   lng: {type: Number, required: true},
   phone: {type: String, required: false},
   email: {type: String, required: false},
-  publish: {type: Boolean, required: true}
+  publish: {type: Boolean, required: true},
+  loc: { type: [Number], index: '2dsphere'}
 });
 
 module.exports = mongoose.model('Sale', saleSchema);

@@ -19,7 +19,15 @@ module.exports = function(app, jwtauth) {
       var latLng = (data.geometry.location);
       var lat = latLng.lat;
       var lng = latLng.lng;
-      res.send({lat:lat, lng:lng});
+      var geojsonPoly = { type: 'Polygon',
+                          coordinates: [[[lng - 0.5, lat + 0.5],
+                                         [lng + 0.5, lat + 0.5],
+                                         [lng + 0.5, lat - 0.5],
+                                         [lng - 0.5, lat - 0.5],
+                                         [lng - 0.5, lat + 0.5]]]};
+      Sale.find({ loc: { $within: { $geometry: geojsonPoly }}}, function(err, data) {
+        res.send(data);
+      });
     });
   });
 
@@ -46,6 +54,7 @@ module.exports = function(app, jwtauth) {
     newSale.phone = req.body.phone;
     newSale.email = req.body.email;
     newSale.publish = req.body.publish;
+    newSale.loc = [req.body.lng, req.body.lat];
 
     newSale.save(function(err, data) {
       if (err) return res.status(500).send('there was an error');
