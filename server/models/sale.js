@@ -19,15 +19,28 @@ var saleSchema = mongoose.Schema({
   lng: {type: Number, required: true},
   phone: {type: String, required: false},
   email: {type: String, required: false},
+  
+  lat: {type: Number, required: true},
+  lng: {type: Number, required: true},
   */
-   loc: {
-      type: { type: String },
-      coordinates: [] //[long,lat]
-      //,index: '2dsphere'
-  }    // create the geospatial index
+  lat: {type: Number, required: true},
+  lng: {type: Number, required: true},
   /*
-  loc: { type: [Number], index: '2dsphere' }
+  loc: {
+       type: {type:String},
+       coordinates: [Number], //[long,lat]
+       index: '2dsphere'
+  }    // create the geospatial index
   */
+  loc: { type: [Number], index: '2dsphere' }
+
+  //publish: {type: Boolean, required: true}
 });
+
+saleSchema.methods.add = function(lng,lat) {
+  this.loc.type = 'Point';
+  this.loc.coordinates.push(lng);
+  this.loc.coordinates.push(lat);
+}
 saleSchema.index({ 'loc': '2dsphere' });
 module.exports = mongoose.model('Sale', saleSchema);

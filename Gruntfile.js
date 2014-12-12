@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     },
 
     jscs: {
-      src: ['<%= project.alljs %>', 'Gruntfile', 'server.js'],
+      src: ['<%= project.alljs %>', 'Gruntfile.js', 'server.js'],
       options: {
         config: '.jscsrc'
       }

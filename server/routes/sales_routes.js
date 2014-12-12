@@ -17,85 +17,64 @@ module.exports = function(app, jwtauth) {
       var lng = latLng.lng;
       var box1 = [lat + .3, lat - .3];
       var box2 = [lng + .3, lng - .3];
-      
-      
-      Sale.find({ "loc": {
-          "$geoWithin": {
-            "$geometry": {
-              "type": "Polygon",
-              "coordinates": [[
-                [ lng - .3, lat + .3],
-                [ lng + .3, lat + .3],
-                [ lng + .3, lat - .3],
-                [ lng - .3, lat - .3],
-                [ lng - .3, lat + .3]
-              ]]
-            }
-          }
-        }}, function(err, data) {
-        if (err){
-          console.log(err); 
-          return res.status(500).send('there was an error');
-        } 
+      /*
+      Sale.find({},function(err,data) {
         res.send(data);
-      });
-
-  /*
-       Sale.find({ loc: {
-      $nearSphere: [ lng, lat ],
-  $minDistance: 3,
-  $maxDistance: 3
-   }}, function(err, data) {
-        if (err){
-          console.log(err); 
-          return res.status(500).send('there was an error');
-        } 
-        res.send(data);
-      });
-       */
-      //res.send({lat:lat, lng:lng});
+      })
+    */
     });
   });
-/*
-  Person
-.find({ occupation: /host/ })
-.where('name.last').equals('Ghost')
-.where('age').gt(17).lt(66)
-.where('likes').in(['vaporizing', 'talking'])
-.limit(10)
-.sort('-occupation')
-.select('name occupation')
-.exec(callback);
-*/
 
   //Creates a new Garage Sale with the necessary information in the request Body
   //such as location, name, user, etc.
-  app.post('/newSale', jwtauth, function(req, res) {
-    //var user = req.user;
-    //do a mongoDB Save into the Sales Colection
-    res.send('send');
+  app.post('/newSale', function(req, res) {
+    var sale = new Sale();
+
+    sale.userId = req.body.userId;
+    sale.title = req.body.title;
+    sale.description = req.body.description;
+    sale.address = req.body.sale;
+    sale.city = req.body.city;
+    sale.state = req.body.state;
+    sale.zip = req.body.zip;
+    sale.dateStart = req.body.dateStart;
+    sale.dateEnd = req.body.dateEnd;
+    sale.timeStart = req.body.timeStart;
+    sale.timeEnd = req.body.timeEnd;
+    sale.lat = req.body.lat;
+    sale.lng = req.body.lng;
+    sale.phone = req.body.phone;
+    sale.email = req.body.email;
+    sale.publish = req.body.publish;
+    sale.add(req.body.lng,req.body.lat);
+    console.log(sale);
+
+    sale.save(function(err, data) {
+      if (err) console.log(err); return res.status(500).send('there was an error');
+      res.json(data);
+    });
   });
 
-  //posts a new Item into an existing Garage Sale. Takes a Garage Sale id in request Body
-  // along with other necessary information such as name, price, condition, etc.
-  app.post('/newItem', jwtauth, function(req, res) {
-    //var user = req.user;
-    //do a mongoDB find and save
-    res.send('success');
+  app.put('/sale/:id', jwtauth, function(req, res) {
+    var sale = req.body;
+    if (sale.userId !== req.user._id) return res.status(403).send('Not Authorized');
+    delete sale._id;
+
+    Sale.findOneAndUpdate({_id: req.params.id}, sale, function(err, data) {
+      if (err) return res.status(500).send('there was an error');
+      res.json(data);
+    });
   });
 
-  //submits a sale for the public to view
-  app.post('/submitSale', jwtauth, function(req, res) {
-    //var user = req.user;
-    //mongoDB save into Sales Collection with Boolean flag set to True;
-    res.send('success');
-  });
+  app.delete('/sale/:id', jwtauth, function(req, res) {
+    var sale = req.body;
+    if (sale.userId !== req.user._id) return res.status(403).send('Not Authorized');
+    delete sale._id;
 
-  //edit and existing sale
-  app.put('/editSale:id', jwtauth, function(req, res) {
-    //var user = req.user;
-    //findOneAndUpdate in mongoDB given a sale id in req.params
-    res.send('success');
+    Sale.remove({_id: req.params.id}, function(err) {
+      if (err) return res.status(500).send('there was an error');
+      res.send('success');
+    });
   });
 
 };
