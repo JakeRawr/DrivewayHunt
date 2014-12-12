@@ -8,7 +8,7 @@ module.exports = function(app, jwtauth) {
   app.get('/search/sales/:location', function(req, res) {
     var location = req.params.location;
     ///////api key should be environmental variable/////
-    request('https://maps.googleapis.com/maps/api/geocode/json?address=' + location + '&key=AIzaSyDxYYhIoY5cEDP5GIszT2RA7R3UGc3PcEw',
+    request('https://maps.googleapis.com/maps/api/geocode/json?address=' + location + '&key=' + process.env.GEOCODE_API,
     function(error, response, body) {
       if (error) return res.status(500).send('internal server error');
       var data = JSON.parse(body).results[0];
