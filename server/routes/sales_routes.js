@@ -4,12 +4,15 @@ var Sale = require('../models/sale');
 var request = require('request');
 
 module.exports = function(app, jwtauth) {
-  //Returns list of sales objects with an input of city, zip, address
-  app.get('/search/sales/:location', function(req, res) {
-    var location = req.params.location;
-    ///////api key should be environmental variable/////
-    request('https://maps.googleapis.com/maps/api/geocode/json?address=' + location + '&key=' + process.env.GEOCODE_API,
-    function(error, response, body) {
+  /**
+   * Return list of sales objects with an input of city, zip, address
+   * Non-authenticated
+   */
+  app.get('/api/sales/:location', function(req, res) {
+    var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' +
+              req.params.location + '&key=' + process.env.GEOCODE_API;
+
+    request(url, function(error, response, body) {
       if (error) return res.status(500).send('internal server error');
       var data = JSON.parse(body).results[0];
       if (!data) return res.status(403).send('could not find location');
@@ -28,52 +31,60 @@ module.exports = function(app, jwtauth) {
     });
   });
 
-  //Creates a new Garage Sale with the necessary information in the request Body
-  //such as location, name, user, etc.
-  app.post('/newSale', jwtauth, function(req, res) {
-    var sale = new Sale();
+  /**
+   * Create a new garage sale
+   * Authenticated
+   */
+  app.post('/api/sales', jwtauth, function(req, res) {
+    var newSale = new Sale();
 
-    sale.userId = req.body.userId;
-    sale.title = req.body.title;
-    sale.description = req.body.description;
-    sale.address = req.body.sale;
-    sale.city = req.body.city;
-    sale.state = req.body.state;
-    sale.zip = req.body.zip;
-    sale.dateStart = req.body.dateStart;
-    sale.dateEnd = req.body.dateEnd;
-    sale.timeStart = req.body.timeStart;
-    sale.timeEnd = req.body.timeEnd;
-    sale.lat = req.body.lat;
-    sale.lng = req.body.lng;
-    sale.phone = req.body.phone;
-    sale.email = req.body.email;
-    sale.publish = req.body.publish;
-    sale.loc = [req.body.lng, req.body.lat];
+    newSale.userId = req.body.userId;
+    newSale.title = req.body.title;
+    newSale.description = req.body.description;
+    newSale.address = req.body.sale;
+    newSale.city = req.body.city;
+    newSale.state = req.body.state;
+    newSale.zip = req.body.zip;
+    newSale.dateStart = req.body.dateStart;
+    newSale.dateEnd = req.body.dateEnd;
+    newSale.timeStart = req.body.timeStart;
+    newSale.timeEnd = req.body.timeEnd;
+    newSale.lat = req.body.lat;
+    newSale.lng = req.body.lng;
+    newSale.phone = req.body.phone;
+    newSale.email = req.body.email;
+    newSale.publish = req.body.publish;
+    newSale.loc = [req.body.lng, req.body.lat];
 
-    sale.save(function(err, data) {
+    newSale.save(function(err, data) {
       if (err) return res.status(500).send('there was an error');
       res.json(data);
     });
   });
 
-  app.put('/sale/:id', jwtauth, function(req, res) {
-    var sale = req.body;
-    if (sale.userId !== req.user._id) return res.status(403).send('Not Authorized');
-    delete sale._id;
+  /**
+   * Update single sale
+   * Authenticated
+   */
+  app.put('/api/sales/:id', jwtauth, function(req, res) {
+    var updatedSale = req.body;
+    if (updatedSale.userId !== req.user._id) return res.status(403).send('Not Authorized');
 
-    Sale.findOneAndUpdate({_id: req.params.id}, sale, function(err, data) {
+    Sale.findByIdAndUpdate(req.params.id, updatedSale, function(err, data) {
       if (err) return res.status(500).send('there was an error');
+      if (!data) return res.status(500).send('database error');
       res.json(data);
     });
   });
 
-  app.delete('/sale/:id', jwtauth, function(req, res) {
-    var sale = req.body;
-    if (sale.userId !== req.user._id) return res.status(403).send('Not Authorized');
-    delete sale._id;
+  /**
+   * Delete single sale
+   * Authenticated
+   */
+  app.delete('/api/sales/:id', jwtauth, function(req, res) {
+    if (req.body.userId !== req.user._id) return res.status(403).send('Not Authorized');
 
-    Sale.remove({_id: req.params.id}, function(err) {
+    Sale.findByIdAndRemove(req.params.id, function(err) {
       if (err) return res.status(500).send('there was an error');
       res.send('success');
     });

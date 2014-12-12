@@ -4,47 +4,58 @@ var Item = require('../models/item');
 
 module.exports = function(app, jwtauth) {
 
-  //posts a new Item into an existing Garage Sale. Takes a Garage Sale id in request Body
-  // along with other necessary information such as name, price, condition, etc.
-  app.post('/newItem', jwtauth, function(req, res) {
-    var item = new Item();
+  /**
+   * Post new item into an existing garage sale.
+   * Requires garage sale id in request
+   * along with other necessary information such as name, price, condition, etc.
+   */
+  app.post('/api/items', jwtauth, function(req, res) {
+    var newItem = new Item();
+    newItem.saleId = req.body.saleId;
+    newItem.userId = req.body.userId;
+    newItem.title = req.body.title;
+    newItem.askingPrice = req.body.askingPrice;
+    newItem.description = req.body.description;
+    newItem.condition = req.body.condition;
 
-    item.saleId = req.body.saleId;
-    item.userId = req.body.userId;
-    item.title = req.body.title;
-    item.askingPrice = req.body.askingPrice;
-    item.description = req.body.description;
-    //item.img
-    item.condition = req.body.condition;
-    item.save(function(err, data) {
+    newItem.save(function(err, data) {
       if (err) return res.status(500).send('there was an error');
       res.json(data);
     });
   });
 
-  app.get('/listItems/sale/:id', jwtauth, function(req, res) {
-    Item.find({saleId: req.params.id}, function(err, data) {
+  /**
+   * Return single garage sale item
+   */
+  app.get('/api/items/single/:id', jwtauth, function(req, res) {
+    Item.findById(req.params.id, function(err, item) {
       if (err) return res.status(500).send('there was an error');
-      res.json(data);
+      if (!item) return res.status(500).send('item does not exist');
+      res.json(item);
     });
   });
 
-  app.put('/item/:id', jwtauth, function(req, res) {
-    var item = req.body;
-    if (item.userId !== req.user._id) return res.status(403).send('Not Authorized');
-    delete item._id;
-    Item.findOneAndUpdate({_id: req.params.id}, item, function(err, data) {
-      if (err) return res.status(500).send('there was an error');
-      res.json(data);
+  /**
+   * Update single garage sale item
+   */
+  app.put('/api/items/single/:id', jwtauth, function(req, res) {
+    var updateItem = req.body;
+    if (updateItem.userId !== req.user._id) return res.status(403).send('Not Authorized');
+
+    Item.findByIdAndUpdate(req.params.id, updateItem, function(err, item) {
+      if (err) return res.status(500).send('database error');
+      if (!item) return res.status(500).send('item does not exist');
+      res.json(item);
     });
   });
 
-  app.delete('/item/:id', jwtauth, function(req, res) {
-    var item = req.body;
-    if (item.userId !== req.user._id) return res.status(403).send('Not Authorized');
-    delete item._id;
+  /**
+   * Delete single garage sale item
+   */
+  app.delete('/api/items/single/:id', jwtauth, function(req, res) {
+    if (req.body.userId !== req.user._id) return res.status(403).send('Not Authorized');
 
-    Item.remove({_id: req.params.id}, function(err) {
+    Item.findByIdAndRemove(req.params.id, function(err) {
       if (err) return res.status(500).send('there was an error');
       res.send('success');
     });
