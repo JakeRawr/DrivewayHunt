@@ -8,6 +8,7 @@ var chaiHttp = require('chai-http');
 
 var expect = chai.expect;
 var url = 'http://localhost:3000';
+
 process.env.MONGO_URL = 'mongodb://localhost/gsale_test';
 
 chai.use(chaiHttp);
@@ -42,7 +43,7 @@ describe('user routes', function() {
         expect(res).to.not.have.status(500);
         expect(res.body).to.have.property('jwt')
           .that.is.a('string');
-        jwt = res.body;
+        jwt = res.body.jwt;
         done();
       });
   });
@@ -54,6 +55,7 @@ describe('user routes', function() {
       .end(function(err, res) {
         expect(err).to.be.null;
         expect(res).to.not.have.status(403);
+        expect(res).to.not.have.status(500);
         expect(res.body).to.have.property('jwt');
         done();
       });

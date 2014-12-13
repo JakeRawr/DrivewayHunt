@@ -122,7 +122,7 @@ describe('sales routes', function() {
   });
 
   //seattle: -122.3331, 47.6097 (lng,lat)
-  it('should be able to list only sales near Seattle', function(done) {
+  it.skip('should be able to list only sales near Seattle', function(done) {
     chai.request(url)
       .get('/api/sales/Seattle')
       .end(function(err, res) {
