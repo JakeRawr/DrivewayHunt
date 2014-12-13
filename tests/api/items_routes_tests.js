@@ -14,25 +14,16 @@ describe('items routes', function() {
   var jwt;
   var saleId;
 
-  before(function(done) {
+  before(function() {
     mongoose.connection.collections['users'].drop(function(err) {
-      if (err) return err;
+      if (err) console.log(err);
     });
-    done();
-  });
-
-  before(function(done) {
     mongoose.connection.collections['sales'].drop(function(err) {
-      if (err) return err;
+      if (err) console.log(err);
     });
-    done();
-  });
-
-  before(function(done) {
     mongoose.connection.collections['items'].drop(function(err) {
-      if (err) return err;
+      if (err) console.log(err);
     });
-    done();
   });
 
   var testUser = {
