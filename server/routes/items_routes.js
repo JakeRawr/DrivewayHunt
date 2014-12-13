@@ -44,7 +44,7 @@ module.exports = function(app, jwtauth) {
 
     Item.findByIdAndUpdate(req.params.id, updateItem, function(err, item) {
       if (err) return res.status(500).send('database error');
-      if (!item) return res.status(500).send('item does not exist');
+      if (!item) return res.status(503).send('item does not exist');
       res.json(item);
     });
   });
