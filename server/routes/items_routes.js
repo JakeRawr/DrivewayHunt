@@ -42,9 +42,8 @@ module.exports = function(app, jwtauth) {
     var updateItem = req.body;
     if (String(updateItem.userId) !== String(req.user._id)) return res.status(403).send('Not Authorized');
     delete updateItem._id;
-
     Item.findByIdAndUpdate(req.params.id, updateItem, function(err, item) {
-      if (err) return res.status(500).send(err);
+      if (err) return res.status(500).send('server error');
       if (!item) return res.status(503).send('item does not exist');
       res.json(item);
     });

@@ -139,8 +139,7 @@ describe('items routes', function() {
       .end(function(err, res) {
         expect(err).to.be.null;
         expect(res).to.not.have.status(403);
-        //expect(res).to.not.have.status(500);
-        console.log(res.body);
+        expect(res).to.not.have.status(500);
         expect(res.body).to.be.an('object');
         expect(res.body.title).to.eql('orangePie');
         expect(res.body.condition).to.eql('Old');
