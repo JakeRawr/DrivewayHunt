@@ -1,3 +1,5 @@
+/*jshint -W030*/
+/*jshint -W079*/
 'use strict';
 
 var mongoose = require('mongoose');
@@ -10,18 +12,20 @@ require('../../server');
 
 var url = 'http://localhost:3000';
 
+process.env.MONGO_URL = 'mongodb://localhost/gsale_test';
+
 describe('items routes', function() {
   var jwt;
   var saleId;
 
   before(function() {
-    mongoose.connection.collections['users'].drop(function(err) {
+    mongoose.connection.collections.users.drop(function(err) {
       if (err) console.log(err);
     });
-    mongoose.connection.collections['sales'].drop(function(err) {
+    mongoose.connection.collections.sales.drop(function(err) {
       if (err) console.log(err);
     });
-    mongoose.connection.collections['items'].drop(function(err) {
+    mongoose.connection.collections.items.drop(function(err) {
       if (err) console.log(err);
     });
   });
@@ -94,7 +98,6 @@ describe('items routes', function() {
         done();
       });
   });
-
 
   it('should be able to post an item', function(done) {
     chai.request(url)
