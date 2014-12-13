@@ -9,21 +9,32 @@ chai.use(chaiHttp);
 require('../../server');
 
 var url = 'http://localhost:3000';
-var jwt;
-var item;
-var saleId;
-
-mongoose.connection.collections['users'].drop(function(err) {
-  if (err) return err;
-});
-mongoose.connection.collections['sales'].drop(function(err) {
-  if (err) return err;
-});
-mongoose.connection.collections['items'].drop(function(err) {
-  if (err) return err;
-});
 
 describe('items routes', function() {
+  var jwt;
+  var saleId;
+
+  before(function(done) {
+    mongoose.connection.collections['users'].drop(function(err) {
+      if (err) return err;
+    });
+    done();
+  });
+
+  before(function(done) {
+    mongoose.connection.collections['sales'].drop(function(err) {
+      if (err) return err;
+    });
+    done();
+  });
+
+  before(function(done) {
+    mongoose.connection.collections['items'].drop(function(err) {
+      if (err) return err;
+    });
+    done();
+  });
+
   var testUser = {
     email: 'item@example.com',
     password: 'foobar123',
@@ -129,7 +140,7 @@ describe('items routes', function() {
   it('should be able to modify an item', function(done) {
     testItem.title = 'orangePie';
     testItem.condition = 'Old';
-    testItem.description = 'This is an orange pie'
+    testItem.description = 'This is an orange pie';
     chai.request(url)
       .put('/api/items/single/' + testItem._id)
       .set(jwt, jwt)
