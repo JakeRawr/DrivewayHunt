@@ -38,7 +38,7 @@ describe('user routes', function() {
         expect(res).to.not.have.status(500);
         expect(res.body).to.have.property('jwt')
           .that.is.a('string');
-        jwt = res.body;
+        jwt = res.body.jwt;
         done();
       });
   });

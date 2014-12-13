@@ -73,7 +73,7 @@ describe('items routes', function() {
         expect(res).to.not.have.status(500);
         expect(res.body).to.have.property('jwt')
           .that.is.a('string');
-        jwt = res.body;
+        jwt = res.body.jwt;
         done();
       });
   });
@@ -81,7 +81,7 @@ describe('items routes', function() {
   it('should be able to create a new sale', function(done) {
     chai.request(url)
       .post('/api/sales')
-      .set(jwt, jwt)
+      .set('jwt', jwt)
       .send(testSale)
       .end(function(err, res) {
         expect(err).to.be.null;
@@ -99,7 +99,7 @@ describe('items routes', function() {
   it('should be able to post an item', function(done) {
     chai.request(url)
       .post('/api/items')
-      .set(jwt, jwt)
+      .set('jwt', jwt)
       .send(testItem)
       .end(function(err, res) {
         expect(err).to.be.null;
@@ -117,7 +117,7 @@ describe('items routes', function() {
   it('should get all items by a saleId', function(done) {
     chai.request(url)
       .get('/api/items/all/' + testItem.saleId)
-      .set(jwt, jwt)
+      .set('jwt', jwt)
       .end(function(err, res) {
         expect(err).to.be.null;
         expect(res).to.not.have.status(403);
@@ -134,7 +134,7 @@ describe('items routes', function() {
     testItem.description = 'This is an orange pie';
     chai.request(url)
       .put('/api/items/single/' + testItem._id)
-      .set(jwt, jwt)
+      .set('jwt', jwt)
       .send(testItem)
       .end(function(err, res) {
         expect(err).to.be.null;
@@ -151,7 +151,7 @@ describe('items routes', function() {
   it('should be able to delete an item', function(done) {
     chai.request(url)
       .delete('/api/items/single/' + testItem._id)
-      .set(jwt, jwt)
+      .set('jwt', jwt)
       .send({userId:testItem.userId})
       .end(function(err, res) {
         expect(err).to.be.null;
