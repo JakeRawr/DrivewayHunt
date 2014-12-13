@@ -38,10 +38,10 @@ module.exports = function(app, jwtauth) {
   app.post('/api/sales', jwtauth, function(req, res) {
     var newSale = new Sale();
 
-    newSale.userId = req.body.userId;
+    newSale.userId = req.user._id;
     newSale.title = req.body.title;
     newSale.description = req.body.description;
-    newSale.address = req.body.sale;
+    newSale.address = req.body.address;
     newSale.city = req.body.city;
     newSale.state = req.body.state;
     newSale.zip = req.body.zip;
