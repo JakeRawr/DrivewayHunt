@@ -29,7 +29,7 @@ module.exports = function(app, jwtauth) {
    */
   app.get('/api/items/all/:saleid', jwtauth, function(req, res) {
     Item.find({saleId:req.params.saleid}, function(err, items) {
-      if (err) return res.status(500).send(err);
+      if (err) return res.status(500).send('there was an error');
       if (!items) return res.status(500).send('This sale has no item');
       res.json(items);
     });
@@ -43,7 +43,7 @@ module.exports = function(app, jwtauth) {
     if (String(updateItem.userId) !== String(req.user._id)) return res.status(403).send('Not Authorized');
 
     Item.findByIdAndUpdate(req.params.id, updateItem, function(err, item) {
-      if (err) return res.status(500).send('database error');
+      if (err) return res.status(500).send(err);
       if (!item) return res.status(503).send('item does not exist');
       res.json(item);
     });
