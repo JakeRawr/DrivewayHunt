@@ -4,7 +4,6 @@
 * Pull image data off request object
 * Incoming multipart form data
 */
-
 var Busboy = require('busboy');
 
 module.exports = function(db, driver) {

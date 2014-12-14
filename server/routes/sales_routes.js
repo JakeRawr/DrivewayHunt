@@ -2,8 +2,8 @@
 
 var Sale = require('../models/sale');
 var request = require('request');
-
 module.exports = function(app, jwtauth) {
+
   /**
    * Return list of sales objects with an input of city, zip, address
    * Non-authenticated
@@ -14,9 +14,10 @@ module.exports = function(app, jwtauth) {
 
     request(url, function(error, response, body) {
       if (error) return res.status(500).send('internal server error');
-      var data = JSON.parse(body).results[0];
+      var data = JSON.parse(body).results;
+      if (data[1]) return res.status(403).send('be more specific');
       if (!data) return res.status(403).send('could not find location');
-      var latLng = (data.geometry.location);
+      var latLng = (data[0].geometry.location);
       var lat = latLng.lat;
       var lng = latLng.lng;
       var geojsonPoly = { type: 'Polygon',
@@ -38,10 +39,10 @@ module.exports = function(app, jwtauth) {
   app.post('/api/sales', jwtauth, function(req, res) {
     var newSale = new Sale();
 
-    newSale.userId = req.body.userId;
+    newSale.userId = req.user._id;
     newSale.title = req.body.title;
     newSale.description = req.body.description;
-    newSale.address = req.body.sale;
+    newSale.address = req.body.address;
     newSale.city = req.body.city;
     newSale.state = req.body.state;
     newSale.zip = req.body.zip;
@@ -68,8 +69,8 @@ module.exports = function(app, jwtauth) {
    */
   app.put('/api/sales/:id', jwtauth, function(req, res) {
     var updatedSale = req.body;
-    if (updatedSale.userId !== req.user._id) return res.status(403).send('Not Authorized');
-
+    if (String(updatedSale.userId) !== String(req.user._id)) return res.status(403).send('Not Authorized');
+    delete updatedSale._id;
     Sale.findByIdAndUpdate(req.params.id, updatedSale, function(err, data) {
       if (err) return res.status(500).send('there was an error');
       if (!data) return res.status(500).send('database error');
@@ -82,8 +83,7 @@ module.exports = function(app, jwtauth) {
    * Authenticated
    */
   app.delete('/api/sales/:id', jwtauth, function(req, res) {
-    if (req.body.userId !== req.user._id) return res.status(403).send('Not Authorized');
-
+    if (String(req.body.userId) !== String(req.user._id)) return res.status(403).send('Not Authorized');
     Sale.findByIdAndRemove(req.params.id, function(err) {
       if (err) return res.status(500).send('there was an error');
       res.send('success');

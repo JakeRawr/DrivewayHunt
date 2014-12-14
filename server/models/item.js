@@ -8,7 +8,7 @@ var itemSchema = mongoose.Schema({
   title: {type: String, required: true},
   askingPrice: {type: Number, min: 0},
   description: {type: String, required: false},
-  img: mongoose.Schema.Types.ObjectId,
+  img: String,
   condition: {type: String, required: false}
 });
 
