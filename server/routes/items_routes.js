@@ -14,7 +14,7 @@ module.exports = function(app, jwtauth, mongoose) {
   app.post('/api/items', jwtauth, formParser, function(req, res) {
     var newItem = new Item();
     newItem.saleId = req.body.saleId;
-    newItem.userId = req.body.userId;
+    newItem.userId = req.user._id;
     newItem.title = req.body.title;
     newItem.askingPrice = req.body.askingPrice;
     newItem.description = req.body.description;
@@ -27,13 +27,13 @@ module.exports = function(app, jwtauth, mongoose) {
   });
 
   /**
-   * Return single garage sale item
+   * Return all garage sale items from a sale
    */
-  app.get('/api/items/single/:id', jwtauth, function(req, res) {
-    Item.findById(req.params.id, function(err, item) {
+  app.get('/api/items/all/:saleid', jwtauth, function(req, res) {
+    Item.find({saleId:req.params.saleid}, function(err, items) {
       if (err) return res.status(500).send('there was an error');
-      if (!item) return res.status(500).send('item does not exist');
-      res.json(item);
+      if (!items) return res.status(500).send('This sale has no item');
+      res.json(items);
     });
   });
 
@@ -42,11 +42,11 @@ module.exports = function(app, jwtauth, mongoose) {
    */
   app.put('/api/items/single/:id', jwtauth, formParser, removeImage, function(req, res) {
     var updateItem = req.body;
-    if (updateItem.userId !== req.user._id) return res.status(403).send('Not Authorized');
-
+    if (String(updateItem.userId) !== String(req.user._id)) return res.status(403).send('Not Authorized');
+    delete updateItem._id;
     Item.findByIdAndUpdate(req.params.id, updateItem, function(err, item) {
-      if (err) return res.status(500).send('database error');
-      if (!item) return res.status(500).send('item does not exist');
+      if (err) return res.status(500).send('server error');
+      if (!item) return res.status(503).send('item does not exist');
       res.json(item);
     });
   });
@@ -55,7 +55,7 @@ module.exports = function(app, jwtauth, mongoose) {
    * Delete single garage sale item
    */
   app.delete('/api/items/single/:id', jwtauth, function(req, res) {
-    if (req.body.userId !== req.user._id) return res.status(403).send('Not Authorized');
+    if (String(req.body.userId) !== String(req.user._id)) return res.status(403).send('Not Authorized');
 
     Item.findByIdAndRemove(req.params.id, function(err) {
       if (err) return res.status(500).send('there was an error');
