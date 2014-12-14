@@ -1,11 +1,10 @@
 'use strict';
 
 /**
-* Pull form data off request object
-* Send any images into MongoDB via GridFS
+* Pull image data off request object
+* Incoming multipart form data
 */
 
-var grid = require('gridfs-stream');
 var Busboy = require('busboy');
 
 module.exports = function(db, driver) {
@@ -17,22 +16,15 @@ module.exports = function(db, driver) {
     var busboy = new Busboy({ headers: req.headers });
 
     busboy.on('file', function(fieldname, file) {
-      //implements MongoDB GridFS
-      //used for spreading the load of saving images
-      var gfs = grid(db, driver);
-      var writeStream = gfs.createWriteStream({});
-
-      writeStream.on('close', function(data) {
-        req.body.img = data._id;
-        next();
-      });
+      var image = '';
 
       file.on('data', function(data) {
-        writeStream.write(data);
+        image += data;
       });
 
       file.on('end', function() {
-        writeStream.end();
+        req.body.img = image;
+        next();
       });
     });
 
