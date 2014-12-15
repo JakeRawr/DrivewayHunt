@@ -36,7 +36,7 @@ app.use(express.static(__dirname + '/build'));
  */
 require('./server/routes/user_routes')(app, passport);
 require('./server/routes/sales_routes')(app, jwtAuth);
-require('./server/routes/items_routes')(app, jwtAuth);
+require('./server/routes/items_routes')(app, jwtAuth, mongoose);
 
 /**
  * Start server and export app for unit testing

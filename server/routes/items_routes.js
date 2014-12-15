@@ -3,7 +3,6 @@
 var Item = require('../models/item');
 
 module.exports = function(app, jwtauth) {
-
   /**
    * Post new item into an existing garage sale.
    * Requires garage sale id in request
@@ -17,7 +16,7 @@ module.exports = function(app, jwtauth) {
     newItem.askingPrice = req.body.askingPrice;
     newItem.description = req.body.description;
     newItem.condition = req.body.condition;
-
+    newItem.img = req.body.imgUrl;
     newItem.save(function(err, data) {
       if (err) return res.status(500).send('there was an error');
       res.json(data);
