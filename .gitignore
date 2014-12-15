@@ -4,3 +4,4 @@ bower_components/
 build/
 test/angular_testbundle.js
 **/*.sw?
+cloudinary.yml

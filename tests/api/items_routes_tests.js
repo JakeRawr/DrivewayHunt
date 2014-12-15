@@ -2,7 +2,6 @@
 /*jshint -W079*/
 'use strict';
 
-var fs = require('fs');
 var mongoose = require('mongoose');
 var chai = require('chai');
 var chaiHttp = require('chai-http');
@@ -17,6 +16,9 @@ process.env.MONGO_URL = 'mongodb://localhost/gsale_test';
 
 describe('items routes', function() {
   var jwt;
+  var testUser;
+  var testItem;
+  var testSale;
 
   before(function() {
     mongoose.connection.collections.users.drop(function(err) {
@@ -28,45 +30,45 @@ describe('items routes', function() {
     mongoose.connection.collections.items.drop(function(err) {
       if (err) console.log(err);
     });
+
+    testUser = {
+      email: 'item@example.com',
+      password: 'foobar123',
+      passwordConfirm: 'foobar123',
+      firstName: 'Test',
+      lastName: 'Example',
+      city: 'Seattle',
+      state: 'WA',
+      zip: '98122',
+      phone: '206-123-1234'
+    };
+
+    testItem = {
+      saleId: null,
+      title: 'applePie',
+      askingPrice: 3.14,
+      description: 'This is an apple pie',
+      condition: 'New'
+    };
+
+    testSale = {
+      title: 'Test Sale',
+      description: 'This is a test sale',
+      address: '511 Boren Avenue North, Seattle, WA 98109 ',
+      city: 'Seattle',
+      state: 'WA',
+      zip: '98109',
+      dateStart: '12-14-14',
+      dateEnd: '12-15-14',
+      timeStart: '955',
+      timeEnd: '955',
+      lat: '47.609',
+      lng: '-122.331',
+      phone: '123-123-1234',
+      email: 'email@email.com',
+      publish: 'true'
+    };
   });
-
-  var testUser = {
-    email: 'item@example.com',
-    password: 'foobar123',
-    passwordConfirm: 'foobar123',
-    firstName: 'Test',
-    lastName: 'Example',
-    city: 'Seattle',
-    state: 'WA',
-    zip: '98122',
-    phone: '206-123-1234'
-  };
-
-  var testItem = {
-    saleId: null,
-    title: 'applePie',
-    askingPrice: 3.14,
-    description: 'This is an apple pie',
-    condition: 'New'
-  };
-
-  var testSale = {
-    title: 'Test Sale',
-    description: 'This is a test sale',
-    address: '511 Boren Avenue North, Seattle, WA 98109 ',
-    city: 'Seattle',
-    state: 'WA',
-    zip: '98109',
-    dateStart: '12-14-14',
-    dateEnd: '12-15-14',
-    timeStart: '955',
-    timeEnd: '955',
-    lat: '47.609',
-    lng: '-122.331',
-    phone: '123-123-1234',
-    email: 'email@email.com',
-    publish: 'true'
-  };
 
   it('should add a new user', function(done) {
     chai.request(url)
@@ -149,46 +151,6 @@ describe('items routes', function() {
         expect(res.body.askingPrice).to.eql(3.14);
         done();
       });
-  });
-
-  it.skip('should add an image to a sale item', function(done) {
-    chai.request(url)
-    .put('/api/items/single/' + testItem._id)
-    .set('jwt', jwt)
-    .attach('file', __dirname + '/DSCN0119.JPG')
-    .end(function(err, res) {
-      expect(err).to.be.null;
-      expect(res).to.not.have.status(500);
-      expect(res).to.have.status(200);
-      expect(res.body).to.include.keys('img');
-      done();
-    });
-  });
-
-  it.skip('should return an item\'s image given an item id', function(done) {
-    chai.request(url)
-    .get('/api/items/single/' + itemId)
-    .end(function(err, res) {
-      expect(err).to.be.null;
-      expect(res).to.not.have.status(500);
-      expect(res).to.have.header('transfer-encoding', 'chunked');
-      //create file
-      fs.writeFileSync(__dirname + '/testImage.jpeg');
-      //make write stream out of file
-      var writeStream = fs.createWriteStream(__dirname + '/testImage.jpeg');
-      //pipe res into write stream
-      res.on('data', function(data) {
-        writeStream.write(data);
-      });
-      //check if that file exists
-      res.on('end', function() {
-        fs.exists(__dirname + '/testImage.jpeg', function(exists) {
-          expect(exists).to.be.true;
-          fs.unlinkSync(__dirname + '/testImage.jpeg');
-          done();
-        });
-      });
-    });
   });
 
   it('should be able to delete an item', function(done) {

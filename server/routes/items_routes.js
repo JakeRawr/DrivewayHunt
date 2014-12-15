@@ -2,16 +2,13 @@
 
 var Item = require('../models/item');
 
-module.exports = function(app, jwtauth, mongoose) {
-  var formParser = require('../lib/form-parser')(mongoose.connection.db, mongoose.mongo);
-  var removeImage = require('../lib/remove-img')(mongoose.connection.db, mongoose.mongo);
-
+module.exports = function(app, jwtauth) {
   /**
    * Post new item into an existing garage sale.
    * Requires garage sale id in request
    * along with other necessary information such as name, price, condition, etc.
    */
-  app.post('/api/items', jwtauth, formParser, function(req, res) {
+  app.post('/api/items', jwtauth, function(req, res) {
     var newItem = new Item();
     newItem.saleId = req.body.saleId;
     newItem.userId = req.user._id;
@@ -19,7 +16,7 @@ module.exports = function(app, jwtauth, mongoose) {
     newItem.askingPrice = req.body.askingPrice;
     newItem.description = req.body.description;
     newItem.condition = req.body.condition;
-
+    newItem.img = req.body.imgUrl;
     newItem.save(function(err, data) {
       if (err) return res.status(500).send('there was an error');
       res.json(data);
@@ -40,7 +37,7 @@ module.exports = function(app, jwtauth, mongoose) {
   /**
    * Update single garage sale item
    */
-  app.put('/api/items/single/:id', jwtauth, formParser, function(req, res) {
+  app.put('/api/items/single/:id', jwtauth, function(req, res) {
     var updateItem = req.body;
     if (String(updateItem.userId) !== String(req.user._id)) return res.status(403).send('Not Authorized');
     delete updateItem._id;

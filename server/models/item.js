@@ -8,7 +8,7 @@ var itemSchema = mongoose.Schema({
   title: {type: String, required: true},
   askingPrice: {type: Number, min: 0},
   description: {type: String, required: false},
-  img: String,
+  img: String, //url to Cloudinary
   condition: {type: String, required: false}
 });
 
