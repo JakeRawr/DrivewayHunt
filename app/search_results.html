@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Schedule - Styles Conference</title>
+<link rel="stylesheet" type="text/css" href="sass/normalize.css" />
+<link rel="stylesheet" type="text/css" href="sass/style.css" />
+  </head>
+
+  <body>
+    <section class="row">
+      <div class="container col-2-3">
+        <!-- Table Header -->
+        <table>
+          <thead id="resultsHeader">
+            <tr>
+              <th scope="row"></th>
+              <td class="searchColumn" colspan="2">
+               {{ city }}
+              <h4>Results<h4>
+              </td>
+              <td class="distanceColumn" colspan="1">
+              <ol data-type="filter">
+                <li>Sort by</li>
+                <li>Distance</li>
+              </ol>
+              </td>
+              <td class="dateColumn" colspan="1">
+              <ol data-type="filter">
+                <li>Sort by</li>
+                <li>Date</li>
+              </ol>
+              </td>
+              <!-- expand icon column -->
+              <td class="expandColumn" colspan="1">
+              <ol>
+                <li data-type="expand"></li>
+              </ol>
+              </td>
+            </tr>
+          </thead>
+          <!-- event 1 starts -->
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td class="results" colspan="2">
+                <ol name="event" data-type="event-info">
+                  <h4>{{Moving Garage Sale}}</h4>
+                  <li><strong>Location:</strong> {{Westlake}}</li>
+                  <li><time datetime><strong>Date:</strong> {{ date_expression | date:'mediumDate'}}</time></li>
+                </ol>
+              </td>
+              <!-- distance col -->
+              <td class="distance" colspan="1">
+                <ol name="event" data-type="distance">
+                  <h5>Miles</h5>
+                  <li>{{3.2}}</li>
+                </ol>
+              </td>
+              <!-- Date & Time col  -->
+              <td class="date" colspan="1">
+                <ol name="event" data-type="date-time">
+                  <h5>Date</h5>
+                  <li><time datetime>{{Dec 14}}</time></li>
+                  <li><time datetime>{{3:00pm}}</time></li>
+                </ol>
+              </td>
+              <!-- icon col -->
+              <td class="icon" colspan="1">
+              <h4 data-icon="open"><h4/>
+              </td>
+            </tr>
+          </tbody>
+            <!-- event 2 starts -->
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td class="results" colspan="2">
+                <ol name="event" data-type="event-info">
+                  <h4>{{Moving Garage Sale}}</h4>
+                  <li><strong>Location:</strong> {{Westlake}}</li>
+                  <li><time datetime><strong>Date:</strong> {{ expression | date:'mediumDate'}}</time></li>
+                </ol>
+              </td>
+              <!-- distance col -->
+              <td class="distance" colspan="1">
+                <ol name="event" data-type="distance">
+                  <h5>Miles</h5>
+                  <li>{{3.2}}</li>
+                </ol>
+              </td>
+              <!-- Date & Time col  -->
+              <td class="date" colspan="1">
+                <ol name="event" data-type="date-time">
+                  <h5>Date</h5>
+                  <li><time datetime>{{Dec 14}}</time></li>
+                  <li><time datetime>{{3:00pm}}</time></li>
+                </ol>
+              </td>
+              <!-- icon col -->
+              <td class="icon" colspan="1">
+              <h4 data-icon="open"><h4/>
+              </td>
+            </tr>
+          </tbody>
+            <!-- event 3 starts -->
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td class="results" colspan="2">
+                <ol name="event" data-type="event-info">
+                  <h4>{{Moving Garage Sale}}</h4>
+                  <li><strong>Location:</strong> {{Westlake}}</li>
+                  <li><time datetime><strong>Date:</strong> {{ date_expression | date:'mediumDate'}}</time></li>
+                </ol>
+              </td>
+              <!-- distance col -->
+              <td class="distance" colspan="1">
+                <ol name="event" data-type="distance">
+                  <h5>Miles</h5>
+                  <li>{{3.2}}</li>
+                </ol>
+              </td>
+              <!-- Date & Time col  -->
+              <td class="date" colspan="1">
+                <ol name="event" data-type="date-time">
+                  <h5>Date</h5>
+                  <li><time datetime>{{Dec 14}}</time></li>
+                  <li><time datetime>{{3:00pm}}</time></li>
+                </ol>
+              </td>
+              <!-- icon col -->
+              <td class="icon" colspan="1">
+              <h4 data-icon="open"><h4/>
+              </td>
+            </tr>
+          </tbody>
+          <!-- event 4 starts -->
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td class="results" colspan="2">
+                <ol name="event" data-type="event-info">
+                  <h4>{{Moving Garage Sale}}</h4>
+                  <li><strong>Location:</strong> {{Westlake}}</li>
+                  <li><time datetime><strong>Date:</strong> {{ date_expression | date:'mediumDate'}}</time></li>
+                </ol>
+              </td>
+              <!-- distance col -->
+              <td class="distance" colspan="1">
+                <ol name="event" data-type="distance">
+                  <h5>Miles</h5>
+                  <li>{{3.2}}</li>
+                </ol>
+              </td>
+              <!-- Date & Time col  -->
+              <td class="date" colspan="1">
+                <ol name="event" data-type="date-time">
+                  <h5>Date</h5>
+                  <li><time datetime>{{Dec 14}}</time></li>
+                  <li><time datetime>{{3:00pm}}</time></li>
+                </ol>
+              </td>
+              <!-- icon col -->
+              <td class="icon" colspan="1">
+              <h4 data-icon="open"><h4/>
+              </td>
+            </tr>
+          </tbody>
+          <!-- event 5 starts -->
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td class="results" colspan="2">
+                <ol name="event" data-type="event-info">
+                  <h4>{{Moving Garage Sale}}</h4>
+                  <li><strong>Location:</strong> {{Westlake}}</li>
+                  <li><time datetime><strong>Date:</strong> {{ date_expression | date:'mediumDate'}}</time></li>
+                </ol>
+              </td>
+              <!-- distance col -->
+              <td class="distance" colspan="1">
+                <ol name="event" data-type="distance">
+                  <h5>Miles</h5>
+                  <li>{{3.2}}</li>
+                </ol>
+              </td>
+              <!-- Date & Time col  -->
+              <td class="date" colspan="1">
+                <ol name="event" data-type="date-time">
+                  <h5>Date</h5>
+                  <li><time datetime>{{Dec 14}}</time></li>
+                  <li><time datetime>{{3:00pm}}</time></li>
+                </ol>
+              </td>
+              <!-- icon col -->
+              <td class="icon" colspan="1">
+              <h4 data-icon="open"><h4/>
+              </td>
+            </tr>
+          </tbody>
+        </table> <!-- end of table -->
+      </div>
+    </section>
+
+    <section class="map">
+
+      <iframe class="venue-map col-1-3" src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x880e2ca55810a493%3A0x4700ddf60fcbfad6!2schicago+theatre!5e0!3m2!1sen!2sus!4v1388701393606"></iframe>
+
+    </section>
+  </body>
+</html>

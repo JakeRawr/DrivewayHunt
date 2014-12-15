@@ -6,43 +6,107 @@
     <title>Drive Way Hunt</title>
     <meta name="description" content=" " />
     <meta name="keywords" content=" " />
-    <meta name="author" content="Garage Sale App" />
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../sass/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="../sass/base.css" />
-    <link rel="stylesheet" type="text/css" href="../sass/component.css" />
+    <link rel="stylesheet" type="text/css" href="sass/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="sass/style.css" />
   </head>
   <body>
-      <header id="registerMenu">
-        <div id="logo" class="" alt="">
-          <!-- logo goes here -->
-        </div>
-        <ol id="registerList">
-          <li class="logIn"> <!-- data login modal? -->
-            <a href="">Log In</a>
-          </li>
-          <li class="signUp"> <!-- data signup modal? -->
-            <a href="">Sign Up</a>
-          </li>
-        </ol>
-      </header>
-      <section data="">
-        <form id="theForm" class="searchform" autocomplete="off">
-          <div class="searchFormInner">
-            <main>
-              <label id="searchLabel" for="search">Search</label>
-              <input id="search" name="search" type="search"/>
-            </main>
-            <small>Location, City or Zip Code.</small>
-            <button class="submit" type="submit">Send answers</button>
-            <div class="controls">
-              <button class="next"></button>
-              <div class="progress"></div>
-            </div>
-              <span class="error-message"></span>
-        </form>
-      </section>
+    <!-- Header: Menu/Nav Buttons Trigger Modal -->
+    <header id="userMenu">
+      <ol class="modalContainer">
+        <li>
+          <button class="md-trigger btn btn-1 btn-1a" data-modal="modal-1" type="checkbox" name="userLogIn" value="check">Log In</button>
+        </li>
+        <li> <!-- sign up modal button -->
+          <button id="signUp" class="md-trigger btn btn-1 btn-1a" data-modal="modal-2" type="checkbox" name="userSignUp" value="check">Sign Up</button>
+         </li>
+      </ol>
+      <div class="logoContainer">
+        <img class="headerLogo" src="img/fpo_logo.png">
+      </div>
+    </header>
+  <!-- Log In Modal 1 -->
+    <div class="md-modal md-effect-1" id="modal-1">
+    	<fieldset class="md-content">
+    			<form name="login" class="userModal" action="/login" method="post">
+    			    <h2 class="headModal">Hello, again<h2>
+    			    <ol class="loginModal">
+    			      <button class="btn google" type="checkbox" value="check" data-id="login-user">Log in with Google</button>
 
-      <script src="http://localhost:35729/livereload.js"></script>
+    			      <button class="btn facebook" type="checkbox" value="check" data-id="login-user">Log in with Facebook</button>
+
+    			      <li data-id="login-user"><small name="login-cta"> Or with your email</small></li>
+
+    			      <li class="email" data-id="login-user">
+    			          <label for="loginEmail">Email</label>
+    			          <input id="loginEmail" type="email" name="email" title="Your Email" pattern="[^ @]*@[^ @]*">
+    			      </li>
+    			      <li class="password" data-id="login-user">
+    			          <label for="loginPassword">Password</label>
+    			          <input id="loginPassword" type="password" name="password" title="Your Password">
+    			      </li>
+    			      <li class="detect" data-id="login-user">
+    			        <label for="userDetect">Remember Me!</label>
+    			        <input id="userDetect" type="checkbox" value="Checked" checked>
+    			      </li>
+    			      <button class="btn md-close" name="submit" value="Submit" data-id="login-submit">Submit</button>
+    			    </ol>
+    			</form>
+    	</fieldset>
+    </div>
+  <!-- Sign Up Modal 2 -->
+    <div class="md-modal md-effect-1" id="modal-2">
+      <fieldset class="md-content">
+          <form name="register" class="userModal" action="/register" method="post">
+              <h2 class="headModal">Sign Up<h2>
+              <ol class="loginModal">
+                <button class="btn google" type="checkbox" value="check" data-id="new-user">Sign up with Google</button>
+                <button class="btn facebook" type="checkbox" value="check" data-id="new-user">Sign up with Facebook</button>
+                <li data-id="new-user"><small name="login-cta"> Or sign up with your email</small></li>
+                <li class="name" data-id="new-user">
+                    <label for="firstName">First Name</label>
+                    <input id="firstName" type="text" name="name" title="Minimum 2 Characters" pattern="[a-zA-Z]{2,}">
+                </li>
+                <li class="email" data-id="new-user">
+                    <label for="loginEmail">Email</label>
+                    <input id="loginEmail" type="email" name="email" value=" " title="Your Email" pattern="[^ @]*@[^ @]*">
+                </li>
+                <li class="password" data-id="new-user">
+                    <label for="makePassword">Password <small>(8 alpha-numeric characters)</small></label>
+                    <input id="makePassword" type="password" name="password" title="Minimum 8 Characters or Numbers" pattern="[a-zA-Z0-9]{8,}">
+                </li>
+                <li class="password" data-id="new-user">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input id="confirmPassword" type="password" name="password" title="Confirm Your Password">
+                </li>
+                <li class="detect" data-id="new-user">
+                  <label for="userAgree">Agree to the User Policy</label>
+                  <input id="userAgree" type="checkbox" value="Checked" checked>
+                </li>
+                <button class="btn md-close" name="submit" value="Submit" data-id="login-submit">Submit</button>
+              </ol>
+          </form>
+      </fieldset>
+    </div>
+  <!-- Search -->
+    <section>
+      <form id="theForm" class="searchform" autocomplete="off">
+        <div class="searchFormInner">
+          <main>
+            <label id="searchLabel" for="search">Search</label>
+            <input id="search" name="search" type="search" placeholder="City, Neighborhood, or Zip Code">
+          </main>
+          <small class="howSearch">Search the online community to find and post yard sales.</small>
+          <button class="submit" type="submit">Send answers</button>
+          <div class="controls">
+            <button class="next"></button>
+            <div class="progress"></div>
+          </div>
+          <span class="error-message"></span>
+        </div>
+      </form>
+    </section>
+    <div class="md-overlay"></div>
+		<script src="js/classie.js"></script>
+		<script src="js/modal.js"></script>
   </body>
 </html>

@@ -1,28 +1,63 @@
+'use strict';
+
 module.exports = function(grunt) {
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-jscs');
+  grunt.loadNpmTasks('grunt-simple-mocha');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+
   grunt.initConfig({
+    project: {
+      app: ['app'],
+      server: ['server'],
+      scss: ['<%= project.app %>/sass/style.scss'],
+      css: ['<%= project.app %>/css/**/*.css'],
+      alljs: ['<%= project.app %>/js/**/*.js', '<%= project.server %>/**/*.js']
+    },
+
+    jshint: {
+      all: ['<%= project.alljs %>', 'Gruntfile.js', 'server.js'],
+      options: {
+        jshintrc: true
+      }
+    },
+
+    jscs: {
+      src: ['<%= project.alljs %>', 'Gruntfile.js', 'server.js'],
+      options: {
+        config: '.jscsrc'
+      }
+    },
+
+    simplemocha: {
+      src: ['tests/**/*.js']
+    },
+
     sass: {
       dist: {
         files: {
-          'app/sass/**/*.sass': 'sass/app.sass',
-          'stylesheets/other-app.css': 'sass/app.scss'
+          'app/sass/style.css': '<%= project.scss %>',
         }
       }
     },
+
     watch: {
       sass: {
-        files: ['sass/**/*.sass', 'sass/**/*.scss', 'views/**/*.html', 'views/**/*.ejs'],
+        files: ['<%= project.scss %>', 'sass/**/*.sass', 'views/**/*.html'],
         tasks: ['sass']
       },
+
       livereload: {
-        files: ['sass/**/*.sass', 'sass/**/*.scss', 'views/**/*.html', 'views/**/*.ejs'],
+        files: ['<%= project.scss %>', 'views/**/*.html'],
         options: {
           livereload: true
         }
       }
-    }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.registerTask('sass', ['watch:sass', 'watch:livereload']);
+  grunt.registerTask('test', ['jshint', 'jscs', 'simplemocha']);
   grunt.registerTask('default', ['sass']);
+
 };
