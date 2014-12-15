@@ -2,7 +2,6 @@
 
 var Item = require('../models/item');
 
-
 module.exports = function(app, jwtauth) {
   /**
    * Post new item into an existing garage sale.

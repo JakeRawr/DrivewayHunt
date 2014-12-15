@@ -7,7 +7,6 @@ var chai = require('chai');
 var chaiHttp = require('chai-http');
 
 var expect = chai.expect;
-
 var url = 'http://localhost:3000';
 
 process.env.MONGO_URL = 'mongodb://localhost/gsale_test';
@@ -16,7 +15,6 @@ chai.use(chaiHttp);
 require('../../server');
 
 //drop users from test db before running tests
-
 mongoose.connection.collections.users.drop(function(err) {
   if (err) return err;
 });

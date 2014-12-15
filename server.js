@@ -5,7 +5,6 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var bodyparser = require('body-parser');
 
-
 var app = express();
 
 /**
