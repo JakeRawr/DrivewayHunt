@@ -17,14 +17,14 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      all: ['<%= project.alljs %>', 'Gruntfile.js', 'server.js'],
+      all: ['<%= project.alljs %>', 'Gruntfile.js', 'server.js', 'tests/api/**/*.js'],
       options: {
         jshintrc: true
       }
     },
 
     jscs: {
-      src: ['<%= project.alljs %>', 'Gruntfile.js', 'server.js'],
+      src: ['<%= project.alljs %>', 'Gruntfile.js', 'server.js', 'tests/api/**/*.js'],
       options: {
         config: '.jscsrc'
       }
@@ -54,6 +54,7 @@ module.exports = function(grunt) {
           livereload: true
         }
       }
+    }
   });
 
   grunt.registerTask('sass', ['watch:sass', 'watch:livereload']);
