@@ -1,0 +1,51 @@
+/*  SECTIONS  */
+.section {
+  clear: both;
+  padding: 0px;
+  margin: 0px; }
+
+/*  COLUMN SETUP  */
+.col {
+  display: block;
+  margin: 1% 0 1% 2%; }
+
+.col:first-child {
+  margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after {
+  content: ""; }
+
+.group {
+  zoom: 1;
+  /* For IE 6/7 */ }
+
+/*  GRID OF EIGHT  */
+.span_8_of_8 {
+  width: 100%; }
+
+.span_7_of_8 {
+  width: 87.25%; }
+
+.span_6_of_8 {
+  width: 74.5%; }
+
+.span_5_of_8 {
+  width: 61.75%; }
+
+.span_4_of_8 {
+  width: 49%; }
+
+.span_3_of_8 {
+  width: 36.25%; }
+
+.span_2_of_8 {
+  width: 23.5%; }
+
+.span_1_of_8 {
+  width: 10.75%; }
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+/*# sourceMappingURL=grid.css.map */

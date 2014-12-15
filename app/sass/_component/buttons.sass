@@ -1,0 +1,47 @@
+@import '../_mixin/vertical-align-mixin'
+@import '../_mixin/input-placeholder-mixin'
+@import '../_global/variables'
+@import '../_mixin/flexbox-mixin'
+@import '../_mixin/border-radius-mixin'
+@import '../_utility/em-function'
+@import '../_mixin/transition-mixin'
+
+/* General button style (reset) */
+.btn
+  border: none
+  font-family: inherit
+  font-size: inherit
+  font-weight: inherit
+  color: inherit
+  background: none
+  cursor: pointer
+  padding: em(5px) em(20px)
+  display: inline-block
+  margin: em(10px)
+  text-transform: uppercase
+  letter-spacing: em(1px)
+  font-weight: $font-weight--normal
+  position: relative
+  @include transition(all 0.3s)
+
+.btn:after
+  content: ''
+  position: absolute
+  z-index: -1
+  @include transition(all 0.3s)
+
+/* Button 1 (Home Buttons) */
+.btn-1
+  border: $button_border_primary
+  font-weight: $font-weight--normal
+  color: $color-primary
+  text-transform: uppercase
+  text-align:right
+
+/* Button 1a (Home Button States) */
+.btn-1a:hover,
+.btn-1a:active
+  border: $button_border_accent
+  background-color: $color-teal
+  color: white
+

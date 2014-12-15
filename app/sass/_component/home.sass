@@ -1,0 +1,113 @@
+@import '../_mixin/vertical-align-mixin'
+@import '../_mixin/input-placeholder-mixin'
+@import '../_global/variables'
+@import '../_mixin/flexbox-mixin'
+@import '../_mixin/clearfix-mixin'
+@import '../_utility/em-function'
+
+.logoContainer
+	position: relative
+	padding-top: em(20px)
+
+.headerLogo
+	position: absolute
+	width: em(275px)
+	left: calc(50% - 275px/2)
+
+.modalContainer
+	@include flexbox
+	@include justify-content($value: flex-end)
+	@include flex-direction
+
+// search bar
+.searchform
+	position: relative
+	margin: 0 auto
+	padding: 2em 0
+	max-width: 600px
+	width: 100%
+	text-align: left
+	@include clearfix
+
+.submit
+	display: none
+
+#searchLabel
+	text-transform: uppercase
+	font-weight: $font-weight--light
+	font-size: $base__search
+	color: $color-font-primary
+
+/* Search Input field */
+#search
+	display: block
+	margin-top: em(5px)
+	padding: em(10px) 0 em(10px) em(5px)
+	width: 100%
+	border: $border_ltgrey
+	background: transparent
+	background-color: $color-background
+	color: $color-primary
+	font-size: $base__font-size
+	line-height: $base__line
+	&:focus
+		border: $border_teal
+		outline: none
+	// opacity: 0
+	@include input-placeholder
+		font-weight: $font-weight--light
+		font-size: $base__font-size
+		color: white
+
+.howSearch
+	color: $color-primary
+	font-style: italic
+	font-weight: $font-weight--normal
+	font-size: $base__paragraph
+	letter-spacing: em(1px)
+	line-height: 1.5
+
+
+/* dynamic button need show onkeydown */
+.next
+	position: absolute
+	right: 0
+	bottom: 2.15em
+	display: block
+	padding: 0
+	width: 2em
+	height: 2em
+	border: none
+	background: none
+	color: rgba(0,0,0,0.4)
+	text-align: center
+	// opacity: 0
+
+/* Progress bar -- would like to animate on submit */
+.progress
+	margin-top: em(5px)
+	width: 0%
+	height: 0.15em
+	background: rgba(0,0,0,0.3)
+	&:before
+		position: absolute
+		top: auto
+		width: 100%
+		height: inherit
+		background: rgba(0,0,0,0.05)
+		content: ''
+
+// Need to move Media Query
+/* Adjust form for smaller screens */
+@media screen and (max-width: 44.75em)
+.searchform,
+#searchLabel
+	font-size: $base__head
+
+@media screen and (max-width: 33.5625em)
+.searchform,
+#searchLabel
+	font-size: $base__subhead
+
+.howSearch
+	font-size: 60%
