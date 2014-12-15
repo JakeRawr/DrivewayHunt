@@ -1,0 +1,149 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: "icomoon";
+  src: url("fonts/icomoon/icomoon.eot");
+  src: url("fonts/icomoon/icomoon.eot") format("opentype");
+  src: url("fonts/icomoon/icomoon.woff") format("woff");
+  src: url("fonts/icomoon/icomoon.ttf") format("truetype");
+  src: url("fonts/icomoon/icomoon.svg") format("svg"); }
+@-moz-document url-prefix() {
+  .flex-container {
+    width: 100%;
+    -moz-box-sizing: border-box; } }
+.logoContainer {
+  position: relative;
+  padding-top: 20px; }
+
+.headerLogo {
+  position: absolute;
+  width: 275px;
+  left: calc(50% - 275px/2); }
+
+.modalContainer {
+  float: none;
+  position: static;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  -moz-justify-content: flex-end;
+  justify-content: flex-end;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+
+.searchform {
+  position: relative;
+  margin: 0 auto;
+  padding: 2em 0;
+  max-width: 600px;
+  width: 100%;
+  text-align: left; }
+  .searchform:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.submit {
+  display: none; }
+
+#searchLabel {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 2.5em;
+  color: #666666; }
+
+/* Search Input field */
+#search {
+  display: block;
+  margin-top: 5px;
+  padding: 10px 0 10px 5px;
+  width: 100%;
+  border: 3px solid #eaeaed;
+  background: transparent;
+  background-color: #eaeaed;
+  color: #ff6666;
+  font-size: 1em;
+  line-height: 1; }
+  #search:focus {
+    border: 3px solid #A1DBB2;
+    outline: none; }
+  #search.placeholder {
+    font-weight: 300;
+    font-size: 1em;
+    color: white; }
+  #search:-moz-placeholder {
+    font-weight: 300;
+    font-size: 1em;
+    color: white; }
+  #search::-moz-placeholder {
+    font-weight: 300;
+    font-size: 1em;
+    color: white; }
+  #search:-ms-input-placeholder {
+    font-weight: 300;
+    font-size: 1em;
+    color: white; }
+  #search::-webkit-input-placeholder {
+    font-weight: 300;
+    font-size: 1em;
+    color: white; }
+
+.howSearch {
+  color: #ff6666;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.7em;
+  letter-spacing: 1px;
+  line-height: 1.5; }
+
+/* dynamic button need show onkeydown */
+.next {
+  position: absolute;
+  right: 0;
+  bottom: 2.15em;
+  display: block;
+  padding: 0;
+  width: 2em;
+  height: 2em;
+  border: none;
+  background: none;
+  color: rgba(0, 0, 0, 0.4);
+  text-align: center; }
+
+/* Progress bar -- would like to animate on submit */
+.progress {
+  margin-top: 5px;
+  width: 0%;
+  height: 0.15em;
+  background: rgba(0, 0, 0, 0.3); }
+  .progress:before {
+    position: absolute;
+    top: auto;
+    width: 100%;
+    height: inherit;
+    background: rgba(0, 0, 0, 0.05);
+    content: ""; }
+
+/* Adjust form for smaller screens */
+.searchform,
+#searchLabel {
+  font-size: 2em; }
+
+.searchform,
+#searchLabel {
+  font-size: 1.5em; }
+
+.howSearch {
+  font-size: 60%; }
+
+/*# sourceMappingURL=home.css.map */

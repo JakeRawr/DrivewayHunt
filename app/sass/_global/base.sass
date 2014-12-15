@@ -1,0 +1,68 @@
+@import variables
+
+*,*:after,*:before
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+.clearfix:before
+  &:after
+  content: ""
+  display: table
+.clearfix:after
+  clear: both
+body
+  height: 100%
+  overflow:scroll
+  font-family: $font-family--primary
+  font-size: 100%
+  line-height: 1.25
+  margin: 0
+ul, ol
+  padding: 0
+  margin: 0
+  list-style-type: none
+li
+  list-style-type: none
+a
+  text-decoration: none
+  outline: none
+h2
+  font-weight: $font-weight--normal
+  font-size: $base__head
+  margin: 0
+h4
+  font-weight: $font-weight--normal
+  font-size: $base__font-size
+  margin: 0
+h5
+  font-weight: $font-weight--bold
+  font-size: em(10px)
+  margin: 0
+fieldset
+  border: 0
+  margin: 0
+  padding: 0
+thead, tr, th, td, table
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+td
+  vertical-align: top
+table
+  border-collapse: collapse
+  border-spacing: 0
+label
+  font-weight: $font-weight--light
+  font-size: $base__paragraph
+  padding: 0
+button
+  font-size: $base__button
+input
+  display: block
+section
+  padding: 10em 0 10em 0
+  text-align: center
+@media screen and (max-width: 44.75em)
+  section
+    padding: 8em 2em

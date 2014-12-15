@@ -1,0 +1,42 @@
+$icons: (
+  plus: "\f055",
+  minus: "\f056",
+  arrow-down: "\f063",
+  arrow-up: "\f062",
+  chevron-up: "\f077",
+  chevron-down: "\f078",
+  map: "\f041",
+  check: "\f00c",
+  close: "\f00d",
+  caret-up: "\f0d8",
+  caret-down: "\f0d7",
+  picture: "\f03e",
+  tag: "\f02b",
+  tags: "\f02c",
+  upload: "\f0ee",
+  edit: "\f040"
+);
+
+@mixin icon($position: before, $icon: false, $styles: true) {
+    @if $position == both {
+        $position: 'before, &:after';
+    }
+    // Either a :before or :after pseudo-element, or both, defaulting to :before
+    &:#{$position} {
+        @if $icon {
+            // A particular icon has been specified
+            content: "#{map-get($icons, $icon)}";
+        }
+        @if $styles {
+            // Supportive icon styles required
+            font-family: 'FontAwesome', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            padding-right: 10px;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            speak: none;
+        }
+    }
+}

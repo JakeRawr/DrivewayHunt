@@ -1,0 +1,79 @@
+// Global Config
+
+// Font Stacks
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: "icomoon";
+  src: url('fonts/icomoon/icomoon.eot');
+  src: url('fonts/icomoon/icomoon.eot') format('opentype');
+  src: url('fonts/icomoon/icomoon.woff') format('woff');
+  src: url('fonts/icomoon/icomoon.ttf') format('truetype');
+  src: url('fonts/icomoon/icomoon.svg') format('svg');
+}
+
+// Font variables
+
+$font-family--primary: 'Lato', sans-serif;
+$font-family--icons: "icomoon";
+
+// Font Weights
+
+$font-weight--light: 300;
+$font-weight--normal: 400;
+$font-weight--bold: 700;
+
+// All colors
+$rgba-drkgrey: rgba(51,51,51,0.8); // dark grey for opacity
+$color-drkgrey: #666666; // dark grey
+$color-medgrey: #999999; // med grey
+$color-ltgrey: #eaeaed; // lt grey
+$color-orange: #FF9D2E; // orange
+$color-dkorange: #ff6666; // dark peach
+$color-teal: #A1DBB2; // teal
+$color-facebook: #3b5998 ; // facebook blue
+$color-google: #dd4b39; // red
+
+// Color Usage
+
+$color-primary: #ff6666; // dark peach
+$color-secondary: #FF9D2E; // orange
+$color-accent: #A1DBB2; // teal
+$color-background: #eaeaed; // lt grey
+
+// Color Font Usage
+
+$color-font-primary: #666666; // dark grey
+$color-font-secondary: #999999; // med grey
+$color-font-accent: #ff6666; // dark peach
+
+// Text
+
+$base__search: 2.5em;
+$base__head: 2em;
+$base__subhead: 1.5em;
+$base__font-size: 1em;
+$base__paragraph: 0.7em;
+$base__button: em(16px);
+$base__grid: em(14px);
+$base__line: 1;
+
+// Path to Assets
+
+$path--rel: "../img";
+
+// Borders
+
+$border_dkgrey: 1px solid $color-drkgrey;
+$border_dkorange: 1px solid $color-dkorange;
+$border_orange: 1px solid $color-orange;
+$border_ltgrey: 3px solid $color-ltgrey;
+$border_teal: 3px solid $color-teal;
+
+// Button Border
+$button_border_primary: 3px solid $color-dkorange;
+$button_border_accent: 3px solid $color-accent;
+$button_border_default: 3px solid $color-drkgrey;
