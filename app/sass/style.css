@@ -12,6 +12,7 @@
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
+
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -103,6 +104,7 @@ section {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
+
 @font-face {
   font-weight: normal;
   font-style: normal;
@@ -112,10 +114,12 @@ section {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
+
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
+
 /* General button style (reset) */
 .btn {
   border: none;
@@ -156,8 +160,8 @@ section {
 /* Button 1a (Home Button States) */
 .btn-1a:hover,
 .btn-1a:active {
-  border: 3px solid #A1DBB2;
-  background-color: #A1DBB2;
+  border: 3px solid #a1dbb2;
+  background-color: #a1dbb2;
   color: white; }
 
 @font-face {
@@ -169,10 +173,12 @@ section {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
+
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
+
 .userModal {
   color: white;
   background-color: #ff6666;
@@ -248,7 +254,7 @@ button[data-id="login-submit"] {
   width: 40%;
   left: calc(50% - 40%/2); }
   button[data-id="login-submit"]:hover, button[data-id="login-submit"]:active {
-    background-color: #A1DBB2;
+    background-color: #a1dbb2;
     color: white; }
 
 .md-modal {
@@ -328,10 +334,12 @@ button[data-id="login-submit"] {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
+
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
+
 .logoContainer {
   position: relative;
   padding-top: 20px; }
@@ -395,7 +403,7 @@ button[data-id="login-submit"] {
   font-size: 1em;
   line-height: 1; }
   #search:focus {
-    border: 3px solid #A1DBB2;
+    border: 3px solid #a1dbb2;
     outline: none; }
   #search.placeholder {
     font-weight: 300;
@@ -519,5 +527,3 @@ button[data-id="login-submit"] {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
-
-/*# sourceMappingURL=style.css.map */

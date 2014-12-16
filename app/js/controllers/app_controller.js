@@ -8,17 +8,6 @@ module.exports = function(app) {
      */
     $scope.currentUser = null;
 
-    /**
-     * Listen for broadcasted AUTH_EVENTS
-     */
-    $scope.$on(AUTH_EVENTS.loginSuccess, function(event, data) {
-
-    });
-
-    $scope.$on(AUTH_EVENTS.logoutSuccess, function() {
-
-    });
-
     $scope.signIn = function() {
       console.log('sign in event');
       //open the view with the sign in stuff
@@ -29,7 +18,7 @@ module.exports = function(app) {
       AuthService.signOut();
     };
 
-    $scope.$watch(function() { return $cookies.user }, function(validUser) {
+    $scope.$watch(function() { return $cookies.user; }, function(validUser) {
       $scope.currentUser = validUser;
     });
   }]);

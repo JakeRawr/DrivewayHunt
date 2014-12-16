@@ -1,12 +1,20 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('SearchController', ['$scope', function($scope) {
+  app.controller('SearchController', ['$scope', 'SaleSearch', function($scope, SaleSearch) {
     $scope.sales = null;
+    $scope.errors = [];
 
     //search for results
-
-    //set boolean to show/hide searchResults directive
-
+    $scope.searchForSales = function(location) {
+      SaleSearch.search(location)
+        .success(function(data) {
+          $scope.sales = data;
+        })
+        .error(function(err) {
+          console.log(err);
+          $scope.errors.push(err);
+        });
+    };
   }]);
 };

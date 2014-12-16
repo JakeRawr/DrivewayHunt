@@ -68,11 +68,11 @@
 </section>
 <!-- Search -->
 <section data-ng-controller="SearchController">
-  <form id="theForm" class="searchform" autocomplete="off">
+  <form id="theForm" class="searchform" autocomplete="off" data-ng-submit="searchForSales(sale.searchParams)">
     <div class="searchFormInner">
       <main>
         <label id="searchLabel" for="search">Search</label>
-        <input id="search" name="search" type="search" placeholder="City, Neighborhood, or Zip Code">
+        <input id="search" name="search" type="search" placeholder="City, Neighborhood, or Zip Code" data-ng-model="sale.searchParams">
       </main>
       <small class="howSearch">Search the online community to find and post yard sales.</small>
       <button class="submit" type="submit">Send answers</button>
