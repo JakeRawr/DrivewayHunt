@@ -5,3 +5,5 @@ build/
 test/angular_testbundle.js
 **/*.sw?
 cloudinary.yml
+.sass-cache
+app/.sass-cache

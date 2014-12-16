@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Drive Way Hunt</title>
+    <meta name="description" content=" " />
+    <meta name="keywords" content=" " />
+    <link rel="stylesheet" type="text/css" href="sass/style.css" />
+  </head>
+  <body data-ng-app="drivewayApp" data-ng-controller="AppController">
+    <!-- Header: Menu/Nav Buttons Trigger Modal -->
+    <header id="userMenu">
+      <ol class="modalContainer">
+        <li>
+          <button class="md-trigger btn btn-1 btn-1a" data-modal="modal-1" type="checkbox" name="userLogIn" value="check" data-ng-click="currentUser ? signOut() : signIn()">{{currentUser ? 'Log Out' : 'Log In'}}</button>
+        </li>
+        <li> <!-- sign up modal button -->
+          <button id="signUp" class="md-trigger btn btn-1 btn-1a" data-modal="modal-2" type="checkbox" name="userSignUp" value="check" data-ng-if="!currentUser">Sign Up</button>
+         </li>
+      </ol>
+      <div class="logoContainer">
+        <img class="headerLogo" src="img/fpo_logo.png">
+      </div>
+    </header>
+
+    <main data-ng-view></main>
+
+    <div class="md-overlay"></div>
+    <script src="app_bundle.js"></script>
+  </body>
+</html>
