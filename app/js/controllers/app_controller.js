@@ -1,9 +1,10 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('AppController', ['$scope', 'AUTH_EVENTS', 'AuthService', function($scope, AUTH_EVENTS, AuthService) {
+  app.controller('AppController', ['$scope', 'AUTH_EVENTS', 'AuthService', '$cookies', function($scope, AUTH_EVENTS, AuthService, $cookies) {
     /**
      * Keep track of current user
+     * Initialize to null
      */
     $scope.currentUser = null;
 
@@ -11,12 +12,11 @@ module.exports = function(app) {
      * Listen for broadcasted AUTH_EVENTS
      */
     $scope.$on(AUTH_EVENTS.loginSuccess, function(event, data) {
-      // TO-DO -> remember to fix this
-      $scope.currentUser = data.user;
+
     });
 
     $scope.$on(AUTH_EVENTS.logoutSuccess, function() {
-      $scope.currentUser = null;
+
     });
 
     $scope.signIn = function() {
@@ -29,5 +29,8 @@ module.exports = function(app) {
       AuthService.signOut();
     };
 
+    $scope.$watch(function() { return $cookies.user }, function(validUser) {
+      $scope.currentUser = validUser;
+    });
   }]);
 };

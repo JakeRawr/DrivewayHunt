@@ -1,5 +1,5 @@
 'use strict';
 
-module.export = function() {
-
+module.exports = function(app) {
+  require('./results_map_directive')(app);
 };

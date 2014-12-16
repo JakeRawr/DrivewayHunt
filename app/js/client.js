@@ -13,16 +13,19 @@ require('./constants/app_constants')(app);
 //services
 require('./services/all_services')(app);
 
+//directives
+require('./directives/all_directives')(app);
+
 //controllers
 require('./controllers/all_controllers')(app);
-
-//directives
-//require('./directives/all_directives')(app);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
   .when('/', {
     templateUrl: 'js/templates/home.html'
+  })
+  .when('/searchResults', {
+    templateUrl: 'js/templates/search_results.html'
   })
   .otherwise({
     redirectTo: '/'
