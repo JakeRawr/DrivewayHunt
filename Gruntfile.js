@@ -36,7 +36,7 @@ module.exports = function(grunt) {
     },
 
     simplemocha: {
-      src: ['tests/**/*.js']
+      src: ['tests/api/*.js']
     },
 
     sass: {
@@ -90,11 +90,22 @@ module.exports = function(grunt) {
         src: ['index.html', 'js/templates/**/*.html', 'sass/style.css', 'img/**/*.*', 'fonts/**/*.*'],
         dest: 'build/'
       }
+    },
+
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js'
+      },
+      continuous: {
+        configFile: 'karma.conf.js',
+        singleRun: true,
+        browsers: ['PhantomJS']
+      }
     }
   });
 
   grunt.registerTask('sass:watch', ['watch:sass', 'watch:livereload']);
-  grunt.registerTask('test', ['jshint', 'jscs', 'simplemocha']);
+  grunt.registerTask('test', ['jshint', 'jscs', 'simplemocha', 'karma:unit']);
   grunt.registerTask('build', ['clean', 'sass', 'browserify:dev', 'browserify:test', 'copy:dev']);
-
+  grunt.registerTask('test:client', ['browserify:test', 'karma:unit']);
 };

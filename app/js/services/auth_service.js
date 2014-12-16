@@ -23,7 +23,6 @@ module.exports = function(app) {
     };
 
     authService.signUp = function(newUser) {
-      console.log('here', newUser);
       $http.post('/api/users', newUser)
       .success(function(data) {
         //set cookies
