@@ -21,8 +21,20 @@ module.exports = function(app) {
       })
     };
 
-    authService.signUp = function(credentials) {
+    authService.signUp = function(newUser) {
+      console.log('here', newUser);
+      $http.post('/api/users', newUser)
+      .success(function(data) {
+        //set cookies
+        $cookies.jwt = data.jwt;
+        //change route
 
+        //broadcast authevent
+        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess, {user: newUser.email})
+      })
+      .error(function(err) {
+        console.log(err);
+      });
     };
 
     authService.signOut = function() {

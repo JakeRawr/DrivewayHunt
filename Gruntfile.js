@@ -87,8 +87,7 @@ module.exports = function(grunt) {
       dev: {
         cwd: 'app',
         expand: true,
-        //src: ['index.html', 'sass/style.css', 'img/**/*.*', 'fonts/**/*.*'],
-        src: ['index.html', 'js/templates/**/*.html', 'img/**/*.*', 'fonts/**/*.*'],
+        src: ['index.html', 'js/templates/**/*.html', 'sass/style.css', 'img/**/*.*', 'fonts/**/*.*'],
         dest: 'build/'
       }
     }
@@ -96,7 +95,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('sass:watch', ['watch:sass', 'watch:livereload']);
   grunt.registerTask('test', ['jshint', 'jscs', 'simplemocha']);
-  //grunt.registerTask('build', ['clean', 'sass', 'browserify:dev', 'browserify:test', 'copy:dev']);
-  grunt.registerTask('build', ['clean', 'browserify:dev', 'browserify:test', 'copy:dev']);
+  grunt.registerTask('build', ['clean', 'sass', 'browserify:dev', 'browserify:test', 'copy:dev']);
 
 };

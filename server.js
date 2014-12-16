@@ -38,6 +38,11 @@ require('./server/routes/user_routes')(app, passport);
 require('./server/routes/sales_routes')(app, jwtAuth);
 require('./server/routes/items_routes')(app, jwtAuth, mongoose);
 
+app.use(function(err, req, res) {
+  console.log(err);
+  res.status(500).send('server error');
+});
+
 /**
  * Start server and export app for unit testing
  */
