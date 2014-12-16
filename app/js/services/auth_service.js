@@ -14,11 +14,11 @@ module.exports = function(app) {
         //change route
 
         //broadcast authevent
-        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess, {user: credentials.email})
+        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess, {user: credentials.email});
       })
       .error(function(err) {
         console.log(err);
-      })
+      });
     };
 
     authService.signUp = function(newUser) {
@@ -30,7 +30,7 @@ module.exports = function(app) {
         //change route
 
         //broadcast authevent
-        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess, {user: newUser.email})
+        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess, {user: newUser.email});
       })
       .error(function(err) {
         console.log(err);

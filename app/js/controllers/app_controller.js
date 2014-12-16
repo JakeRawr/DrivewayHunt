@@ -15,7 +15,7 @@ module.exports = function(app) {
       $scope.currentUser = data.user;
     });
 
-    $scope.$on(AUTH_EVENTS.logoutSuccess, function(event, data) {
+    $scope.$on(AUTH_EVENTS.logoutSuccess, function() {
       $scope.currentUser = null;
     });
 

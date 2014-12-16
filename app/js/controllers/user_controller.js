@@ -6,7 +6,7 @@ module.exports = function(app) {
 
     $scope.signIn = function(credentials) {
       AuthService.signIn(credentials);
-    }
+    };
 
     $scope.signUp = function(newUser) {
       console.log(newUser);
