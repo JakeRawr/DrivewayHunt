@@ -10,10 +10,10 @@ var userSchema = mongoose.Schema({
     password: {type: String, required: true}
   },
   firstName: {type: String, required: true},
-  lastName: {type: String, required: true},
-  city: {type: String, required: true},
-  state: {type: String, required: true},
-  zip: {type: Number, required: true},
+  lastName: {type: String},
+  city: {type: String},
+  state: {type: String},
+  zip: {type: Number},
   phone: String
 });
 
