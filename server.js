@@ -29,7 +29,7 @@ var jwtAuth = require('./server/lib/jwt_auth')(app.get('jwtSecret'));
 /**
  * Serve static resources
  */
-app.use(express.static(__dirname + '/build'));
+app.use(express.static(__dirname + '/build/app'));
 
 /**
  * Require routes
