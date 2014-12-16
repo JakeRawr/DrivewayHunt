@@ -24,9 +24,6 @@ app.config(['$routeProvider', function($routeProvider) {
   .when('/', {
     templateUrl: 'js/templates/home.html'
   })
-  .when('/searchResults', {
-    templateUrl: 'js/templates/search_results.html'
-  })
   .otherwise({
     redirectTo: '/'
   });
