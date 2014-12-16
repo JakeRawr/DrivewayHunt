@@ -9,7 +9,6 @@ module.exports = function(app) {
     };
 
     $scope.signUp = function(newUser) {
-      console.log(newUser);
       if (newUser.password !== newUser.passwordConfirmation) {
         $scope.errors.push('passwords do not match');
         return;
