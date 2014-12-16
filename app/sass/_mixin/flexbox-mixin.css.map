@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAuBA,2BAMC;EALD,eAAgB;IACZ,KAAK,EAAE,IAAI;IACX,eAAe,EAAE,UAAU",
-"sources": ["flexbox-mixin.scss"],
-"names": [],
-"file": "flexbox-mixin.css"
-}

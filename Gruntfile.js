@@ -15,8 +15,8 @@ module.exports = function(grunt) {
     project: {
       app: ['app'],
       server: ['server'],
-      scss: ['<%= project.app %>/sass/style.scss'],
-      css: ['<%= project.app %>/**/*.css', '!<%= project.app %>/sass/**/*'],
+      scss: ['<%= project.app %>/sass/**/*.scss'],
+      css: ['<%= project.app %>/**/*.css', '!<%= project.app %>/sass/**/*.*'],
       html: ['<%= project.app %>/**/*.html'],
       alljs: ['<%= project.app %>/js/**/*.js', '<%= project.server %>/**/*.js']
     },
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-          'app/sass/style.css': '<%= project.scss %>'
+          'app/sass/style.css': '<%= project.app %>/sass/style.scss'
         }
       }
     },
@@ -85,8 +85,9 @@ module.exports = function(grunt) {
 
     copy: {
       dev: {
+        cwd: 'app',
         expand: true,
-        src: ['app/index.html', 'app/sass/style.css'],
+        src: ['index.html', 'js/templates/**/*.html', 'sass/style.css', 'img/**/*.*', 'fonts/**/*.*'],
         dest: 'build/'
       }
     }
@@ -95,6 +96,5 @@ module.exports = function(grunt) {
   grunt.registerTask('sass:watch', ['watch:sass', 'watch:livereload']);
   grunt.registerTask('test', ['jshint', 'jscs', 'simplemocha']);
   grunt.registerTask('build', ['clean', 'sass', 'browserify:dev', 'browserify:test', 'copy:dev']);
-  grunt.registerTask('default', ['sass']);
 
 };
