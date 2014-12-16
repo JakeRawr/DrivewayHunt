@@ -85,15 +85,9 @@ module.exports = function(grunt) {
 
     copy: {
       dev: {
-<<<<<<< HEAD
-        cwd: 'app/',
-        expand: true,
-        src: ['index.html', 'sass/style.css'],
-=======
         cwd: 'app',
         expand: true,
         src: ['index.html', 'js/templates/**/*.html', 'sass/style.css', 'img/**/*.*', 'fonts/**/*.*'],
->>>>>>> 4b7b88fcc81437e5ea88f502635d95240b3b0042
         dest: 'build/'
       }
     }
