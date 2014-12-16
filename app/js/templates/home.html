@@ -1,0 +1,84 @@
+
+<section data-ng-controller="UserController">
+  <!-- Log In Modal 1 -->
+  <div class="md-modal md-effect-1" id="modal-1">
+    <fieldset class="md-content">
+      <form name="login" class="userModal">
+        <h2 class="headModal">Hello, again<h2>
+        <ol class="loginModal">
+          <button class="btn google" type="checkbox" value="check" data-id="login-user">Log in with Google</button>
+
+          <button class="btn facebook" type="checkbox" value="check" data-id="login-user">Log in with Facebook</button>
+
+          <li data-id="login-user"><small name="login-cta"> Or with your email</small></li>
+
+          <li class="email" data-id="login-user">
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" type="email" name="email" title="Your Email" pattern="[^ @]*@[^ @]*" data-ng-model="credentials.email">
+          </li>
+          <li class="password" data-id="login-user">
+            <label for="loginPassword">Password</label>
+            <input id="loginPassword" type="password" name="password" title="Your Password" data-ng-model="credentials.password">
+          </li>
+          <li class="detect" data-id="login-user">
+            <label for="userDetect">Remember Me!</label>
+            <input id="userDetect" type="checkbox" value="Checked" checked>
+          </li>
+          <button class="btn md-close" name="submit" value="Submit" data-id="login-submit" data-ng-click="signIn(credentials)">Submit</button>
+        </ol>
+      </form>
+    </fieldset>
+  </div>
+  <!-- Sign Up Modal 2 -->
+  <div class="md-modal md-effect-1" id="modal-2">
+    <fieldset class="md-content">
+      <form name="register" class="userModal">
+        <h2 class="headModal">Sign Up<h2>
+        <ol class="loginModal">
+          <button class="btn google" type="checkbox" value="check" data-id="new-user">Sign up with Google</button>
+          <button class="btn facebook" type="checkbox" value="check" data-id="new-user">Sign up with Facebook</button>
+          <li data-id="new-user"><small name="login-cta"> Or sign up with your email</small></li>
+          <li class="name" data-id="new-user">
+            <label for="firstName">First Name</label>
+            <input id="firstName" type="text" name="name" title="Minimum 2 Characters" pattern="[a-zA-Z]{2,}" data-ng-model="newUser.firstName">
+          </li>
+          <li class="email" data-id="new-user">
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" type="email" name="email" value=" " title="Your Email" pattern="[^ @]*@[^ @]*" data-ng-model="newUser.email">
+          </li>
+          <li class="password" data-id="new-user">
+            <label for="makePassword">Password <small>(8 alpha-numeric characters)</small></label>
+            <input id="makePassword" type="password" name="password" title="Minimum 8 Characters or Numbers" pattern="[a-zA-Z0-9]{8,}" data-ng-model="newUser.password">
+          </li>
+          <li class="password" data-id="new-user">
+            <label for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" type="password" name="password" title="Confirm Your Password" data-ng-model="newUser.passwordConfirmation">
+          </li>
+          <li class="detect" data-id="new-user">
+            <label for="userAgree">Agree to the User Policy</label>
+            <input id="userAgree" type="checkbox" value="Checked" checked>
+          </li>
+          <button class="btn md-close" name="submit" value="Submit" data-id="login-submit" data-ng-click="signUp(newUser)">Submit</button>
+        </ol>
+      </form>
+    </fieldset>
+  </div>
+</section>
+<!-- Search -->
+<section>
+  <form id="theForm" class="searchform" autocomplete="off">
+    <div class="searchFormInner">
+      <main>
+        <label id="searchLabel" for="search">Search</label>
+        <input id="search" name="search" type="search" placeholder="City, Neighborhood, or Zip Code">
+      </main>
+      <small class="howSearch">Search the online community to find and post yard sales.</small>
+      <button class="submit" type="submit">Send answers</button>
+      <div class="controls">
+        <button class="next"></button>
+        <div class="progress"></div>
+      </div>
+      <span class="error-message"></span>
+    </div>
+  </form>
+</section>
