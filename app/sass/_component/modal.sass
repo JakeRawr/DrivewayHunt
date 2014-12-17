@@ -95,49 +95,40 @@ button[data-id="login-submit"]
     background-color: $color-teal
     color: white
 
-// Modal Hide and Show
+.md-show
+  visibility: visible
+
+  // Modal Hide and Show
 .md-modal
   position: fixed
   top: 50%
   left: 50%
   width: 50%
   height: auto
+  visibility: visible
   z-index: 2000
-  visibility: hidden
   -webkit-backface-visibility: hidden
   -moz-backface-visibility: hidden
   backface-visibility: hidden
   @include transform(translateX(-50%) translateY(-50%))
 
-.md-show
-  visibility: visible
 
-.md-overlay
+.mdoverlay
   position: fixed
   width: 100%
   height: 100%
-  visibility: hidden
+  visibility: visible
   top: 0
   left: 0
+  opacity: 1
   z-index: 1000
-  opacity: 0
   background: $rgba-drkgrey
   @include transition(all 0.3s)
 
-.md-show ~ .md-overlay
-  opacity: 1
-  visibility: visible
+// .mdshow ~ .mdoverlay
+  // opacity: 1
+  // visibility: visible
 
-/* modal styles with animations/transitions */
-/* fade in and scale up */
-.md-effect-1 .md-content
-  @include transform(scale(0.7))
-  @include transition(all 0.3s)
-  opacity: 0
-
-.md-show.md-effect-1 .md-content
-  @include transform(scale(1))
-  opacity: 1
 
 @media screen and (max-width: 32em)
   body

@@ -87,7 +87,7 @@ module.exports = function(grunt) {
       dev: {
         cwd: 'app',
         expand: true,
-        src: ['index.html', 'js/templates/**/*.html', 'sass/style.css', 'img/**/*.*', 'fonts/**/*.*'],
+        src: ['index.html', 'js/templates/**/*.html', 'sass/style.css', 'img/**/*.*', 'fonts/**/*.*', 'sass/style.css.map'],
         dest: 'build/'
       }
     },
@@ -105,7 +105,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('sass:watch', ['watch:sass', 'watch:livereload']);
-  grunt.registerTask('test', ['jshint', 'jscs', 'simplemocha', 'karma:unit']);
+  grunt.registerTask('test', ['jshint', 'jscs', 'simplemocha', 'browserify:test', 'karma:unit']);
   grunt.registerTask('build', ['clean', 'sass', 'browserify:dev', 'browserify:test', 'copy:dev']);
   grunt.registerTask('test:client', ['browserify:test', 'karma:unit']);
 };

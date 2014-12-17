@@ -6,7 +6,6 @@ module.exports = function(app) {
      * Keep track of current user
      */
     $scope.currentUser = null;
-
     /**
      * Listen for broadcasted AUTH_EVENTS
      */
@@ -20,13 +19,16 @@ module.exports = function(app) {
     });
 
     $scope.signIn = function() {
-      console.log('sign in event');
-      //open the view with the sign in stuff
+      $scope.$broadcast(AUTH_EVENTS.loginAttempt);
     };
 
     $scope.signOut = function() {
       console.log('sign out event');
       AuthService.signOut();
+    };
+
+    $scope.signUp = function() {
+      $scope.$broadcast(AUTH_EVENTS.signupAttempt);
     };
 
   }]);
