@@ -1,5 +1,5 @@
 <div class="logoContainer">
-  <img class="headerLogo" src="img/fpo_logo.png">
+  <img class="headerLogo" src="../../img/fpo_logo.png">
 </div>
 <section data-ng-controller="UserController"  data-ng-class="{mdoverlay: loginModalShown||signupModalShown}" data-ng-click="toggleModal()">
   <!-- Log In Modal 1 -->
@@ -10,8 +10,8 @@
   </div>
 </section>
 <!-- Search -->
-<section data-ng-controller="SearchController">
-  <form id="theForm" class="searchform" autocomplete="off" data-ng-submit="searchForSales(sale.searchParams)">
+<section class="search-results-container" data-ng-controller="SearchController">
+  <form class="searchform" autocomplete="off" data-ng-submit="searchForSales(sale.searchParams)">
     <div class="searchFormInner">
       <main>
         <label id="searchLabel" for="search">Search</label>
@@ -26,5 +26,5 @@
       <span class="error-message"></span>
     </div>
   </form>
-  <div data-search-results ng-if="sales"></div>
+  <div class="search-results-view" data-search-results ng-if="sales"></div>
 </section>

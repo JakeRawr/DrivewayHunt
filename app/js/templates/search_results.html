@@ -1,69 +1,51 @@
-<div>
-  <section class="row">
-    <div class="container col-2-3">
-      <!-- Table Header -->
-      <table >
-        <thead id="resultsHeader">
-          <tr>
-            <th scope="row"></th>
-            <td class="searchColumn" colspan="2">
-             {{ city }}
-            <h4>Results<h4>
-            </td>
-            <td class="distanceColumn" colspan="1">
-            <ol data-type="filter">
-              <li>Sort by</li>
-              <li>Distance</li>
-            </ol>
-            </td>
-            <td class="dateColumn" colspan="1">
-            <ol data-type="filter">
-              <li>Sort by</li>
-              <li>Date</li>
-            </ol>
-            </td>
-            <!-- expand icon column -->
-            <td class="expandColumn" colspan="1">
-            <ol>
-              <li data-type="expand"></li>
-            </ol>
-            </td>
-          </tr>
-        </thead>
-        <!-- event 1 starts -->
-        <tbody data-ng-repeat="sale in sales">
-          <tr>
-            <th scope="row"></th>
-            <td class="results" colspan="2">
-              <ol name="event" data-type="event-info">
-                <h4>{{sale.title}}</h4>
-                <li><strong>Location:</strong>{{sale.address}}</li>
-                <li><time datetime><strong>Date:</strong>{{(sale.dateStart  | date : 'mediumDate') + ' - ' + (sale.dateEnd  | date : 'mediumDate')}}</time></li>
-              </ol>
-            </td>
-            <!-- distance col -->
-            <td class="distance" colspan="1">
-              <ol name="event" data-type="distance">
-                <h5>Miles</h5>
-                <li>{{sale.distance}}</li>
-              </ol>
-            </td>
-            <!-- Date & Time col  -->
-            <td class="date" colspan="1">
-              <ol name="event" data-type="date-time">
-                <h5>Date</h5>
-                <li><time datetime>{{(sale.dateStart  | date : 'mediumDate')}}</time></li>
-                <li><time datetime>{{sale.timeStart | date : 'shortTime'}}</time></li>
-              </ol>
-            </td>
-            <!-- icon col -->
-            <td class="icon" colspan="1">
-            <h4 data-icon="open"><h4/>
-            </td>
-          </tr>
-        </tbody>
-      </table> <!-- end of table -->
-    </div>
-  </section>
-  <ui-gmap-google-map id="map-canvas" center="{latitude: 45, longitude: -73}" zoom="8"></ui-gmap-google-map>
-</div>
+<!-- Table Header -->
+<table id="results-table">
+  <thead id="resultsHeader">
+    <tr>
+      <td class="searchColumn" colspan="2">
+       {{ city }}
+      <h4>Results<h4>
+      </td>
+      <td class="dateColumn" colspan="1">
+      <ol data-type="filter">
+        <li>Sort by</li>
+        <li>Date</li>
+      </ol>
+      </td>
+      <!-- expand icon column -->
+      <td class="expandColumn" colspan="1">
+      <ol>
+        <li data-type="expand"></li>
+      </ol>
+      </td>
+    </tr>
+  </thead>
+  <!-- event 1 starts -->
+  <tbody data-ng-repeat="sale in sales">
+    <tr data-ng-click="relocate(sale.lat, sale.lng)">
+      <td class="results" colspan="2">
+        <ol name="event" data-type="event-info">
+          <h4>{{sale.title}}</h4>
+          <li><strong>Location:</strong>{{sale.address}}</li>
+          <li><time datetime><strong>Date:</strong>{{(sale.dateStart  | date : 'mediumDate') + ' - ' + (sale.dateEnd  | date : 'mediumDate')}}</time></li>
+        </ol>
+      </td>
+      <!-- Date & Time col  -->
+      <td class="date" colspan="1">
+        <ol name="event" data-type="date-time">
+          <h5>Date</h5>
+          <li><time datetime>{{(sale.dateStart  | date : 'mediumDate')}}</time></li>
+          <li><time datetime>{{sale.timeStart | date : 'shortTime'}}</time></li>
+        </ol>
+      </td>
+      <!-- icon col -->
+      <td class="icon" colspan="1">
+      <h4 data-icon="open"><h4/>
+      </td>
+    </tr>
+  </tbody>
+</table> <!-- end of table -->
+<ui-gmap-google-map center="mark.loc" zoom="14" id="google-map-container">
+  <ui-gmap-marker coords="mark.loc" idkey="0">
+  </ui-gmap-marker>
+</ui-gmap-google-map>
