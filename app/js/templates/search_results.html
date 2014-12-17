@@ -3,7 +3,6 @@
   <thead id="resultsHeader">
     <tr>
       <td class="searchColumn" colspan="2">
-       {{ city }}
       <h4>Results<h4>
       </td>
       <td class="dateColumn" colspan="1">
@@ -22,10 +21,10 @@
   </thead>
   <!-- event 1 starts -->
   <tbody data-ng-repeat="sale in sales">
-    <tr data-ng-click="relocate(sale.lat, sale.lng)">
+    <tr data-ng-click="relocate($event, sale.lat, sale.lng)">
       <td class="results" colspan="2">
         <ol name="event" data-type="event-info">
-          <h4>{{sale.title}}</h4>
+          <h4 id="redirectSale" data-ng-click="redirectSale()" style="cursor:pointer; text-decoration: underline;">{{sale.title}}</h4>
           <li><strong>Location:</strong>{{sale.address}}</li>
           <li><time datetime><strong>Date:</strong>{{(sale.dateStart  | date : 'mediumDate') + ' - ' + (sale.dateEnd  | date : 'mediumDate')}}</time></li>
         </ol>
