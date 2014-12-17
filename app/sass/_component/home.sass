@@ -1,10 +1,3 @@
-@import '../_mixin/vertical-align-mixin'
-@import '../_mixin/input-placeholder-mixin'
-@import '../_global/variables'
-@import '../_mixin/flexbox-mixin'
-@import '../_mixin/clearfix-mixin'
-@import '../_utility/em-function'
-
 .logoContainer
 	position: relative
 	padding-top: em(20px)
@@ -32,7 +25,6 @@
 	max-width: 600px
 	width: 100%
 	text-align: left
-	@include clearfix
 
 
 .submit
@@ -72,7 +64,6 @@
 	font-size: $base__paragraph
 	letter-spacing: em(1px)
 	line-height: 1.5
-
 
 /* dynamic button need show onkeydown */
 .next

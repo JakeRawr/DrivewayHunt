@@ -4,7 +4,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
 @font-face {
   font-weight: normal;
   font-style: normal;
@@ -14,7 +13,6 @@
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
-
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -106,7 +104,140 @@ section {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block; }
 
+audio, canvas, video {
+  display: inline-block; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden] {
+  display: none; }
+
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0; }
+
+a:focus {
+  outline: thin dotted; }
+
+a:active, a:hover {
+  outline: 0; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b, strong {
+  font-weight: bold; }
+
+dfn {
+  font-style: italic; }
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+code, kbd, pre, samp {
+  font-family: monospace,serif;
+  font-size: 1em; }
+
+pre {
+  white-space: pre-wrap; }
+
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+small {
+  font-size: 80%; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+img {
+  border: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 0; }
+
+legend {
+  border: 0;
+  padding: 0; }
+
+button, input, select, textarea {
+  font-family: inherit;
+  margin: 0; }
+
+button, input {
+  line-height: normal; }
+
+button, select {
+  text-transform: none; }
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled], html input[disabled] {
+  cursor: default; }
+
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+textarea {
+  overflow: auto;
+  vertical-align: top; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("../fonts/font-awesome/fontawesome-webfont.eot");
+  src: url("../fonts/font-awesome/fontawesome-webfont.eot") format("embedded-opentype");
+  src: url("../fonts/font-awesome/fontawesome-webfont.woff") format("woff");
+  src: url("../fonts/font-awesome/fontawesome-webfont.ttf") format("truetype");
+  src: url("../fonts/font-awesome/fontawesome-webfont.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 @font-face {
   font-weight: normal;
   font-style: normal;
@@ -116,12 +247,10 @@ section {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
-
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
-
 /* General button style (reset) */
 .btn {
   border: none;
@@ -163,8 +292,8 @@ section {
 /* Button 1a (Home Button States) */
 .btn-1a:hover,
 .btn-1a:active {
-  border: 3px solid #a1dbb2;
-  background-color: #a1dbb2;
+  border: 3px solid #A1DBB2;
+  background-color: #A1DBB2;
   color: white; }
 
 @font-face {
@@ -176,12 +305,10 @@ section {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
-
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
-
 .userModal {
   color: white;
   background-color: #ff6666;
@@ -257,7 +384,7 @@ button[data-id="login-submit"] {
   width: 40%;
   left: calc(50% - 40%/2); }
   button[data-id="login-submit"]:hover, button[data-id="login-submit"]:active {
-    background-color: #a1dbb2;
+    background-color: #A1DBB2;
     color: white; }
 
 .md-show {
@@ -302,21 +429,6 @@ button[data-id="login-submit"] {
   .md-modal {
     font-weight: 400;
     left: calc(50% - 38%/2); } }
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: "icomoon";
-  src: url("fonts/icomoon/icomoon.eot");
-  src: url("fonts/icomoon/icomoon.eot") format("opentype");
-  src: url("fonts/icomoon/icomoon.woff") format("woff");
-  src: url("fonts/icomoon/icomoon.ttf") format("truetype");
-  src: url("fonts/icomoon/icomoon.svg") format("svg"); }
-
-@-moz-document url-prefix() {
-  .flex-container {
-    width: 100%;
-    -moz-box-sizing: border-box; } }
-
 .logoContainer {
   position: relative;
   padding-top: 20px; }
@@ -357,10 +469,6 @@ button[data-id="login-submit"] {
   max-width: 600px;
   width: 100%;
   text-align: left; }
-  .searchform:after {
-    content: "";
-    display: table;
-    clear: both; }
 
 .submit {
   display: none; }
@@ -384,7 +492,7 @@ button[data-id="login-submit"] {
   font-size: 1em;
   line-height: 1; }
   #search:focus {
-    border: 3px solid #a1dbb2;
+    border: 3px solid #A1DBB2;
     outline: none; }
   #search.placeholder {
     font-weight: 300;
@@ -452,12 +560,10 @@ button[data-id="login-submit"] {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
-
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
-
 table {
   text-align: left; }
 
@@ -465,10 +571,13 @@ table {
   padding-left: 20px;
   padding-right: 20px; }
 
+.grid,
+.col-1-3,
 .col-2-3 {
   padding-left: 15px;
   padding-right: 15px; }
 
+.col-1-3,
 .col-2-3 {
   display: inline-block;
   vertical-align: top; }
@@ -506,7 +615,7 @@ thead {
 thead,
 tbody,
 td {
-  border-bottom: 1px solid #ff9d2e;
+  border-bottom: 1px solid #FF9D2E;
   padding: 15px 0; }
 
 table h4 {
@@ -519,7 +628,7 @@ table h4 {
   letter-spacing: 1px; }
 
 .searchColumn {
-  color: #ff9d2e;
+  color: #FF9D2E;
   font-size: 16px;
   min-width: 300px; }
   .searchColumn h4 {
@@ -575,12 +684,10 @@ body {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
-
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
-
 @font-face {
   font-family: "FontAwesome";
   src: url("../fonts/font-awesome/fontawesome-webfont.eot");
@@ -590,7 +697,6 @@ body {
   src: url("../fonts/font-awesome/fontawesome-webfont.svg") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -646,7 +752,7 @@ img[data-id="profile-logo"] {
   padding-bottom: 10px; }
 
 .events {
-  background-color: #ff9d2e; }
+  background-color: #FF9D2E; }
 
 .profile {
   background-color: #ff6666; }
@@ -674,6 +780,13 @@ h4[data-type="profile-header"] {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   /* stops bg color from leaking outside the border: */ }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
 /*  SECTIONS  */
 .section {
@@ -731,3 +844,5 @@ h4[data-type="profile-header"] {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
+
+/*# sourceMappingURL=style.css.map */
