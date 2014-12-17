@@ -15,7 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'tests/app/build/unit_test.js'
+      'tests/angular_test_bundle.js'
     ],
 
 

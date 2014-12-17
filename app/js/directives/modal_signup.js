@@ -7,5 +7,5 @@ module.exports = function(app) {
       templateUrl: 'js/templates/modal_signup.html',
       transclude: true
     };
-  }); 
+  });
 };

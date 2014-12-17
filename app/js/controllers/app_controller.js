@@ -19,8 +19,7 @@ module.exports = function(app) {
     });
 
     $scope.signIn = function() {
-      $scope.$broadcast(AUTH_EVENTS.loginAttempt)
-      
+      $scope.$broadcast(AUTH_EVENTS.loginAttempt);
     };
 
     $scope.signOut = function() {
@@ -28,8 +27,8 @@ module.exports = function(app) {
       AuthService.signOut();
     };
 
-    $scope.signUp = function(){
-      $scope.$broadcast(AUTH_EVENTS.signupAttempt)
+    $scope.signUp = function() {
+      $scope.$broadcast(AUTH_EVENTS.signupAttempt);
     };
 
   }]);

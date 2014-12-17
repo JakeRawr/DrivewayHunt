@@ -25,8 +25,6 @@ module.exports = function(app) {
     };
 
     authService.signUp = function(newUser) {
-      var _this = this;
-      console.log('here', newUser);
       $http.post('/api/users', newUser)
       .success(function(data) {
         console.log('auth service signup');
@@ -42,7 +40,7 @@ module.exports = function(app) {
     };
 
     authService.signOut = function() {
-      console.log('auth service signout')
+      console.log('auth service signout');
       //delete jwt from cookie
       delete $cookies.jwt;
 

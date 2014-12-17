@@ -5,7 +5,7 @@ module.exports = function(app) {
     return {
       restrict: 'EAC',
       templateUrl: 'js/templates/modal_login.html',
-      transclude: true,
+      transclude: true
     };
   });
 };
