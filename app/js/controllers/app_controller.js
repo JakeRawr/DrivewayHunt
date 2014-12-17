@@ -9,12 +9,14 @@ module.exports = function(app) {
     $scope.currentUser = null;
 
     $scope.signIn = function() {
-      console.log('sign in event');
-      //open the view with the sign in stuff
+      $scope.$broadcast(AUTH_EVENTS.loginAttempt);
+    };
+
+    $scope.signUp = function() {
+      $scope.$broadcast(AUTH_EVENTS.signupAttempt);
     };
 
     $scope.signOut = function() {
-      console.log('sign out event');
       AuthService.signOut();
     };
 

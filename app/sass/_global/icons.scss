@@ -1,12 +1,16 @@
-// Font Icon Source
 @font-face {
-  font-family: 'FontAwesome', sans-serif;
-  src: url('http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts');
-};
+  font-family: 'FontAwesome';
+  src: url('../fonts/font-awesome/fontawesome-webfont.eot');
+  src: url('../fonts/font-awesome/fontawesome-webfont.eot') format('embedded-opentype');
+  src: url('../fonts/font-awesome/fontawesome-webfont.woff') format('woff');
+  src: url('../fonts/font-awesome/fontawesome-webfont.ttf') format('truetype');
+  src: url('../fonts/font-awesome/fontawesome-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
 // Font Icon Sass Map
-$icons: (
-  plus: "\f055",
+$icons: ( plus: "\f055" );
   minus: "\f056",
   arrow-down: "\f063",
   arrow-up: "\f062",
@@ -22,7 +26,7 @@ $icons: (
   tags: "\f02c",
   upload: "\f0ee",
   edit: "\f040"
-)
+);
 
 //Base styles for font icons
 //Styles are included in Icon-Mixins.scss

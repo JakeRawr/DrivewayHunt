@@ -1,0 +1,29 @@
+<div class="md-modal md-effect-1" id="modal-1">
+  <fieldset class="md-content">
+    <form name="login" class="userModal">
+      <h2 class="headModal">Hello, again<h2>
+      <ol class="loginModal">
+        <button class="btn google" type="checkbox" value="check" data-id="login-user">Log in with Google</button>
+
+        <button class="btn facebook" type="checkbox" value="check" data-id="login-user">Log in with Facebook</button>
+
+        <li data-id="login-user"><small name="login-cta"> Or with your email</small></li>
+
+        <li class="email" data-id="login-user">
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" type="email" name="email" title="Your Email" pattern="[^ @]*@[^ @]*" data-ng-model="credentials.email">
+        </li>
+        <li class="password" data-id="login-user">
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" type="password" name="password" title="Your Password" data-ng-model="credentials.password">
+        </li>
+        <li class="detect" data-id="login-user">
+          <label for="userDetect">Remember Me!</label>
+          <input id="userDetect" type="checkbox" value="Checked" checked>
+        </li>
+        <button class="btn md-close" name="submit" value="Submit" data-id="login-submit" data-ng-click="closeModal()">Cancel</button>
+        <button class="btn md-close" name="submit" value="Submit" data-id="login-submit" data-ng-click="signIn(credentials)">Submit</button>
+      </ol>
+    </form>
+  </fieldset>
+</div>

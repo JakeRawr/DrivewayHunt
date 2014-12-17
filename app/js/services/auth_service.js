@@ -13,7 +13,6 @@ module.exports = function(app) {
         $cookies.jwt = data.jwt;
         $cookies.user = credentials.email;
         //change route
-
         //broadcast authevent
         $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
       })
@@ -29,7 +28,6 @@ module.exports = function(app) {
         $cookies.jwt = data.jwt;
         $cookies.user = newUser.email;
         //change route
-
         //broadcast authevent
         $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
       })
@@ -44,8 +42,6 @@ module.exports = function(app) {
       delete $cookies.user;
       //broadcast signout signal
       $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
-
-      //reroute somewhere
     };
 
     return authService;
