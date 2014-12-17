@@ -59,18 +59,18 @@ describe('sales routes', function() {
   };
 
   var testSale2 = {
-    title: 'Farther Test Sale',
+    title: 'Kirkland Test Sale',
     description: 'This is a test sale',
-    address: '511 Boren Avenue North, Seattle, WA 98109 ',
-    city: 'Seattle',
+    address: '123 Test abc st Kirkland, WA 12345 ',
+    city: 'Kirkland',
     state: 'WA',
-    zip: '98109',
+    zip: '12345',
     dateStart: '12-14-14',
     dateEnd: '12-15-14',
     timeStart: '955',
     timeEnd: '955',
-    lat: '49.609',
-    lng: '-122.831',
+    lat: '47.6858',
+    lng: '-122.1917',
     phone: '123-123-1234',
     email: 'email@email.com',
     publish: 'true'
@@ -123,7 +123,7 @@ describe('sales routes', function() {
         expect(res).to.not.have.status(403);
         expect(res).to.not.have.status(500);
         expect(res.body).to.be.an('object');
-        expect(res.body.title).to.eql('Farther Test Sale');
+        expect(res.body.title).to.eql('Kirkland Test Sale');
         done();
       });
   });
@@ -134,7 +134,7 @@ describe('sales routes', function() {
       .end(function(err, res) {
         expect(res).to.not.have.status(500);
         expect(res.body[0]).to.be.an('object');
-        expect(res.body[0].title).to.eql('Test Sale');
+        expect(res.body[0].title).to.eql('Kirkland Test Sale');
         done();
       });
   });

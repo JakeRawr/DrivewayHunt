@@ -14,7 +14,6 @@
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
-
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -33,7 +32,9 @@ body {
   font-family: "Lato", sans-serif;
   font-size: 100%;
   line-height: 1.25;
-  margin: 0; }
+  margin: 0;
+  display: flex;
+  flex-direction: column; }
 
 ul, ol {
   padding: 0;
@@ -106,7 +107,6 @@ section {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
-
 @font-face {
   font-weight: normal;
   font-style: normal;
@@ -116,12 +116,10 @@ section {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
-
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
-
 /* General button style (reset) */
 .btn {
   border: none;
@@ -163,8 +161,8 @@ section {
 /* Button 1a (Home Button States) */
 .btn-1a:hover,
 .btn-1a:active {
-  border: 3px solid #a1dbb2;
-  background-color: #a1dbb2;
+  border: 3px solid #A1DBB2;
+  background-color: #A1DBB2;
   color: white; }
 
 @font-face {
@@ -176,12 +174,10 @@ section {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
-
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
-
 .userModal {
   color: white;
   background-color: #ff6666;
@@ -257,7 +253,7 @@ button[data-id="login-submit"] {
   width: 40%;
   left: calc(50% - 40%/2); }
   button[data-id="login-submit"]:hover, button[data-id="login-submit"]:active {
-    background-color: #a1dbb2;
+    background-color: #A1DBB2;
     color: white; }
 
 .md-show {
@@ -311,14 +307,18 @@ button[data-id="login-submit"] {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
-
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
+#main-app-header {
+  order: 1; }
+
+#main-app-view {
+  order: 2; }
 
 .logoContainer {
-  position: relative;
+  height: 150px;
   padding-top: 20px; }
 
 .headerLogo {
@@ -351,17 +351,6 @@ button[data-id="login-submit"] {
   display: block;
   margin-top: 15%; }
 
-.searchform {
-  position: inherit;
-  margin: 0 auto;
-  max-width: 600px;
-  width: 100%;
-  text-align: left; }
-  .searchform:after {
-    content: "";
-    display: table;
-    clear: both; }
-
 .submit {
   display: none; }
 
@@ -384,7 +373,7 @@ button[data-id="login-submit"] {
   font-size: 1em;
   line-height: 1; }
   #search:focus {
-    border: 3px solid #a1dbb2;
+    border: 3px solid #A1DBB2;
     outline: none; }
   #search.placeholder {
     font-weight: 300;
@@ -433,14 +422,12 @@ button[data-id="login-submit"] {
 .progress {
   margin-top: 5px;
   width: 0%;
-  height: 0.15em;
-  background: rgba(0, 0, 0, 0.3); }
+  height: 0.15em; }
   .progress:before {
     position: absolute;
     top: auto;
     width: 100%;
     height: inherit;
-    background: rgba(0, 0, 0, 0.05);
     content: ""; }
 
 @font-face {
@@ -452,14 +439,42 @@ button[data-id="login-submit"] {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
-
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
-
 table {
   text-align: left; }
+
+.search-results-container {
+  display: flex;
+  flex-direction: column; }
+  .search-results-container .searchform {
+    order: 1;
+    max-width: 600px;
+    width: 100%;
+    text-align: left;
+    align-self: center; }
+    .search-results-container .searchform:after {
+      content: "";
+      display: table;
+      clear: both; }
+  .search-results-container .search-results-view {
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    margin-top: 50px;
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    .search-results-container .search-results-view #results-table {
+      order: 1; }
+    .search-results-container .search-results-view #google-map-container {
+      order: 2; }
+      .search-results-container .search-results-view #google-map-container .angular-google-map-container {
+        width: 400px;
+        min-height: 400px;
+        height: 400px;
+        padding-left: 80px; }
 
 .container {
   padding-left: 20px;
@@ -506,7 +521,7 @@ thead {
 thead,
 tbody,
 td {
-  border-bottom: 1px solid #ff9d2e;
+  border-bottom: 1px solid #FF9D2E;
   padding: 15px 0; }
 
 table h4 {
@@ -519,7 +534,7 @@ table h4 {
   letter-spacing: 1px; }
 
 .searchColumn {
-  color: #ff9d2e;
+  color: #FF9D2E;
   font-size: 16px;
   min-width: 300px; }
   .searchColumn h4 {
@@ -547,17 +562,6 @@ ol[name="event"] {
 ol[data-type="filter"] {
   color: #666666; }
 
-.angular-google-map-container {
-  width: 800px;
-  height: 400px;
-  min-height: 800px;
-  padding-right: 80px; }
-
-body {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around; }
-
 #result_bottom {
   height: 1.2em;
   width: 500px;
@@ -575,12 +579,10 @@ body {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
-
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
-
 @font-face {
   font-family: "FontAwesome";
   src: url("../fonts/font-awesome/fontawesome-webfont.eot");
@@ -590,7 +592,6 @@ body {
   src: url("../fonts/font-awesome/fontawesome-webfont.svg") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -646,7 +647,7 @@ img[data-id="profile-logo"] {
   padding-bottom: 10px; }
 
 .events {
-  background-color: #ff9d2e; }
+  background-color: #FF9D2E; }
 
 .profile {
   background-color: #ff6666; }
@@ -731,3 +732,5 @@ h4[data-type="profile-header"] {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
+
+/*# sourceMappingURL=style.css.map */

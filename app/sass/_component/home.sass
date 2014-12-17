@@ -5,8 +5,14 @@
 @import '../_mixin/clearfix-mixin'
 @import '../_utility/em-function'
 
+#main-app-header
+	order: 1
+
+#main-app-view
+	order: 2
+
 .logoContainer
-	position: relative
+	height: em(150px)
 	padding-top: em(20px)
 
 .headerLogo
@@ -25,15 +31,6 @@
 	position: relative
 	display: block
 	margin-top: 15%
-
-.searchform
-	position: inherit
-	margin: 0 auto
-	max-width: 600px
-	width: 100%
-	text-align: left
-	@include clearfix
-
 
 .submit
 	display: none
@@ -94,11 +91,11 @@
 	margin-top: em(5px)
 	width: 0%
 	height: 0.15em
-	background: rgba(0,0,0,0.3)
+	//background: rgba(0,0,0,0.3)
 	&:before
 		position: absolute
 		top: auto
 		width: 100%
 		height: inherit
-		background: rgba(0,0,0,0.05)
+		//background: rgba(0,0,0,0.05)
 		content: ''
