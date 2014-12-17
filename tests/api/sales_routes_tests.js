@@ -26,8 +26,6 @@ mongoose.connection.collections.users.drop(function(err) {
 describe('sales routes', function() {
   var geoUrl = 'https://maps.googleapis.com';
   var jwt;
-  var saleId;
-  var userId;
   var testUser = {
     email: 'sales@example.com',
     password: 'foobar123',
@@ -61,12 +59,12 @@ describe('sales routes', function() {
   var testSale2 = {
     title: 'Farther Test Sale',
     description: 'This is a test sale',
-    address: '511 Boren Avenue North, Seattle, WA 98109 ',
+    address: '612 Westlake Avenue South, Seattle, WA 98109 ',
     city: 'Seattle',
     state: 'WA',
     zip: '98109',
-    dateStart: '12-14-14',
-    dateEnd: '12-15-14',
+    dateStart: '1-1-15',
+    dateEnd: '1-2-15',
     timeStart: '955',
     timeEnd: '955',
     lat: '49.609',
@@ -75,6 +73,7 @@ describe('sales routes', function() {
     email: 'email@email.com',
     publish: 'true'
   };
+
   before(function() {
     nock(geoUrl)
     .get('/maps/api/geocode/json?address=Seattle&key=' + process.env.GEOCODE_API)
@@ -105,10 +104,8 @@ describe('sales routes', function() {
         expect(res).to.not.have.status(403);
         expect(res).to.not.have.status(500);
         expect(res.body).to.be.an('object');
-        saleId = res.body._id;
-        userId = res.body.userId;
-        testSale = res.body;
         expect(res.body.title).to.eql('Test Sale');
+        testSale = res.body;
         done();
       });
   });
@@ -143,7 +140,7 @@ describe('sales routes', function() {
     var updatedTestSale = testSale;
     updatedTestSale.title = 'Updated Test Sale';
     chai.request(url)
-      .put('/api/sales/' + saleId)
+      .put('/api/sales/' + testSale._id)
       .set('jwt', jwt)
       .send(updatedTestSale)
       .end(function(err, res) {
@@ -157,9 +154,9 @@ describe('sales routes', function() {
 
   it.skip('should be able to delete a sale', function(done) {
     chai.request(url)
-      .delete('/api/sales/' + saleId)
+      .delete('/api/sales/' + testSale._id)
       .set('jwt', jwt)
-      .send({userId: userId})
+      .send({userId: testSale.userId})
       .end(function(err, res) {
         expect(err).to.be.null;
         expect(res).to.not.have.status(403);
