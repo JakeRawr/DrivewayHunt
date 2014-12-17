@@ -57,7 +57,7 @@ describe('sales routes', function() {
   };
 
   var testSale2 = {
-    title: 'Farther Test Sale',
+    title: 'Kirkland Test Sale',
     description: 'This is a test sale',
     address: '612 Westlake Avenue South, Seattle, WA 98109 ',
     city: 'Seattle',
@@ -67,8 +67,8 @@ describe('sales routes', function() {
     dateEnd: '1-2-15',
     timeStart: '955',
     timeEnd: '955',
-    lat: '49.609',
-    lng: '-122.831',
+    lat: '47.6858',
+    lng: '-122.1917',
     phone: '123-123-1234',
     email: 'email@email.com',
     publish: 'true'
@@ -120,7 +120,7 @@ describe('sales routes', function() {
         expect(res).to.not.have.status(403);
         expect(res).to.not.have.status(500);
         expect(res.body).to.be.an('object');
-        expect(res.body.title).to.eql('Farther Test Sale');
+        expect(res.body.title).to.eql('Kirkland Test Sale');
         done();
       });
   });
@@ -131,7 +131,7 @@ describe('sales routes', function() {
       .end(function(err, res) {
         expect(res).to.not.have.status(500);
         expect(res.body[0]).to.be.an('object');
-        expect(res.body[0].title).to.eql('Test Sale');
+        expect(res.body[0].title).to.eql('Kirkland Test Sale');
         done();
       });
   });
