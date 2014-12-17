@@ -1,0 +1,35 @@
+<div class="md-modal md-effect-1" id="modal-2">
+  <fieldset class="md-content">
+    <form name="register" class="userModal">
+      <h2 class="headModal">Sign Up<h2>
+      <ol class="loginModal">
+        <button class="btn google" type="checkbox" value="check" data-id="new-user">Sign up with Google</button>
+        <button class="btn facebook" type="checkbox" value="check" data-id="new-user">Sign up with Facebook</button>
+        <li data-id="new-user"><small name="login-cta"> Or sign up with your email</small></li>
+        <li class="name" data-id="new-user">
+          <label for="firstName">First Name</label>
+          <input id="firstName" type="text" name="name" title="Minimum 2 Characters" pattern="[a-zA-Z]{2,}" data-ng-model="newUser.firstName">
+        </li>
+        <li class="email" data-id="new-user">
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" type="email" name="email" value=" " title="Your Email" pattern="[^ @]*@[^ @]*" data-ng-model="newUser.email">
+        </li>
+        <li class="password" data-id="new-user">
+          <label for="makePassword">Password <small>(8 alpha-numeric characters)</small></label>
+          <input id="makePassword" type="password" name="password" title="Minimum 8 Characters or Numbers" pattern="[a-zA-Z0-9]{8,}" data-ng-model="newUser.password">
+        </li>
+        <li class="password" data-id="new-user">
+          <label for="confirmPassword">Confirm Password</label>
+          <input id="confirmPassword" type="password" name="password" title="Confirm Your Password" data-ng-model="newUser.passwordConfirmation">
+        </li>
+        <li class="detect" data-id="new-user">
+          <label for="userAgree">Agree to the User Policy</label>
+          <input id="userAgree" type="checkbox" value="Checked" checked>
+        </li>
+        <button class="btn md-close" name="submit" value="Submit" data-id="login-submit" data-ng-click="closeModal()">Cancel</button>
+        <button class="btn md-close" name="submit" value="Submit" data-id="login-submit" data-ng-click="signUp(newUser)">Submit</button>
+
+      </ol>
+    </form>
+  </fieldset>
+</div>

@@ -17,7 +17,8 @@ require('./services/all_services')(app);
 require('./controllers/all_controllers')(app);
 
 //directives
-//require('./directives/all_directives')(app);
+require('./directives/all_directives')(app);
+//require('./directives/modal_login')(app);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
