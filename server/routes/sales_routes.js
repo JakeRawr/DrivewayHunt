@@ -71,7 +71,7 @@ module.exports = function(app, jwtauth) {
     var updatedSale = req.body;
     if (String(updatedSale.userId) !== String(req.user._id)) return res.status(403).send('Not Authorized');
     delete updatedSale._id;
-    Sale.findByIdAndUpdate(req.params.id, updatedSale, function(err, data) {
+    Sale.findByIdAndUpdate(req.params.id, { $set: updatedSale }, {upsert: false}, function(err, data) {
       if (err) return res.status(500).send('there was an error');
       if (!data) return res.status(500).send('database error');
       res.json(data);
