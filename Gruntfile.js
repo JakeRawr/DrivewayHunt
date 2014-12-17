@@ -87,7 +87,7 @@ module.exports = function(grunt) {
       dev: {
         cwd: 'app',
         expand: true,
-        src: ['index.html', 'js/templates/**/*.html', 'sass/style.css', 'img/**/*.*', 'fonts/**/*.*'],
+        src: ['index.html', 'js/templates/**/*.html', 'sass/style.css', 'img/**/*.*', 'fonts/**/*.*','sass/style.css.map' ],
         dest: 'build/'
       }
     }

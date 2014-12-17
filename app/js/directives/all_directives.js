@@ -1,5 +1,6 @@
 'use strict';
 
-module.export = function() {
-
+module.exports = function(app) {
+  require('./modal_login')(app);
+  require('./modal_signup')(app);
 };

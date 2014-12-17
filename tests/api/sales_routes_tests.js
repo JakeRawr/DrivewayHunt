@@ -6,8 +6,7 @@ var mongoose = require('mongoose');
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 var expect = chai.expect;
-var sinon = require('sinon');
-var request = require('request');
+var nock = require('nock');
 
 var url = 'http://localhost:3000';
 process.env.MONGO_URL = 'mongodb://localhost/gsale_test';
@@ -25,6 +24,7 @@ mongoose.connection.collections.users.drop(function(err) {
 });
 
 describe('sales routes', function() {
+  var geoUrl = 'https://maps.googleapis.com';
   var jwt;
   var saleId;
   var userId;
@@ -75,8 +75,12 @@ describe('sales routes', function() {
     email: 'email@email.com',
     publish: 'true'
   };
+  before(function() {
+    nock(geoUrl)
+    .get('/maps/api/geocode/json?address=Seattle&key=' + process.env.GEOCODE_API)
+    .reply(200, {results:[{geometry:{location:{lat: 47.6062095, lng: -122.3320708}}}]});
+  });
 
- // var geoUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address=Seattle&key=' + process.env.GEOCODE_API;
   it('should add a new user', function(done) {
     chai.request(url)
       .post('/api/users')
@@ -124,17 +128,10 @@ describe('sales routes', function() {
       });
   });
 
-  //seattle: -122.3331, 47.6097 (lng,lat)
   it('should be able to list only sales near Seattle', function(done) {
     chai.request(url)
       .get('/api/sales/Seattle')
       .end(function(err, res) {
-      sinon
-      .stub(request)
-      .yields(null, null, JSON.stringify({login: 'bulkan'}));
-        request.restore();
-      //  var server = sinon.fakeServer.create();
-       // server.respondWith('GET', geoUrl, [200, {'Content-Type': 'application/json' }, '{}']);
         expect(res).to.not.have.status(500);
         expect(res.body[0]).to.be.an('object');
         expect(res.body[0].title).to.eql('Test Sale');
