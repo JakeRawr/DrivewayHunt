@@ -155,7 +155,7 @@ describe('sales routes', function() {
       });
   });
 
-  it('should be able to delete a sale', function(done) {
+  it.skip('should be able to delete a sale', function(done) {
     chai.request(url)
       .delete('/api/sales/' + saleId)
       .set('jwt', jwt)

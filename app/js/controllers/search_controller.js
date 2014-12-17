@@ -1,7 +1,20 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('SearchController', ['', function() {
+  app.controller('SearchController', ['$scope', 'SaleSearch', function($scope, SaleSearch) {
+    $scope.sales = null;
+    $scope.errors = [];
 
+    //search for results
+    $scope.searchForSales = function(location) {
+      SaleSearch.search(location)
+        .success(function(data) {
+          $scope.sales = data;
+        })
+        .error(function(err) {
+          console.log(err);
+          $scope.errors.push(err);
+        });
+    };
   }]);
 };
