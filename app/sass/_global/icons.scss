@@ -5,7 +5,8 @@
 };
 
 // Font Icon Sass Map
-$icons: ( plus: "\f055" );
+$icons: (
+  plus: "\f055",
   minus: "\f056",
   arrow-down: "\f063",
   arrow-up: "\f062",
@@ -21,6 +22,7 @@ $icons: ( plus: "\f055" );
   tags: "\f02c",
   upload: "\f0ee",
   edit: "\f040"
+)
 
 //Base styles for font icons
 //Styles are included in Icon-Mixins.scss

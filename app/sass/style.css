@@ -3,6 +3,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
 @font-face {
   font-weight: normal;
   font-style: normal;
@@ -12,6 +13,7 @@
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
+
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -103,6 +105,7 @@ section {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
+
 @font-face {
   font-weight: normal;
   font-style: normal;
@@ -112,10 +115,12 @@ section {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
+
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
+
 /* General button style (reset) */
 .btn {
   border: none;
@@ -156,8 +161,8 @@ section {
 /* Button 1a (Home Button States) */
 .btn-1a:hover,
 .btn-1a:active {
-  border: 3px solid #A1DBB2;
-  background-color: #A1DBB2;
+  border: 3px solid #a1dbb2;
+  background-color: #a1dbb2;
   color: white; }
 
 @font-face {
@@ -169,10 +174,12 @@ section {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
+
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
+
 .userModal {
   color: white;
   background-color: #ff6666;
@@ -248,7 +255,7 @@ button[data-id="login-submit"] {
   width: 40%;
   left: calc(50% - 40%/2); }
   button[data-id="login-submit"]:hover, button[data-id="login-submit"]:active {
-    background-color: #A1DBB2;
+    background-color: #a1dbb2;
     color: white; }
 
 .md-modal {
@@ -328,10 +335,12 @@ button[data-id="login-submit"] {
   src: url("fonts/icomoon/icomoon.woff") format("woff");
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
+
 @-moz-document url-prefix() {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
+
 .logoContainer {
   position: relative;
   padding-top: 20px; }
@@ -395,7 +404,7 @@ button[data-id="login-submit"] {
   font-size: 1em;
   line-height: 1; }
   #search:focus {
-    border: 3px solid #A1DBB2;
+    border: 3px solid #a1dbb2;
     outline: none; }
   #search.placeholder {
     font-weight: 300;
@@ -466,6 +475,129 @@ button[data-id="login-submit"] {
 .howSearch {
   font-size: 60%; }
 
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: "icomoon";
+  src: url("fonts/icomoon/icomoon.eot");
+  src: url("fonts/icomoon/icomoon.eot") format("opentype");
+  src: url("fonts/icomoon/icomoon.woff") format("woff");
+  src: url("fonts/icomoon/icomoon.ttf") format("truetype");
+  src: url("fonts/icomoon/icomoon.svg") format("svg"); }
+
+@-moz-document url-prefix() {
+  .flex-container {
+    width: 100%;
+    -moz-box-sizing: border-box; } }
+
+table {
+  text-align: left; }
+
+.container {
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.col-2-3 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.col-2-3 {
+  display: inline-block;
+  vertical-align: top; }
+
+.col-1-3 {
+  width: 33.33%; }
+
+.col-2-3 {
+  width: 66.66%; }
+
+.row {
+  width: 1em;
+  padding: 20px 0 20px 0; }
+
+.row-alt {
+  background: -webkit-linear-gradient(to right, #a1d3b0, #f6f1d3);
+  background: -moz-linear-gradient(to right, #a1d3b0, #f6f1d3);
+  background: linear-gradient(to right, #a1d3b0, #f6f1d3);
+  padding: 44px 0 22px 0; }
+
+tbody {
+  white-space: nowrap; }
+
+table {
+  width: 49%; }
+
+th {
+  padding-right: 15px;
+  width: 15%; }
+
+thead {
+  vertical-align: center;
+  line-height: 20px; }
+
+thead,
+tbody,
+td {
+  border-bottom: 1px solid #ff9d2e;
+  padding: 15px 0; }
+
+table h4 {
+  margin-bottom: 10px; }
+
+#resultsHeader {
+  background-color: #eaeaed;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px; }
+
+.searchColumn {
+  color: #ff9d2e;
+  font-size: 16px;
+  min-width: 300px; }
+  .searchColumn h4 {
+    font-weight: 700; }
+
+.distanceColumn,
+.dateColumn {
+  min-width: 80px;
+  font-size: 11px; }
+  .distanceColumn li:last-child,
+  .dateColumn li:last-child {
+    color: #ff6666; }
+
+.expandColumn {
+  min-width: 25px; }
+
+ol[name="event"] {
+  color: #666666;
+  font-size: 14px; }
+  ol[name="event"] h4 {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #ff6666; }
+
+ol[data-type="filter"] {
+  color: #666666; }
+
+.angular-google-map-container {
+  width: 800px;
+  height: 400px;
+  min-height: 800px;
+  padding-right: 80px; }
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+
+#result_bottom {
+  height: 1.2em;
+  width: 500px;
+  background-color: #ff6666;
+  text-align: right;
+  font-size: 2em;
+  color: white; }
+
 /*  SECTIONS  */
 .section {
   clear: both;
@@ -519,5 +651,3 @@ button[data-id="login-submit"] {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
-
-/*# sourceMappingURL=style.css.map */
