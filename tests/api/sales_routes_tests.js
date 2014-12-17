@@ -13,19 +13,22 @@ process.env.MONGO_URL = 'mongodb://localhost/gsale_test';
 chai.use(chaiHttp);
 require('../../server');
 
-//drop sales from test db before running tests
-mongoose.connection.collections.sales.drop(function(err) {
-  if (err) return err;
-});
-
-//drop users from test db before running tests
-mongoose.connection.collections.users.drop(function(err) {
-  if (err) return err;
-});
-
 describe('sales routes', function() {
+
+  before(function() {
+    //drop sales from test db before running tests
+    mongoose.connection.collections.sales.drop(function(err) {
+      if (err) console.log(err);
+    });
+    //drop users from test db before running tests
+    mongoose.connection.collections.users.drop(function(err) {
+      if (err) console.log(err);
+    });
+  });
+
   var geoUrl = 'https://maps.googleapis.com';
   var jwt;
+  var cachedSaleId;
   var testUser = {
     email: 'sales@example.com',
     password: 'foobar123',
@@ -57,18 +60,18 @@ describe('sales routes', function() {
   };
 
   var testSale2 = {
-    title: 'Kirkland Test Sale',
-    description: 'This is a test sale',
-    address: '612 Westlake Avenue South, Seattle, WA 98109 ',
-    city: 'Seattle',
-    state: 'WA',
-    zip: '98109',
+    title: 'New York Test Sale',
+    description: 'This is a test sale in NY',
+    address: '612 Westlake Avenue South, Manhattan, NY 023893',
+    city: 'Manhattan',
+    state: 'NY',
+    zip: '02020',
     dateStart: '1-1-15',
     dateEnd: '1-2-15',
     timeStart: '955',
     timeEnd: '955',
-    lat: '47.6858',
-    lng: '-122.1917',
+    lat: '40.7',
+    lng: '-74',
     phone: '123-123-1234',
     email: 'email@email.com',
     publish: 'true'
@@ -105,6 +108,7 @@ describe('sales routes', function() {
         expect(res).to.not.have.status(500);
         expect(res.body).to.be.an('object');
         expect(res.body.title).to.eql('Test Sale');
+        cachedSaleId = res.body._id;
         testSale = res.body;
         done();
       });
@@ -120,7 +124,7 @@ describe('sales routes', function() {
         expect(res).to.not.have.status(403);
         expect(res).to.not.have.status(500);
         expect(res.body).to.be.an('object');
-        expect(res.body.title).to.eql('Kirkland Test Sale');
+        expect(res.body.title).to.eql('New York Test Sale');
         done();
       });
   });
@@ -131,7 +135,10 @@ describe('sales routes', function() {
       .end(function(err, res) {
         expect(res).to.not.have.status(500);
         expect(res.body[0]).to.be.an('object');
-        expect(res.body[0].title).to.eql('Kirkland Test Sale');
+        expect(res.body).to.be.an('array')
+          .and.to.have.length(1)
+          .with.deep.property('[0].city')
+          .that.deep.equals('Seattle');
         done();
       });
   });
@@ -148,11 +155,12 @@ describe('sales routes', function() {
         expect(res).to.not.have.status(403);
         expect(res).to.not.have.status(500);
         expect(res.body.title).to.eql('Updated Test Sale');
+        expect(res.body._id).to.eql(cachedSaleId);
         done();
       });
   });
 
-  it.skip('should be able to delete a sale', function(done) {
+  it('should be able to delete a sale', function(done) {
     chai.request(url)
       .delete('/api/sales/' + testSale._id)
       .set('jwt', jwt)
