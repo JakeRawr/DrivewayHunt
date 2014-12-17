@@ -36,13 +36,5 @@ module.exports = function(app) {
       $scope.loginModalShown = false;
       $scope.signupModalShown = false;
     };
-
-    /*
-    $scope.toggleModal = function() {
-      $scope.signupModalShown = false;
-      $scope.loginModalShown = false;
-    };
-    */
-
   }]);
 };

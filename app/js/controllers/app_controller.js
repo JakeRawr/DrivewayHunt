@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('AppController', ['$rootScope', '$scope', 'AUTH_EVENTS', 'AuthService', function($rootScope, $scope, AUTH_EVENTS, AuthService) {
+  app.controller('AppController', ['$scope', 'AUTH_EVENTS', 'AuthService', function($scope, AUTH_EVENTS, AuthService) {
     /**
      * Keep track of current user
      */
