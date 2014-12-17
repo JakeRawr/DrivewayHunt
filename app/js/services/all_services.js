@@ -2,4 +2,5 @@
 
 module.exports = function(app) {
   require('./auth_service')(app);
+  require('./sales_search_service')(app);
 };

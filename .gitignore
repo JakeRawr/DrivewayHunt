@@ -2,8 +2,12 @@ db/
 node_modules/
 bower_components/
 build/
+<<<<<<< HEAD
+=======
 tests/angular_test_bundle.js
+>>>>>>> 8513bb42290da62584114dfdc25e0c2df2f58094
 **/*.sw?
 cloudinary.yml
 .sass-cache/
-app/.sass-cache
+app/.sass-cache/
+tests/angular_test_bundle.js
