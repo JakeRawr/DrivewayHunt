@@ -20,7 +20,7 @@ module.exports = function(app) {
       AuthService.signOut();
     };
 
-    $scope.$watch(function() { return $cookies.user; }, function(validUser) {
+    $scope.$watch(function() { return $cookies.jwt; }, function(validUser) {
       $scope.currentUser = validUser;
     });
   }]);
