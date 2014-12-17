@@ -1,6 +1,3 @@
-@charset "UTF-8";
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
@@ -107,6 +104,7 @@ section {
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
 @font-face {
+<<<<<<< HEAD
   font-family: 'FontAwesome';
   src: url("../fonts/font-awesome/fontawesome-webfont.eot");
   src: url("../fonts/font-awesome/fontawesome-webfont.eot") format("embedded-opentype");
@@ -116,6 +114,8 @@ section {
   font-weight: normal;
   font-style: normal; }
 @font-face {
+=======
+>>>>>>> 619b8b55c0a2803fcfc1aeb83fb2979133fd5e4d
   font-weight: normal;
   font-style: normal;
   font-family: "icomoon";
@@ -471,6 +471,7 @@ button[data-id="login-submit"] {
     background: rgba(0, 0, 0, 0.05);
     content: ""; }
 
+<<<<<<< HEAD
 @font-face {
   font-weight: normal;
   font-style: normal;
@@ -730,6 +731,19 @@ h4[data-type="profile-header"] {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   /* stops bg color from leaking outside the border: */ }
+=======
+/* Adjust form for smaller screens */
+.searchform,
+#searchLabel {
+  font-size: 2em; }
+
+.searchform,
+#searchLabel {
+  font-size: 1.5em; }
+
+.howSearch {
+  font-size: 60%; }
+>>>>>>> 619b8b55c0a2803fcfc1aeb83fb2979133fd5e4d
 
 /*  SECTIONS  */
 .section {

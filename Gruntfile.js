@@ -6,13 +6,18 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-simple-mocha');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-karma');
 
   grunt.initConfig({
     project: {
       app: ['app'],
       server: ['server'],
-      scss: ['<%= project.app %>/sass/style.scss'],
-      css: ['<%= project.app %>/css/**/*.css'],
+      scss: ['<%= project.app %>/sass/**/*.scss'],
+      css: ['<%= project.app %>/**/*.css', '!<%= project.app %>/sass/**/*.*'],
+      html: ['<%= project.app %>/**/*.html'],
       alljs: ['<%= project.app %>/js/**/*.js', '<%= project.server %>/**/*.js']
     },
 
@@ -31,13 +36,13 @@ module.exports = function(grunt) {
     },
 
     simplemocha: {
-      src: ['tests/**/*.js']
+      src: ['tests/api/*.js']
     },
 
     sass: {
       dist: {
         files: {
-          'app/sass/style.css': '<%= project.scss %>'
+          'app/sass/style.css': '<%= project.app %>/sass/style.scss'
         }
       }
     },
@@ -54,11 +59,53 @@ module.exports = function(grunt) {
           livereload: true
         }
       }
+    },
+
+    browserify: {
+      dev: {
+        src: ['<%= project.app %>/js/**/*.js'],
+        dest: 'build/app_bundle.js',
+        options: {
+          transform: ['debowerify']
+        }
+      },
+
+      test: {
+        src: ['tests/app/**/*.js'],
+        dest: 'tests/angular_test_bundle.js',
+        options: {
+          transform: ['debowerify']
+        }
+      }
+    },
+
+    clean: {
+      src: ['build/']
+    },
+
+    copy: {
+      dev: {
+        cwd: 'app',
+        expand: true,
+        src: ['index.html', 'js/templates/**/*.html', 'sass/style.css', 'img/**/*.*', 'fonts/**/*.*'],
+        dest: 'build/'
+      }
+    },
+
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js'
+      },
+      continuous: {
+        configFile: 'karma.conf.js',
+        singleRun: true,
+        browsers: ['PhantomJS']
+      }
     }
   });
 
-  grunt.registerTask('sass', ['watch:sass', 'watch:livereload']);
-  grunt.registerTask('test', ['jshint', 'jscs', 'simplemocha']);
-  grunt.registerTask('default', ['sass']);
-
+  grunt.registerTask('sass:watch', ['watch:sass', 'watch:livereload']);
+  grunt.registerTask('test', ['jshint', 'jscs', 'simplemocha', 'karma:unit']);
+  grunt.registerTask('build', ['clean', 'sass', 'browserify:dev', 'browserify:test', 'copy:dev']);
+  grunt.registerTask('test:client', ['browserify:test', 'karma:unit']);
 };

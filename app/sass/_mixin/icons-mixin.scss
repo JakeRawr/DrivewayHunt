@@ -1,22 +1,3 @@
-$icons: (
-  plus: "\f055",
-  minus: "\f056",
-  arrow-down: "\f063",
-  arrow-up: "\f062",
-  chevron-up: "\f077",
-  chevron-down: "\f078",
-  map: "\f041",
-  check: "\f00c",
-  close: "\f00d",
-  caret-up: "\f0d8",
-  caret-down: "\f0d7",
-  picture: "\f03e",
-  tag: "\f02b",
-  tags: "\f02c",
-  upload: "\f0ee",
-  edit: "\f040"
-);
-
 @mixin icon($position: before, $icon: false, $styles: true) {
     @if $position == both {
         $position: 'before, &:after';

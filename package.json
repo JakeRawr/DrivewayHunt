@@ -19,7 +19,7 @@
   "devDependencies": {
     "chai": "^1.10.0",
     "chai-http": "^1.0.0",
-    "debowerify": "^1.1.1",
+    "debowerify": "^1.2.0",
     "grunt": "^0.4.5",
     "grunt-browserify": "^3.2.1",
     "grunt-cli": "^0.1.13",
@@ -47,7 +47,6 @@
     "grunt-sass": "^0.17.0",
     "jwt-simple": "^0.2.0",
     "mongoose": "^3.8.18",
-    "node-sass": "^1.2.3",
     "passport": "^0.2.1",
     "passport-http": "^0.2.2",
     "request": "^2.51.0"
