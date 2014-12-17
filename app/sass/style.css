@@ -20,7 +20,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-.clearfix:before {
+.clearfix:before:after {
   content: "";
   display: table; }
 
@@ -29,6 +29,7 @@
 
 body {
   height: 100%;
+  overflow: scroll;
   font-family: "Lato", sans-serif;
   font-size: 100%;
   line-height: 1.25;
@@ -91,7 +92,6 @@ input {
   display: block; }
 
 section {
-  padding: 10em 0 10em 0;
   text-align: center; }
 
 @media screen and (max-width: 44.75em) {
@@ -107,102 +107,14 @@ section {
   src: url("fonts/icomoon/icomoon.ttf") format("truetype");
   src: url("fonts/icomoon/icomoon.svg") format("svg"); }
 @font-face {
-  font-family: 'FontAwesome', sans-serif;
-  src: url("http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts"); }
-@font-face {
+  font-family: 'FontAwesome';
+  src: url("../fonts/font-awesome/fontawesome-webfont.eot");
+  src: url("../fonts/font-awesome/fontawesome-webfont.eot") format("embedded-opentype");
+  src: url("../fonts/font-awesome/fontawesome-webfont.woff") format("woff");
+  src: url("../fonts/font-awesome/fontawesome-webfont.ttf") format("truetype");
+  src: url("../fonts/font-awesome/fontawesome-webfont.svg") format("svg");
   font-weight: normal;
-  font-style: normal;
-  font-family: "icomoon";
-  src: url("fonts/icomoon/icomoon.eot");
-  src: url("fonts/icomoon/icomoon.eot") format("opentype");
-  src: url("fonts/icomoon/icomoon.woff") format("woff");
-  src: url("fonts/icomoon/icomoon.ttf") format("truetype");
-  src: url("fonts/icomoon/icomoon.svg") format("svg"); }
-*, *:after, *:before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-.clearfix:before {
-  content: "";
-  display: table; }
-
-.clearfix:after {
-  clear: both; }
-
-body {
-  height: 100%;
-  font-family: "Lato", sans-serif;
-  font-size: 100%;
-  line-height: 1.25;
-  margin: 0; }
-
-ul, ol {
-  padding: 0;
-  margin: 0;
-  list-style-type: none; }
-
-li {
-  list-style-type: none; }
-
-a {
-  text-decoration: none;
-  outline: none; }
-
-h2 {
-  font-weight: 400;
-  font-size: 2em;
-  margin: 0; }
-
-h4 {
-  font-weight: 400;
-  font-size: 1em;
-  margin: 0; }
-
-h5 {
-  font-weight: 700;
-  font-size: em(10px);
-  margin: 0; }
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0; }
-
-thead, tr, th, td, table {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%; }
-
-td {
-  vertical-align: top; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-label {
-  font-weight: 300;
-  font-size: 0.7em;
-  padding: 0; }
-
-button {
-  font-size: em(16px); }
-
-input {
-  display: block; }
-
-section {
-  padding: 10em 0 10em 0;
-  text-align: center; }
-
-@media screen and (max-width: 44.75em) {
-  section {
-    padding: 8em 2em; } }
-@font-face {
-  font-family: 'FontAwesome', sans-serif;
-  src: url("http://netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts"); }
+  font-style: normal; }
 @font-face {
   font-weight: normal;
   font-style: normal;
@@ -251,7 +163,8 @@ section {
   border: 3px solid #ff6666;
   font-weight: 400;
   color: #ff6666;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  text-align: right; }
 
 /* Button 1a (Home Button States) */
 .btn-1a:hover,
@@ -461,10 +374,14 @@ button[data-id="login-submit"] {
   -ms-flex-direction: row;
   flex-direction: row; }
 
-.searchform {
+.search-container {
   position: relative;
+  display: block;
+  margin-top: 15%; }
+
+.searchform {
+  position: inherit;
   margin: 0 auto;
-  padding: 2em 0;
   max-width: 600px;
   width: 100%;
   text-align: left; }
@@ -553,18 +470,6 @@ button[data-id="login-submit"] {
     height: inherit;
     background: rgba(0, 0, 0, 0.05);
     content: ""; }
-
-/* Adjust form for smaller screens */
-.searchform,
-#searchLabel {
-  font-size: 2em; }
-
-.searchform,
-#searchLabel {
-  font-size: 1.5em; }
-
-.howSearch {
-  font-size: 60%; }
 
 @font-face {
   font-weight: normal;
@@ -711,6 +616,121 @@ h4[data-icon="close"] {
   width: 500px;
   height: 400px; }
 
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: "icomoon";
+  src: url("fonts/icomoon/icomoon.eot");
+  src: url("fonts/icomoon/icomoon.eot") format("opentype");
+  src: url("fonts/icomoon/icomoon.woff") format("woff");
+  src: url("fonts/icomoon/icomoon.ttf") format("truetype");
+  src: url("fonts/icomoon/icomoon.svg") format("svg"); }
+@-moz-document url-prefix() {
+  .flex-container {
+    width: 100%;
+    -moz-box-sizing: border-box; } }
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("../fonts/font-awesome/fontawesome-webfont.eot");
+  src: url("../fonts/font-awesome/fontawesome-webfont.eot") format("embedded-opentype");
+  src: url("../fonts/font-awesome/fontawesome-webfont.woff") format("woff");
+  src: url("../fonts/font-awesome/fontawesome-webfont.ttf") format("truetype");
+  src: url("../fonts/font-awesome/fontawesome-webfont.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: "FontAwesome";
+  src: url("../fonts/font-awesome/fontawesome-webfont.eot");
+  src: url("../fonts/font-awesome/fontawesome-webfont.eot") format("embedded-opentype");
+  src: url("../fonts/font-awesome/fontawesome-webfont.woff") format("woff");
+  src: url("../fonts/font-awesome/fontawesome-webfont.ttf") format("truetype");
+  src: url("../fonts/font-awesome/fontawesome-webfont.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.logoProfile {
+  position: relative;
+  padding-top: 10px; }
+
+img[data-id="profile-logo"] {
+  position: relative;
+  width: 150px; }
+
+.greeting {
+  display: inline;
+  font-size: 1.5em;
+  color: #666666;
+  font-weight: 400;
+  text-align: center; }
+
+.view-profile {
+  display: inline;
+  margin-left: 20px; }
+
+.user-info {
+  padding: 20px 0px 20px 20px;
+  border: 3px solid #eaeaed; }
+
+.profile-nav {
+  height: 300px;
+  border: 1px solid red; }
+
+.sub-nav {
+  border: 1px solid red;
+  height: 700px;
+  width: 300px; }
+
+.user-event,
+.user-activity {
+  color: white; }
+
+.profile,
+.events {
+  margin-right: 10px;
+  padding: 20px 0px 20px 20px;
+  background-color: #ff6666; }
+  .profile li,
+  .events li {
+    padding-bottom: 10px; }
+
+.events a {
+  color: white;
+  padding-bottom: 10px; }
+
+.events {
+  background-color: #FF9D2E; }
+
+.profile {
+  background-color: #ff6666; }
+
+h4[data-type="profile-header"] {
+  padding-bottom: 10px;
+  color: #666666;
+  text-transform: uppercase; }
+
+.view-event {
+  border: 1px solid; }
+
+.gallery-grid {
+  border: 1px solid blue;
+  position: relative;
+  display: inline; }
+
+.e-gallery {
+  float: left;
+  vertical-align: top;
+  height: 150px;
+  width: 150px;
+  margin: 5px;
+  background-color: green;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* stops bg color from leaking outside the border: */ }
+
 /*  SECTIONS  */
 .section {
   clear: both;
@@ -720,18 +740,21 @@ h4[data-icon="close"] {
 /*  COLUMN SETUP  */
 .col {
   display: block;
+  float: left;
   margin: 1% 0 1% 2%; }
 
 .col:first-child {
   margin-left: 0; }
 
 /*  GROUPING  */
-.group:before,
-.group:after {
-  content: ""; }
-
 .group {
-  zoom: 1;
+  zoom: 1; }
+  .group:before, .group:after {
+    content: "";
+    display: table; }
+
+.group:after {
+  clear: both;
   /* For IE 6/7 */ }
 
 /*  GRID OF EIGHT  */

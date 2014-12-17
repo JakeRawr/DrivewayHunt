@@ -41,10 +41,14 @@
   -ms-flex-direction: row;
   flex-direction: row; }
 
-.searchform {
+.search-container {
   position: relative;
+  display: block;
+  margin-top: 15%; }
+
+.searchform {
+  position: inherit;
   margin: 0 auto;
-  padding: 2em 0;
   max-width: 600px;
   width: 100%;
   text-align: left; }
@@ -133,17 +137,5 @@
     height: inherit;
     background: rgba(0, 0, 0, 0.05);
     content: ""; }
-
-/* Adjust form for smaller screens */
-.searchform,
-#searchLabel {
-  font-size: 2em; }
-
-.searchform,
-#searchLabel {
-  font-size: 1.5em; }
-
-.howSearch {
-  font-size: 60%; }
 
 /*# sourceMappingURL=home.css.map */

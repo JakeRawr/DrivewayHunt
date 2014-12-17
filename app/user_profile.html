@@ -1,0 +1,69 @@
+
+    <link rel="stylesheet" type="text/css" href="sass/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="sass/style.css" />
+
+  <body>
+    <!-- Header: Menu/Nav Buttons-->
+    <header id="userMenu">
+      <ol class="modalContainer">
+        <li>
+          <div class="logoProfile">
+          <img class="headerLogo" data-id="profile-logo" src="img/fpo_logo.png">
+        </div>
+        </li>
+        <li>
+          <button id="signUp" class="md-trigger btn btn-1 btn-1a" data-modal="modal-2" type="checkbox" value="check">Log Out</button>
+         </li>
+      </ol>
+    </header>
+
+    <!-- greeting container -->
+    <div class="greeting section group" name"user-profile">
+      <h3> Hello, {{ Jake }}</h3>
+    </div>
+    </div>
+
+    <!-- sub nav container -->
+
+          <div class="sub-nav col span_3_of_8">
+            <ul class="profile">
+              <h4 data-type="profile-header">Your Profile<h4>
+              <li><a class="user-event" href="#">Create Event</a></li>
+              <li><a class="user-activity" href="#">View Activity</a></li>
+            </ul>
+
+            <ul class="events">
+              <h4 data-type="profile-header">Your Events</h4>
+              <li><a class="" href="#">Event 1</a></li>
+              <li><a class="" href="#">Event 2</a></li>
+              <li><a class="" href="#">Event 3</a></li>
+              <li><a class="" href="#">Event 4</a></li>
+            </ul>
+          </div>
+
+    <!-- profile container -->
+    <aside class="section view-profile">
+      <div class="user-info col span_5_of_8">
+        <ul>
+          <h4>Your Profile</h4>
+          <li>Name: {{ Jake Xyz }}</a></li>
+          <li>Email: {{ jake@gmail.com }}</a></li>
+        </ul>
+      <div>
+    </aside>
+
+    <!-- event gallery container -->
+    <article class="view-event group">
+    <section class="gallery-grid col span_5_of_8">
+      <div class="e-gallery"></div>
+      <div class="e-gallery"></div>
+      <div class="e-gallery"></div>
+      <div class="e-gallery"></div>
+      <div class="e-gallery"></div>
+      <div class="e-gallery"></div>
+      <div class="e-gallery"></div>
+      <div class="e-gallery"></div>
+    </section>
+    </article>
+  </body>
+</html>

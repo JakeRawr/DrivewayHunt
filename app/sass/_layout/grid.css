@@ -7,18 +7,21 @@
 /*  COLUMN SETUP  */
 .col {
   display: block;
+  float: left;
   margin: 1% 0 1% 2%; }
 
 .col:first-child {
   margin-left: 0; }
 
 /*  GROUPING  */
-.group:before,
-.group:after {
-  content: ""; }
-
 .group {
-  zoom: 1;
+  zoom: 1; }
+  .group:before, .group:after {
+    content: "";
+    display: table; }
+
+.group:after {
+  clear: both;
   /* For IE 6/7 */ }
 
 /*  GRID OF EIGHT  */

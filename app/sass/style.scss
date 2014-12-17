@@ -2,13 +2,13 @@
 @import '_global/base';
 @import '_global/variables';
 @import '_global/icons';
-@import '_global/base';
-@import '_global/icons';
 // components
 @import '_component/buttons';
 @import '_component/modal';
 @import '_component/home';
 @import '_component/results';
+@import '_component/user_profile_subnav';
+
 // layouts
 @import '_layout/grid';
 // mixins

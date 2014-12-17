@@ -13,7 +13,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-.clearfix:before {
+.clearfix:before:after {
   content: "";
   display: table; }
 
@@ -22,6 +22,7 @@
 
 body {
   height: 100%;
+  overflow: scroll;
   font-family: "Lato", sans-serif;
   font-size: 100%;
   line-height: 1.25;
@@ -84,7 +85,6 @@ input {
   display: block; }
 
 section {
-  padding: 10em 0 10em 0;
   text-align: center; }
 
 @media screen and (max-width: 44.75em) {
