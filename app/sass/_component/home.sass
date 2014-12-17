@@ -20,14 +20,20 @@
 	@include flex-direction
 
 // search bar
-.searchform
+
+.search-container
 	position: relative
+	display: block
+	margin-top: 15%
+
+.searchform
+	position: inherit
 	margin: 0 auto
-	padding: 2em 0
 	max-width: 600px
 	width: 100%
 	text-align: left
 	@include clearfix
+
 
 .submit
 	display: none
@@ -96,18 +102,3 @@
 		height: inherit
 		background: rgba(0,0,0,0.05)
 		content: ''
-
-// Need to move Media Query
-/* Adjust form for smaller screens */
-@media screen and (max-width: 44.75em)
-.searchform,
-#searchLabel
-	font-size: $base__head
-
-@media screen and (max-width: 33.5625em)
-.searchform,
-#searchLabel
-	font-size: $base__subhead
-
-.howSearch
-	font-size: 60%
