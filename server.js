@@ -35,9 +35,7 @@ app.use(express.static(__dirname + '/build'));
 /**
  * Require routes
  */
-var getSale = require('./server/lib/getSaleMW')();
-var getItem = require('./server/lib/getItemMW')();
-require('./server/routes/user_routes')(app, passport, jwtAuth, getSale, getItem);
+require('./server/routes/user_routes')(app, passport, jwtAuth);
 require('./server/routes/sales_routes')(app, jwtAuth);
 require('./server/routes/items_routes')(app, jwtAuth, mongoose);
 

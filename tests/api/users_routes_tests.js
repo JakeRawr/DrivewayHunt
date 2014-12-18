@@ -60,4 +60,16 @@ describe('user routes', function() {
         done();
       });
   });
+
+  it('should return an existing user\'s info all at once', function(done) {
+    chai.request(url)
+      .get('/api/userInfo')
+      .set('jwt', jwt)
+      .end(function(err, res) {
+        expect(err).to.be.null;
+        expect(res).to.not.have.status(403);
+        expect(res).to.not.have.status(500);
+        done();
+      });
+  });
 });
