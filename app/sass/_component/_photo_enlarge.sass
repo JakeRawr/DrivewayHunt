@@ -1,0 +1,88 @@
+@import '../_mixin/vertical-align-mixin'
+@import '../_mixin/input-placeholder-mixin'
+@import '../_global/variables'
+@import '../_mixin/flexbox-mixin'
+@import '../_mixin/clearfix-mixin'
+@import '../_utility/em-function'
+@import '../_global/icons'
+
+//make the background appear inactive
+body[class="photo_enlarge"]
+  background-color: $color-medgrey
+//setting the modal
+.photoModal
+  background-color: white
+  width: em(450px)
+  position: relative
+  left: 0
+  top: calc(50% - 600px/2)
+  display: block
+  padding: em(15px) em(20px)
+  margin: em(60px) 0
+//set the margin
+.viewphoto
+  @mixin flexbox
+  margin: 2% 5% 3% 5%
+
+//textarea
+#image-text
+  width: 100%
+  height: 100px
+  &::-webkit-resizer
+    display: none
+
+//text setting
+label[for="image-title"],
+label[for="image-text"],
+label[for="image-description"],
+label[for="image-condition"],
+  font-size: 8px
+  text-transform: uppercase
+  font-weight: $font-weight--bold
+  letter-spacing: 1px
+  color: $color-font-primary
+  font-weight: $font-weight--bold
+
+//input field setting
+input[name="image-description"],
+input[name="image-title"],
+  height: em(30px)
+  width: 100%
+  padding: em(5px)
+  maxlength: 50
+  border: 1px solid $color-drkgrey
+
+//dropdown styling
+#image-condition
+  -moz-appearance: none
+  -webkit-appearance: none
+  font-family: $font-family--primary
+  font-size: 12px
+  padding-left: 5px
+  height: em(20px)
+  width: em(80px)
+
+// button styles to rename
+button[data-id="image-close"],
+button[data-id="image-save"]
+  position: relative
+  padding: em(5px) 0
+  margin: em(20px) em(3px)
+  border: em(3px) solid $color-dkorange
+  background-color: white
+  font-weight: $font-weight--bold
+  font-size: 12px
+  text-transform: uppercase
+  text-align: center
+
+  // Submit button styles, color and states
+button[data-id="image-close"],
+button[data-id="image-save"]
+  color: $color-dkorange
+  width: 20%
+  left: calc(67% - 20%/2)
+  &:hover,
+  &:active
+    background-color: $color-teal
+    color: white
+
