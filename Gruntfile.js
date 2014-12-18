@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     project: {
       app: ['app'],
       server: ['server'],
-      scss: ['<%= project.app %>/sass/**/*.scss'],
+      scss: ['<%= project.app %>/sass/**/*.scss',  'app/sass/**/*.sass'],
       css: ['<%= project.app %>/**/*.css', '!<%= project.app %>/sass/**/*.*'],
       html: ['<%= project.app %>/**/*.html'],
       alljs: ['<%= project.app %>/js/**/*.js', '<%= project.server %>/**/*.js']
@@ -49,12 +49,15 @@ module.exports = function(grunt) {
 
     watch: {
       sass: {
-        files: ['<%= project.scss %>', 'sass/**/*.sass', 'views/**/*.html'],
-        tasks: ['sass']
+        files: '<%= project.scss %>',//['<%= project.scss %>','<%= project.css %>', 'sass/**/*.sass', '<%= project.html %>'],
+        tasks: ['sass'],
+        options: {
+          reload: true,
+          livereload: 3000
+        }
       },
-
       livereload: {
-        files: ['<%= project.scss %>', 'views/**/*.html'],
+        files: 'app/sass/style.css',
         options: {
           livereload: true
         }
