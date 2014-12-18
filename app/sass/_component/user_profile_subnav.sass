@@ -6,17 +6,6 @@
 @import '../_utility/em-function'
 @import '../_mixin/transition-mixin'
 @import '../_mixin/transform-mixin'
-//@import '../_global/icons'
-
-@font-face
-  font-family: 'FontAwesome'
-  src: url('../fonts/font-awesome/fontawesome-webfont.eot')
-  src: url('../fonts/font-awesome/fontawesome-webfont.eot') format('embedded-opentype')
-  src: url('../fonts/font-awesome/fontawesome-webfont.woff') format('woff')
-  src: url('../fonts/font-awesome/fontawesome-webfont.ttf') format('truetype')
-  src: url('../fonts/font-awesome/fontawesome-webfont.svg') format('svg')
-  font-weight: normal
-  font-style: normal
 
 *
   -webkit-box-sizing: border-box
@@ -24,42 +13,14 @@
   box-sizing: border-box
 
 //  Profile Navigation
-.logoProfile
-  position: relative
-  padding-top: em(10px)
 
-img[data-id="profile-logo"]
-  position: relative
-  width: em(150px)
-
-// user greeting section
-.greeting
-  display: inline
-  font-size: $base__subhead
-  color: $color-drkgrey
-  font-weight: $font-weight--normal
-  text-align: center
-
-
-// user info
-.view-profile
-  display: inline
-  margin-left: 20px
-
-.user-info
-  padding: em(20px) 0px em(20px) em(20px)
-  border: $border_ltgrey
-
-
-// sub nav
-
-.profile-nav
-  height: 300px
-  border: 1px solid red
+// left sub nav
 
 .sub-nav
-  border: 1px solid red
-  height: 700px
+  @include flexbox
+
+.sub-container
+  justify-content: flex-start
   width: 300px
 
 .user-event,
@@ -85,18 +46,109 @@ img[data-id="profile-logo"]
 .profile
   background-color: $color-primary
 
+// styling of icons and text in subnav
+
 h4[data-type="profile-header"]
   padding-bottom: em(10px)
   color: $color-drkgrey
   text-transform: uppercase
 
+a[class="user-event"]:before
+  font-family: FontAwesome
+  content: " \f02b"
+  padding-right: em(10px)
+
+a[class="user-event"]:hover
+  color: $light-orange
+
+a[class="user-activity"]:before
+  font-family: FontAwesome
+  content: " \f06e"
+  padding-right: em(10px)
+
+a[class="user-activity"]:hover
+  color: $light-orange
+
+a[class="new-event"]:before
+  font-family: FontAwesome
+  content: " \f02c"
+  padding-right: em(10px)
+
+a[class="new-event"]:hover
+  color: $color-primary
+
+p[data-type="e-title"]
+  color: $color-drkgrey
+  font-weight: $font-weight--bold
+  font-size: 10px
+
+// user's info container
+
+.view-profile
+  width: 100%
+  justify-content: flex-start
+  border-top: $border_ltgrey
+
+section[class="user-info"]
+  padding: em(10px) 0 em(10px) 0
+  h4
+    color: $color-font-accent
+    padding-bottom: em(10px)
+    text-align: left
+
+ol[data-type="user-details"]
+  li
+    color: $color-font-primary
+    padding-bottom: em(10px)
+    text-align: left
+
+
+// large dynamic info view
+
+.activity-log
+  border-top: $border_ltgrey
+  padding: em(10px) 0 em(10px) 0
+
+h4[class="activity-title"]
+  color: $color-font-accent
+
+p[class="activity"]
+  color: $color-font-primary
+
 .view-event
-  border: 1px solid
+  @include flexbox
+  flex-wrap: wrap
+  align-items: flex-start
+  border-top: $border_ltgrey
+
+.gallery-title,
+.activity-title
+  color: $color-accent
+  width: 50%
+  justify-content: flex-start
+  padding: em(10px) 0 em(10px) 0
+
+h5[data-type="edit-event"]
+  text-align: right
+  width: 50%
+  justify-content: flex-end
+  padding: em(10px) 0 em(10px) 0
+  a
+    color: $color-teal
+    &:hover
+      color: $color-font-primary
+      text-decoration: underline
+
+h5[data-type="edit-event"]:after
+  font-family: FontAwesome
+  content: " \f040"
+  color: $color-drkgrey
+  padding-right: em(20px)
+  padding: em(10px) 0 em(10px) 0
 
 .gallery-grid
-  border: 1px solid blue
-  position: relative
-  display: inline
+  flex-direction: row
+  flex-wrap: wrap
 
 .e-gallery
   float: left
@@ -104,6 +156,6 @@ h4[data-type="profile-header"]
   height: em(150px)
   width: em(150px)
   margin: em(5px)
-  background-color: green
+  background-color: $color-drkgrey
   @include border-radius(5px)
 

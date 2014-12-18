@@ -1,6 +1,3 @@
-<div class="logoContainer">
-  <img class="headerLogo" src="../../img/fpo_logo.png">
-</div>
 <section data-ng-controller="UserController"  data-ng-class="{mdoverlay: loginModalShown||signupModalShown}" data-ng-click="toggleModal()">
   <!-- Log In Modal 1 -->
   <div data-modal-login data-ng-if="loginModalShown" data-ng-blur="close()" >
@@ -10,10 +7,12 @@
   </div>
 </section>
 <!-- Search -->
+<!--CHANGE SEARCH RESULTS CONTAINER ON CLICK-->
 <section class="search-results-container" data-ng-controller="SearchController">
   <form class="searchform" autocomplete="off" data-ng-submit="searchForSales(sale.searchParams)">
     <div class="searchFormInner">
       <main>
+        <!--CHANGE SEARCHLABEL ON CLICK-->
         <label id="searchLabel" for="search">Search</label>
         <input id="search" name="search" type="search" placeholder="City, Neighborhood, or Zip Code" data-ng-model="sale.searchParams">
       </main>
@@ -28,3 +27,4 @@
   </form>
   <div class="search-results-view" data-search-results ng-if="sales"></div>
 </section>
+<div id="results"></div>
