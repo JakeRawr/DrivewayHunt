@@ -27,6 +27,9 @@ app.config(['$routeProvider', function($routeProvider) {
   .when('/', {
     templateUrl: 'js/templates/home.html'
   })
+  .when('/profile', {
+    templateUrl: 'js/templates/user_profile.html'
+  })
   .otherwise({
     redirectTo: '/'
   });
