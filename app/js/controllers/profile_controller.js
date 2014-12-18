@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('ProfileController', ['$scope', '$location', '$anchorScroll', '$cookies', '$http', function($scope, $location, $anchorScroll, $cookies, $http) {
+  app.controller('ProfileController', ['$scope', '$location', '$anchorScroll', function($scope, $location, $anchorScroll) {
     //http call to get user data and list of sales
     //$scope.sales => object array
     //$scope.user => object
@@ -38,8 +38,8 @@ module.exports = function(app) {
                            'test activity 12',
                            'test activity 13',
                            'test activity 14'];
-      $scope.items = [[{img:'http://i.imgur.com/xlPwCD3b.jpg'},{img:'http://i.imgur.com/zCYl13ib.jpg'},{img:'http://i.imgur.com/AepHezBb.jpg'}],
-                      [{img:'http://i.imgur.com/r2o9wjhb.jpg'},{img:'http://i.imgur.com/4xri5VCb.jpg'},{img:'http://i.imgur.com/WPywseqb.jpg'}]];
+      $scope.items = [[{img:'http://i.imgur.com/xlPwCD3b.jpg'}, {img:'http://i.imgur.com/zCYl13ib.jpg'}, {img:'http://i.imgur.com/AepHezBb.jpg'}],
+                      [{img:'http://i.imgur.com/r2o9wjhb.jpg'}, {img:'http://i.imgur.com/4xri5VCb.jpg'}, {img:'http://i.imgur.com/WPywseqb.jpg'}]];
     }
 
     $scope.getItemThumbnail = function(item) {
@@ -56,6 +56,6 @@ module.exports = function(app) {
 
     $scope.create = function() {
       $location.path('/create');
-    }
+    };
   }]);
 };
