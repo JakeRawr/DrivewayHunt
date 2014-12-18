@@ -1,0 +1,42 @@
+@import '../_mixin/vertical-align-mixin'
+@import '../_mixin/input-placeholder-mixin'
+@import '../_global/variables'
+@import '../_mixin/flexbox-mixin'
+@import '../_mixin/border-radius-mixin'
+@import '../_utility/em-function'
+@import '../_mixin/transition-mixin'
+@import '../_mixin/transform-mixin'
+
+.image-drop
+  color: $color-accent
+  width: 100%
+  padding: em(10px) 0 em(10px) 0
+
+.drop-images
+  @include flex
+  height: em(325px)
+  padding: em(25px)
+
+.drop-box
+  background-color: $color-font-primary
+  @include border-radius(5px)
+  height: 275px
+  width: 450px
+  margin: auto
+
+.view-thumbnails
+  border-top: $border_ltgrey
+  padding: em(10px) 0 em(10px) 0
+  margin-top: em(10px)
+  margin-bottom: em(10px)
+
+.gallery-thumbnails
+  width: 800px
+
+// h5[data-type="left-right"]:before
+//   font-family: FontAwesome
+//   content: " \f02c"
+//   padding-right: em(10px)
+//   color: $color-font-primary
+//   font-size: 50px
+
