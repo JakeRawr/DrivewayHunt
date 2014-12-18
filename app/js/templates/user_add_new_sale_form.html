@@ -1,0 +1,75 @@
+<form class="sale_form span_5_of_8" action="#">
+  <!-- creat your event -->
+  <label for="eventname">Step. 1 Create your event
+  event name (8 words maximum)</label>
+  <input type="text" name="eventname" placeholder="event name" id="eventname">
+  <!-- address -->
+  <label>address</label>
+  <input type="text" name="address" placeholder="address" id="address">
+  <!-- city -->
+  <label for="city">city</label>
+  <input id ="city" type="text" name="city" placeholder="city">
+  <!-- state and zipcode in one line -->
+  <div class="state_zip">
+    <div id="state">
+      <label for="state">state</label>
+      <input  name="state" type="text" placeholder="state">
+    </div>
+    <div id="zipcode">
+      <label for "zipcode">zip code</label>
+      <input name="zipcode" type="text" placeholder="zipcode">
+    </div>
+  </div>
+  <!-- description -->
+  <label for="event_description">description of your event (40 words max)</label><br>
+  <textarea name="event_description" id="event_description" cols="30" rows="10"></textarea><br>
+  <!-- add key words to your event -->
+  <label>add key words to your event</label>
+  <!-- first column -->
+  <ul class="keywords">
+    <li><input type="checkbox" name="kitchen" value="kitchen" id="kitchen" checked="checked">
+    <label>kitchen</label></li>
+    <li><input type="checkbox" name="livingroom" id="livingroom" value="livingroom" checked="checked">
+    <label>living room</label></li>
+    <li><input type="checkbox" id="bedroom" name="bedroom" value="bedroom">
+    <label>bedroom</label></li>
+    <li><input type="checkbox" name="diningroom" id="diningroom" value="diningroom">
+    <label>dining room</label></li>
+    <li><input type="checkbox" name="baby" id="baby" value="baby" >
+    <label>baby</label></li>
+    <li><input type="checkbox" name="outdoor" value="outdoor" id="outdoor">
+    <label>outdoor</label></li>
+    <!-- second column -->
+    <li><input type="checkbox" name="furniture" value="furniture" id="furniture" checked="checked">
+    <label>furniture</label></li>
+    <li><input type="checkbox" name="sports" value="sports" id="sports">
+    <label>sports</label></li>
+    <li><input type="checkbox" name="clothes" value="clothes" id="clothes">
+    <label>clothes</label></li>
+    <li><input type="checkbox" name="books" value="books" id="books">
+    <label>books</label></li>
+    <li><input type="checkbox" name="utensils" value="utensils" id="utensils">
+    <label>utensils</label></li>
+    <li><input type="checkbox" name="toys" value="toys" id="toys" checked="checked">
+    <label>toys</label></li>
+    <!-- third column -->
+    <li><input type="checkbox" name="travel" value="travel" id="travel" checked="checked">
+    <label>travel</label></li>
+    <li><input type="checkbox" id="decor" name="decor" value="decor">
+    <label>decor</label></li>
+    <li><input type="checkbox" id="tools" name="tools" value="tools">
+    <label>tools</label></li>
+    <li><input type="checkbox" id="appliances" name="appliances" value="appliances">
+    <label>Appliances</label></li>
+    <li><input type="checkbox" id ="garden" name="garden" value="garden">
+    <label>Garden</label></li>
+    <li><input type="checkbox" name="crafts" value="crafts" id="crafts">
+    <label>Crafts</label></li>
+  </ul>
+   <!-- link "upload photos next" -->
+  <section>
+  <label for="user_form_footer">
+    <a data-ng-click="uploadGallery()">UPLOAD PHOTOS NEXT (right arrow)</a>
+  </label>
+  </section>
+</form>
