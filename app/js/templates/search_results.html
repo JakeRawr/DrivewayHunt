@@ -22,19 +22,12 @@
   <!-- event 1 starts -->
   <tbody data-ng-repeat="sale in sales">
     <tr data-ng-click="relocate($event, sale.lat, sale.lng)">
-      <td class="results" colspan="2">
+      <td class="results" colspan="3">
         <ol name="event" data-type="event-info">
           <h4 id="redirectSale" data-ng-click="redirectSale()" style="cursor:pointer; text-decoration: underline;">{{sale.title}}</h4>
-          <li><strong>Location:</strong>{{sale.address}}</li>
-          <li><time datetime><strong>Date:</strong>{{(sale.dateStart  | date : 'mediumDate') + ' - ' + (sale.dateEnd  | date : 'mediumDate')}}</time></li>
-        </ol>
-      </td>
-      <!-- Date & Time col  -->
-      <td class="date" colspan="1">
-        <ol name="event" data-type="date-time">
-          <h5>Date</h5>
-          <li><time datetime>{{(sale.dateStart  | date : 'mediumDate')}}</time></li>
-          <li><time datetime>{{sale.timeStart | date : 'shortTime'}}</time></li>
+          <li><strong>Location: </strong>{{sale.address}}</li>
+          <li><time datetime><strong>Date: </strong>{{(sale.dateStart  | date : 'mediumDate') + ' - ' + (sale.dateEnd  | date : 'mediumDate')}}</time></li>
+          <li><time datetime><strong>Time: </strong>{{(sale.timeStart  | date : 'shortTime') + ' - ' + (sale.timeEnd  | date : 'shortTime')}}</time></li>
         </ol>
       </td>
       <!-- icon col -->
