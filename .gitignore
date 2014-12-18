@@ -9,3 +9,4 @@ app/.sass-cache/
 tests/angular_test_bundle.js
 app/**/*.css
 app/**/*.css.map
+.DS_Store
