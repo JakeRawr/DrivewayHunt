@@ -2,7 +2,7 @@
 
 var User = require('../models/user');
 
-module.exports = function(app, passport) {
+module.exports = function(app, passport, jwtAuth, getSale, getItem) {
   app.get('/api/users', passport.authenticate('basic', {session: false}), function(req, res) {
     res.json({jwt: req.user.generateToken(app.get('jwtSecret'))});
   });
@@ -26,5 +26,10 @@ module.exports = function(app, passport) {
         res.json({jwt: newUser.generateToken(app.get('jwtSecret'))});
       });
     });
+  });
+
+  app.get('/api/userInfo', jwtAuth, getSale, getItem, function(req, res) {
+    var data = {user:req.user, sales: req.sales, items:req.items};
+    res.json(data);
   });
 };
