@@ -5,7 +5,7 @@
 @import '../_mixin/border-radius-mixin'
 @import '../_utility/em-function'
 @import '../_mixin/transition-mixin'
-//@import '../_mixin/transform-mixin'
+@import '../_mixin/transform-mixin'
 
 *
   -webkit-box-sizing: border-box
@@ -14,52 +14,14 @@
 
 //  Profile Navigation
 
-// logo
-// #user-menu
-//   justify-content: flex-start
-//   border: em(1px) solid blue
-
-// .small-nav
-//   @include flexbox
-//   border: em(1px) solid red
-
-
-// .small-logo
-//   margin: em(15px) em(15px)
-//   border: em(1px) solid red
-
-// img[data-id="profile-logo"]
-//   padding-top: em(10px)
-//   width: 100px
-
-// // logout button
-// .logout
-
-// button[name="logout-btn"]
-//   border: em(1px) solid red
-
-
-// user's name greeting section
-
-// .greeting
-//   @include flexbox
-
-// section[name"user-profile"]
-//   font-size: $base__subhead
-//   color: $color-drkgrey
-//   font-weight: $font-weight--normal
-//   text-align: center
-//   width: 100%
-
-
 // left sub nav
 
 .sub-nav
   @include flexbox
-  justify-content: space-between
 
 .sub-container
-  flex-basis: em(300px)
+  justify-content: flex-start
+  width: 300px
 
 .user-event,
 .user-activity
@@ -67,7 +29,7 @@
 
 .profile,
 .events
-  margin-right: em(10px)
+  margin-right: 10px
   padding: em(20px) 0px em(20px) em(20px)
   background-color: $color-primary
   li
@@ -125,6 +87,7 @@ p[data-type="e-title"]
 .view-profile
   width: 100%
   justify-content: flex-start
+  border-top: $border_ltgrey
 
 section[class="user-info"]
   padding: em(10px) 0 em(10px) 0
@@ -157,7 +120,6 @@ p[class="activity"]
   flex-wrap: wrap
   align-items: flex-start
   border-top: $border_ltgrey
-  margin-right: em(20px)
 
 .gallery-title,
 .activity-title
@@ -196,83 +158,4 @@ h5[data-type="edit-event"]:after
   margin: em(5px)
   background-color: $color-drkgrey
   @include border-radius(5px)
-
-//Form component
-
-main[class="sale_form"]
-  background-color: blue
-  display: flex
-  flex-flow: column nowrap
-
-//set fonts
-.sale_form
-  label
-    text-transform: uppercase
-    font-size: 12px
-    font-weight: $font-weight--bold
-    letter-spacing: 1px
-    color: $color-font-primary
-    display: inline-block
-    &[for="eventname"],
-    &[for="address"],
-    &[for="city"],
-    &[for="state_zip"],
-    &[for="zipcode"],
-    &[for="event_description"],
-      padding: 1% 0
-    &[for="eventname"],&[for="user_form_footer"]
-      color: $color-primary
-      font-weight: $font-weight--bold
-      padding-bottom: 2%
-
-//align state and zip
-.state_zip
-  display: flex
-  flex-flow: row wrap
-  justify-content: flex-start
-  #zipcode
-    margin: 0 2%
-
-//set the input field
-input[name="eventname"],
-input[name="address"],
-input[name="city"],
-input[name="state"],
-input[name="zipcode"],
-  height: em(30px)
-  width: 80%
-  padding: em(5px) em(10px)
-  maxlength: 50
-  margin: 1% 1px
-  border: 1px solid $color-medgrey
-
-//textarea
-textarea[name="event_description"]
-  width: 80%
-  height: 20%
-  -webkit-appearance: none
-  border: 1px solid $color-medgrey
-
-//keywords
-.keywords
-  column-count: 3
-  -webkit-column-count: 3 /* Chrome, Safari, Opera */
-  -moz-column-count: 3 /* Firefox */
-  colum
-  li
-    display: flex
-    flex-flow: row wrap
-
-//checkbox
-li[type="checkbox"]
-  -webkit-appearance: none
-  -moz-appearance: none
-
-//user_form_footer flys to the right
-label
-  a
-    color: $color-primary
-    text-decoration: none
-    &:hover
-      color: $color-secondary
 
