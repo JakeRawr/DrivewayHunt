@@ -10,8 +10,8 @@
   </head>
   <body data-ng-app="drivewayApp" data-ng-controller="AppController" data-ng-cloak>
     <!-- Header: Menu/Nav Buttons Trigger Modal -->
-    <header id="main-app-header">
-      <ol class="modalContainer">
+    <header id="main-app-header" ng-class="appView">
+      <ol id="nav">
         <li><!-- login/log out modal button -->
           <button class="md-trigger btn btn-1 btn-1a" data-modal="modal-1" type="checkbox" name="userLogIn" value="check" data-ng-click="currentUser ? signOut() : signIn()">{{currentUser ? 'Log Out' : 'Log In'}}</button>
         </li>
@@ -21,11 +21,10 @@
         <li> <!-- sign up modal button -->
           <button id="signUp" class="md-trigger btn btn-1 btn-1a" data-modal="modal-2" type="checkbox" name="userSignUp" value="check" data-ng-if="currentUser" data-ng-click="profileRedirect()">Profile</button>
         </li>
-
       </ol>
       <!--CHANGE LOGO ON CLICK-->
-      <div class="logoContainer">
-        <img class="headerLogo" src="../../img/fpo_logo.png">
+      <div id="logo-container">
+        <img class="header-logo" src="../../img/fpo_logo.png">
       </div>
     </header>
 

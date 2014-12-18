@@ -1,3 +1,4 @@
+**/.DS_*
 db/
 node_modules/
 bower_components/
@@ -7,5 +8,5 @@ cloudinary.yml
 .sass-cache/
 app/.sass-cache/
 tests/angular_test_bundle.js
-app/**/*.css
-app/**/*.css.map
+**/*.css
+**/*.css.map

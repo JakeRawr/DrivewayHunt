@@ -9,7 +9,9 @@ module.exports = function(app) {
     $scope.searchForSales = function(location) {
       SaleSearch.search(location)
       .success(function(data) {
+        $scope.$emit('searchSubmitted');
         $scope.sales = data;
+        $scope.changeState = 'home-view';
       })
       .error(function(err) {
         console.log(err);
@@ -21,5 +23,6 @@ module.exports = function(app) {
       //redirect to sale html
       console.log('redirected');
     };
+
   }]);
 };
