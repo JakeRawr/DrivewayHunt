@@ -1,0 +1,76 @@
+@import '../_mixin/input-placeholder-mixin'
+@import '../_utility/em-function'
+
+// search bar
+.search-container
+  position: relative
+  display: block
+  margin-top: 15%
+
+.submit
+  display: none
+
+#searchLabel
+  text-transform: uppercase
+  font-weight: $font-weight--light
+  font-size: $base__search
+  color: $color-font-primary
+
+/* Search Input field */
+#search
+  display: block
+  margin-top: em(5px)
+  padding: em(10px) 0 em(10px) em(5px)
+  width: 100%
+  border: $border_ltgrey
+  background: transparent
+  background-color: $color-background
+  color: $color-primary
+  font-size: $base__font-size
+  line-height: $base__line
+  &:focus
+    border: $border_teal
+    outline: none
+  // opacity: 0
+  @include input-placeholder
+    font-weight: $font-weight--light
+    font-size: $base__font-size
+    color: white
+
+.howSearch
+  color: $color-primary
+  font-style: italic
+  font-weight: $font-weight--normal
+  font-size: $base__paragraph
+  letter-spacing: em(1px)
+  line-height: 1.5
+
+
+/* dynamic button need show onkeydown */
+.next
+  position: absolute
+  right: 0
+  bottom: 2.15em
+  display: block
+  padding: 0
+  width: 2em
+  height: 2em
+  border: none
+  background: none
+  color: rgba(0,0,0,0.4)
+  text-align: center
+  // opacity: 0
+
+/* Progress bar -- would like to animate on submit */
+.progress
+  margin-top: em(5px)
+  width: 0%
+  height: 0.15em
+  //background: rgba(0,0,0,0.3)
+  &:before
+    position: absolute
+    top: auto
+    width: 100%
+    height: inherit
+    //background: rgba(0,0,0,0.05)
+    content: ''
