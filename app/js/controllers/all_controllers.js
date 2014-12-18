@@ -6,4 +6,5 @@ module.exports = function(app) {
   //require('./sale_controller')(app);
   require('./user_controller')(app);
   require('./search_controller')(app);
+  require('./profile_controller')(app);
 };
