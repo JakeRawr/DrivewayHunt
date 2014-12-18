@@ -1,0 +1,77 @@
+@import '../_mixin/vertical-align-mixin'
+@import '../_mixin/input-placeholder-mixin'
+@import '../_global/variables'
+@import '../_mixin/flexbox-mixin'
+@import '../_mixin/border-radius-mixin'
+@import '../_utility/em-function'
+@import '../_mixin/transition-mixin'
+@import '../_mixin/transform-mixin'
+
+//  view event info bar
+
+.single-event
+	@include flex-shrink($int: 1)
+	width: 100%
+	padding: 0
+
+.event-header
+	background-color: $color-primary
+	padding: em(20px) 0
+	padding-left: em(5px)
+	color: white
+	text-transform: uppercase
+
+.event-info
+	@include flexbox
+	@include flex-direction($value: column)
+	h4
+		width: 100%
+		text-align: left
+		padding: em(10px) 0
+		padding-left: em(5px)
+		color: $color-font-primary
+		strong
+			text-transform: uppercase 
+			color: $color-primary
+
+ol[data-type="event-details"]
+	width: 100%
+	text-align: left
+
+// image gallery template cards
+
+.thumb-gallery
+	@include flexbox
+
+.single-thumb
+	@include flex-direction($value: flex-start)
+	padding: em(20px) em(20px)
+	width: em(225px) // scale down to this size thumb
+	border: $button_border_accent
+	margin-right: em(10px)
+
+.img-template
+	width: 100%
+
+label[for="view-input"],
+label[for="view-text"]
+	font-weight: $font-weight--normal
+	text-transform: uppercase
+	text-align: left
+	color: $color-dkorange
+	font-size: em(8px)
+
+.view-input
+	font-size: em(8px)
+	border: $border_dkgrey
+
+
+.single-event,
+.thumb-gallery
+	width: 100%
+	justify-content: flex-start
+	border-top: em(3px) solid #eaeaed
+
+.thumb-gallery
+	padding: em(20px) 0
+
