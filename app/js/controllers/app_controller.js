@@ -17,12 +17,12 @@ module.exports = function(app) {
     };
 
     $scope.signOut = function() {
+      $location.path('/');
       AuthService.signOut();
     };
 
     $scope.profileRedirect = function() {
       $location.path('/profile');
-      console.log('here');
     };
 
     $scope.$watch(function() { return $cookies.jwt; }, function(validUser) {
