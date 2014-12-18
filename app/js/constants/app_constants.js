@@ -6,6 +6,8 @@ module.exports = function(app) {
     loginFailure: 'auth-login-failure',
     logoutSuccess: 'auth-logout-sucess',
     loginAttempt: 'auth-login-attempt',
-    signupAttempt: 'auth-signupAttempt'
+    signupAttempt: 'auth-signupAttempt',
+    itemEditAttempt: 'item-editAttempt',
+    itemEditFinished: 'item-editFinished',
   });
 };
