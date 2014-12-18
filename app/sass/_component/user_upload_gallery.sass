@@ -7,80 +7,36 @@
 @import '../_mixin/transition-mixin'
 @import '../_mixin/transform-mixin'
 
-
-// large dynamic info view
-
-// .activity-log
-//   border-top: $border_ltgrey
-//   padding: em(10px) 0 em(10px) 0
-
-// h4[class="activity-title"]
-//   color: $color-font-accent
-
-// p[class="activity"]
-//   color: $color-font-primary
-
-// .view-event
-//   @include flexbox
-//   flex-wrap: wrap
-//   align-items: flex-start
-//   border-top: $border_ltgrey
-//   margin-right: em(20px)
-
 .image-drop
   color: $color-accent
   width: 100%
-  justify-content: flex-start
   padding: em(10px) 0 em(10px) 0
-  @include flexbox
 
 .drop-images
-  padding: em(50px)
-  @include justify-content($value: center)
+  @include flex
+  height: em(325px)
+  padding: em(25px)
 
 .drop-box
-  background-color: red
-  height: em(250px)
-  width: em(450px)
+  background-color: $color-font-primary
+  @include border-radius(5px)
+  height: 275px
+  width: 450px
+  margin: auto
 
-// .e-gallery
-//   float: left
-//   vertical-align: top
-//   height: em(150px)
-//   width: em(150px)
-//   margin: em(5px)
-//   background-color: $color-drkgrey
-//   @include border-radius(5px)
+.view-thumbnails
+  border-top: $border_ltgrey
+  padding: em(10px) 0 em(10px) 0
+  margin-top: em(10px)
+  margin-bottom: em(10px)
 
+.gallery-thumbnails
+  width: 800px
 
-// h5[data-type="edit-event"]
-//   text-align: right
-//   width: 50%
-//   justify-content: flex-end
-//   padding: em(10px) 0 em(10px) 0
-//   a
-//     color: $color-teal
-//     &:hover
-//       color: $color-font-primary
-//       text-decoration: underline
-
-// h5[data-type="edit-event"]:after
+// h5[data-type="left-right"]:before
 //   font-family: FontAwesome
-//   content: " \f040"
-//   color: $color-drkgrey
-//   padding-right: em(20px)
-//   padding: em(10px) 0 em(10px) 0
-
-// .gallery-grid
-//   flex-direction: row
-//   flex-wrap: wrap
-
-// .e-gallery
-//   float: left
-//   vertical-align: top
-//   height: em(150px)
-//   width: em(150px)
-//   margin: em(5px)
-//   background-color: $color-drkgrey
-//   @include border-radius(5px)
+//   content: " \f02c"
+//   padding-right: em(10px)
+//   color: $color-font-primary
+//   font-size: 50px
 
