@@ -1,19 +1,25 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('ProfileController', ['$scope', '$location', '$anchorScroll', function($scope, $location, $anchorScroll) {
+  app.controller('ProfileController', ['$scope', '$location', '$anchorScroll', '$cookies', '$http', function($scope, $location, $anchorScroll, $cookies, $http) {
     //http call to get user data and list of sales
     //$scope.sales => object array
     //$scope.user => object
     getProfile();
 
     function getProfile() {
-      /*$http.get('/api/users')
-      .success(function(data) {
-        $scope.sales = data.sales;
-        $scope.user = data.user;
-        $scope.items = data.items;
-      });*/
+      // $http.get('/api/userInfo', {
+      //     headers: {jwt: $cookies.jwt}
+      // })
+      // .success(function(data) {
+      //   console.log('here');
+      //   $scope.sales = data.sales;
+      //   $scope.user = data.user;
+      //   $scope.items = data.items;
+      // })
+      // .error(function(err) {
+      //   console.log(err);
+      // });
 
       $scope.sales = [{id: '1234', title: 'test Sale 1'},
                       {id: '4567', title: 'test Sale 2'}];
