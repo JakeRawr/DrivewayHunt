@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>photo_enlarge</title>
+  <link rel="stylesheet" type="text/css" href="sass/_global/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="sass/style.css" />
+</head>
+<body class="photo_enlarge">
+  <form class="viewphoto photoModal"action="#">
+    <!-- image -->
+    <img src="img/sample_sale.png" alt="{{image01}}"><br>
+    <!-- form -->
+    <ol>
+      <!-- title of the image -->
+      <li class="image-view" data-id="image-title">
+        <label for="image-title">Title</label><br>
+        <input id="image-title" type="text" name="image-title" title="image-title">
+      </li>
+      <!-- image description -->
+      <li class="image-view" data-id="image-title">
+        <label for="image-text">Description</label></br>
+        <textarea id="image-text" name="image-tex"></textarea>
+      </li>
+        <!--item condition -->
+      <li class="image-view" data-id="image-title">
+        <label for="image-condition">Condition</label><br>
+        <select id ="image-condition"name="image-condition">
+          <option value="brandnew">&nbsp Brand New</option>
+          <option selected="selected" value="likenew">&nbsp Like New</option>
+          <option value="fair">&nbsp Fair &#x02717</option>
+          <option value="good">&nbsp Good &#x02717 &#x02717</option>
+          <option value="junk">&nbsp Junk &#x02717 &#x02717 &#x02717</option>
+        </select><br>
+      </li>
+    </ol>
+    <div id="view-image">
+      <button data-id="image-close">Close</button>
+      <button data-id="image-save">Save</button>
+    </div>
+  </form>
+</body>
+</html>
