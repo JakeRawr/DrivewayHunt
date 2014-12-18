@@ -18,7 +18,6 @@ module.exports = function(app, jwtauth) {
       if (data[1]) return res.status(403).send('be more specific');
       if (!data) return res.status(403).send('could not find location');
       var latLng = (data[0].geometry.location);
-      console.log(latLng);
       var lat = latLng.lat;
       var lng = latLng.lng;
       var geojsonPoly = { type: 'Polygon',
@@ -28,7 +27,6 @@ module.exports = function(app, jwtauth) {
                                          [lng - 0.5, lat - 0.5],
                                          [lng - 0.5, lat + 0.5]]]};
       Sale.find({ loc: { $within: { $geometry: geojsonPoly }}}, function(err, data) {
-        console.log(data);
         res.send(data);
       });
     });
