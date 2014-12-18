@@ -9,10 +9,12 @@
 @import '_component/home';
 @import '_component/results';
 @import '_component/user_profile_subnav';
+@import '_component/search_form';
 @import '_component/user_upload_gallery';
 
 // layouts
 @import '_layout/grid';
+
 // mixins
 @import '_mixin/vertical-align-mixin';
 @import '_mixin/clearfix-mixin';
@@ -22,5 +24,6 @@
 @import '_mixin/transition-mixin';
 @import '_mixin/transform-mixin';
 //@import '_mixin/icons-mixin';
+
 // utility
 @import '_utility/em-function';
