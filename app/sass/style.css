@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
@@ -233,15 +234,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-@font-face {
-  font-family: 'FontAwesome';
-  src: url("../fonts/font-awesome/fontawesome-webfont.eot");
-  src: url("../fonts/font-awesome/fontawesome-webfont.eot") format("embedded-opentype");
-  src: url("../fonts/font-awesome/fontawesome-webfont.woff") format("woff");
-  src: url("../fonts/font-awesome/fontawesome-webfont.ttf") format("truetype");
-  src: url("../fonts/font-awesome/fontawesome-webfont.svg") format("svg");
-  font-weight: normal;
-  font-style: normal; }
 @font-face {
   font-weight: normal;
   font-style: normal;
@@ -700,50 +692,22 @@ ol[data-type="filter"] {
   .flex-container {
     width: 100%;
     -moz-box-sizing: border-box; } }
-@font-face {
-  font-family: "FontAwesome";
-  src: url("../fonts/font-awesome/fontawesome-webfont.eot");
-  src: url("../fonts/font-awesome/fontawesome-webfont.eot") format("embedded-opentype");
-  src: url("../fonts/font-awesome/fontawesome-webfont.woff") format("woff");
-  src: url("../fonts/font-awesome/fontawesome-webfont.ttf") format("truetype");
-  src: url("../fonts/font-awesome/fontawesome-webfont.svg") format("svg");
-  font-weight: normal;
-  font-style: normal; }
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-.logoProfile {
-  position: relative;
-  padding-top: 10px; }
-
-img[data-id="profile-logo"] {
-  position: relative;
-  width: 150px; }
-
-.greeting {
-  display: inline;
-  font-size: 1.5em;
-  color: #666666;
-  font-weight: 400;
-  text-align: center; }
-
-.view-profile {
-  display: inline;
-  margin-left: 20px; }
-
-.user-info {
-  padding: 20px 0px 20px 20px;
-  border: 3px solid #eaeaed; }
-
-.profile-nav {
-  height: 300px;
-  border: 1px solid red; }
-
 .sub-nav {
-  border: 1px solid red;
-  height: 700px;
+  float: none;
+  position: static;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.sub-container {
+  justify-content: flex-start;
   width: 300px; }
 
 .user-event,
@@ -774,13 +738,102 @@ h4[data-type="profile-header"] {
   color: #666666;
   text-transform: uppercase; }
 
+a[class="user-event"]:before {
+  font-family: FontAwesome;
+  content: " ";
+  padding-right: 10px; }
+
+a[class="user-event"]:hover {
+  color: #ffe4b2; }
+
+a[class="user-activity"]:before {
+  font-family: FontAwesome;
+  content: " ";
+  padding-right: 10px; }
+
+a[class="user-activity"]:hover {
+  color: #ffe4b2; }
+
+a[class="new-event"]:before {
+  font-family: FontAwesome;
+  content: " ";
+  padding-right: 10px; }
+
+a[class="new-event"]:hover {
+  color: #ff6666; }
+
+p[data-type="e-title"] {
+  color: #666666;
+  font-weight: 700;
+  font-size: 10px; }
+
+.view-profile {
+  width: 100%;
+  justify-content: flex-start;
+  border-top: 3px solid #eaeaed; }
+
+section[class="user-info"] {
+  padding: 10px 0 10px 0; }
+  section[class="user-info"] h4 {
+    color: #ff6666;
+    padding-bottom: 10px;
+    text-align: left; }
+
+ol[data-type="user-details"] li {
+  color: #666666;
+  padding-bottom: 10px;
+  text-align: left; }
+
+.activity-log {
+  border-top: 3px solid #eaeaed;
+  padding: 10px 0 10px 0; }
+
+h4[class="activity-title"] {
+  color: #ff6666; }
+
+p[class="activity"] {
+  color: #666666; }
+
 .view-event {
-  border: 1px solid; }
+  float: none;
+  position: static;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  border-top: 3px solid #eaeaed; }
+
+.gallery-title,
+.activity-title {
+  color: #A1DBB2;
+  width: 50%;
+  justify-content: flex-start;
+  padding: 10px 0 10px 0; }
+
+h5[data-type="edit-event"] {
+  text-align: right;
+  width: 50%;
+  justify-content: flex-end;
+  padding: 10px 0 10px 0; }
+  h5[data-type="edit-event"] a {
+    color: #A1DBB2; }
+    h5[data-type="edit-event"] a:hover {
+      color: #666666;
+      text-decoration: underline; }
+
+h5[data-type="edit-event"]:after {
+  font-family: FontAwesome;
+  content: " ";
+  color: #666666;
+  padding-right: 20px;
+  padding: 10px 0 10px 0; }
 
 .gallery-grid {
-  border: 1px solid blue;
-  position: relative;
-  display: inline; }
+  flex-direction: row;
+  flex-wrap: wrap; }
 
 .e-gallery {
   float: left;
@@ -788,7 +841,7 @@ h4[data-type="profile-header"] {
   height: 150px;
   width: 150px;
   margin: 5px;
-  background-color: green;
+  background-color: #666666;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   /* stops bg color from leaking outside the border: */ }
