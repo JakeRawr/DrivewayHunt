@@ -6,19 +6,19 @@
       <div class="drop-images">
         <div data-ng-file-drop ng-model="itemImage" data-ng-file-change="upload(itemImage)" data-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}" data-ng-multiple="false" data-allow-dir="false" data-accept="image/*,*pdf" data-hide-on-drop-not-available="true">Drop images here</div>
         <div data-ng-no-file-drop>File drag/drop is not support by your browser</div>
-        </div>
-      </div>
-    </div>
-    <!-- gallery 2 -->
-    <div class="view-thumbnails">
-    <!--<h5 data-type="left-right"><a href="">Edit Event</a></h5> -->
-      <div class="gallery-thumbnails">
-        <div class="e-gallery"></div>
-        <div class="e-gallery"></div>
-        <div class="e-gallery"></div>
-        <div class="e-gallery"></div>
-        <div class="e-gallery"></div>
       </div>
     </div>
   </div>
+  <!-- gallery 2 -->
+  <div class="view-thumbnails">
+  <!--<h5 data-type="left-right"><a href="">Edit Event</a></h5> -->
+    <div class="gallery-thumbnails">
+      <div class="e-gallery"></div>
+      <div class="e-gallery"></div>
+      <div class="e-gallery"></div>
+      <div class="e-gallery"></div>
+      <div class="e-gallery"></div>
+    </div>
+  </div>
+  <div data-item-detail data-ng-if="itemModalShown"></div>
 </div>

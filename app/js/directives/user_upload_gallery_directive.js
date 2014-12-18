@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = function(app) {
-  app.directive('UserUploadGallery', function() {
+  app.directive('userUploadGallery', function() {
     return {
-      restrict: 'EAC',
+      restrict: 'AEC',
       replace: true,
       templateUrl: 'js/templates/user_upload_gallery.html'
     };
