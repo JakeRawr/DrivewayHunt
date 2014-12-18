@@ -1,8 +1,10 @@
 'use strict';
 
 var User = require('../models/user');
+var getSale = require('../../server/lib/getSaleMW');
+var getItem = require('../../server/lib/getItemMW');
 
-module.exports = function(app, passport, jwtAuth, getSale, getItem) {
+module.exports = function(app, passport, jwtAuth) {
   app.get('/api/users', passport.authenticate('basic', {session: false}), function(req, res) {
     res.json({jwt: req.user.generateToken(app.get('jwtSecret'))});
   });
@@ -29,7 +31,7 @@ module.exports = function(app, passport, jwtAuth, getSale, getItem) {
   });
 
   app.get('/api/userInfo', jwtAuth, getSale, getItem, function(req, res) {
-    var data = {user:req.user, sales: req.sales, items:req.items};
+    var data = {user: req.user, sales: req.sales, items: req.items};
     res.json(data);
   });
 };
