@@ -25,9 +25,15 @@ module.exports = function(app) {
                            'test activity 5',
                            'test activity 6',
                            'test activity 7',
-                           'test activity 8'];
-      // $scope.items = [[{img:'http://i.imgur.com/xlPwCD3b.jpg'},{img:'http://i.imgur.com/zCYl13ib.jpg'},{img:'http://i.imgur.com/AepHezBb.jpg'}]]
-      //                 {thumbnailUrl: ['http://i.imgur.com/r2o9wjhb.jpg','http://i.imgur.com/4xri5VCb.jpg','http://i.imgur.com/WPywseqb.jpg','http://i.imgur.com/A7s55oPb.jpg']}];
+                           'test activity 8',
+                           'test activity 9',
+                           'test activity 10',
+                           'test activity 11',
+                           'test activity 12',
+                           'test activity 13',
+                           'test activity 14'];
+      $scope.items = [[{img:'http://i.imgur.com/xlPwCD3b.jpg'},{img:'http://i.imgur.com/zCYl13ib.jpg'},{img:'http://i.imgur.com/AepHezBb.jpg'}],
+                      [{img:'http://i.imgur.com/r2o9wjhb.jpg'},{img:'http://i.imgur.com/4xri5VCb.jpg'},{img:'http://i.imgur.com/WPywseqb.jpg'}]];
     }
 
     $scope.getItemThumbnail = function(item) {
