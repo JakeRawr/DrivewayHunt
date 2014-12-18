@@ -29,11 +29,11 @@ module.exports = function(app) {
     
     $scope.uploadSuccess = function() {
       $rootScope.$broadcast(AUTH_EVENTS.itemEditAttempt);
-    }
+    };
 
     $scope.close = function() {
       $rootScope.$broadcast(AUTH_EVENTS.itemEditFinished);
-    }
+    };
 
     $scope.save = function(title, description, condition, url) {
       console.log(title);
@@ -42,7 +42,7 @@ module.exports = function(app) {
       console.log(url);
       //call service
       $rootScope.$broadcast(AUTH_EVENTS.itemEditFinished);
-    }
+    };
     
   }]);
 };
