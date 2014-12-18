@@ -1,12 +1,12 @@
 <aside class="view-profile">
-  <section class="user-info">
-    <h4>Your Profile</h4>
-    <ol data-type="user-details">
-      <li>Name: {{user.firstName}} {{user.lastName}}</li>
-      <li>Email: {{user.basic.email}}</li>
-    </ol>
-  </section>
-<!-- gallery 1 -->
+    <section class="user-info">
+      <h4>Your Profile</h4>
+      <ol data-type="user-details">
+        <li>Name: {{user.firstName}}</li>
+        <li>Email: {{user.basic.email}}</li>
+      </ol>
+    </section>
+  <!-- gallery 1 -->
   <article id="activity-log" class="activity-log">
     <h4 class="activity-title">Your Recent Activities</h4>
     <div ng-repeat="activity in activities">
