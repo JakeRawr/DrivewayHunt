@@ -44,6 +44,6 @@ module.exports = function(app) {
 
     $scope.create = function() {
       $location.path('/create');
-    }
+    };
   }]);
 };
