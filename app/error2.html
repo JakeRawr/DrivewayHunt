@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>error2</title>
+  <link rel="stylesheet" type="text/css" href="sass/_global/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="sass/style.css"/>
+</head>
+<body>
+          <form name="login" class="userModal" action="/login" method="post">
+              <h2 class="headModal">User not loged in<h2>
+              <ol class="loginModal">
+                <li data-id="login-user"><small name="login-cta">The feature you requested is only available to members. Please Sign in to continue...</small></li>
+                <li class="email" data-id="login-user">
+                    <label for="loginEmail">Email</label>
+                    <input id="loginEmail" type="email" name="email" title="Your Email" pattern="[^ @]*@[^ @]*">
+                </li>
+                <li class="password" data-id="login-user">
+                    <label for="loginPassword">Password</label>
+                    <input id="loginPassword" type="password" name="password" title="Your Password">
+                </li>
+                <li class="detect" data-id="login-user">
+                  <label for="userDetect">Remember Me!</label>
+                  <input id="userDetect" type="checkbox" value="Checked" checked>
+                </li>
+                <button class="btn btn-submit" name="submit" value="Submit" data-id="login-submit">Submit</button>
+                <button class="btn btn-signup" name="submit" value="Submit" data-id="login-submit">Sign Up</button>
+              </ol>
+          </form>
+</body>
+</html>
