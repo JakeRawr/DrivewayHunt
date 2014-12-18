@@ -8,6 +8,6 @@ module.exports = function(app) {
     loginAttempt: 'auth-login-attempt',
     signupAttempt: 'auth-signupAttempt',
     itemEditAttempt: 'item-editAttempt',
-    itemEditFinished: 'item-editFinished',
+    itemEditFinished: 'item-editFinished'
   });
 };
