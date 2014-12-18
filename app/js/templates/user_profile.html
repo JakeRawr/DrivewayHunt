@@ -1,6 +1,6 @@
 <!-- sub nav container -->
-<div class="sub-nav" data-ng-controller="ProfileController">
-  <aside id="sub-container">
+<div id="user-profile-container" data-ng-controller="ProfileController" data-ng-init="getProfile()">
+  <aside id="user-sticky-sub-nav">
   <!-- permanent sub nav -->
     <ul class="profile">
       <h4 data-type="profile-header">Your Profile<h4>
@@ -16,8 +16,12 @@
       </li>
     </ul>
   </aside>
-  <!-- user profile info bar -->
-  <div data-user-landing-page data-ng-if="boolProfile"></div>
-  <div data-user-add-new-sale data-ng-if="somethingElse"></div>
-  <div data-user-upload-gallery data-ng-if="anotherBool"></div>
+
+  <section id="user-directives-container" data-ng-switch="userDirectives">
+    <div data-user-error-page data-ng-switch-when="userLoadError"></div>
+    <div data-user-landing-page data-ng-switch-when="landingPage"></div>
+    <div data-user-add-new-sale data-ng-switch-when="newSale"></div>
+    <div data-user-upload-gallery data-ng-switch-when="uploadGallery"></div>
+    <div data-user-landing-page data-ng-switch-default></div>
+  </section>
 </div>

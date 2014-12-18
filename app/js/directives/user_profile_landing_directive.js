@@ -5,7 +5,6 @@ module.exports = function(app) {
     return {
       restrict: 'AEC',
       replace: true,
-      transclude: true,
       templateUrl: 'js/templates/user_profile_landing_page.html'
     };
   });

@@ -5,52 +5,46 @@ module.exports = function(app) {
     //http call to get user data and list of sales
     //$scope.sales => object array
     //$scope.user => object
-    getProfile();
+    $cookies.userDirectives = 'landingPage';
 
-    function getProfile() {
+    $scope.getProfile = function() {
       $http.get('/api/userInfo', {
-          headers: {jwt: $cookies.jwt}
+        headers: {jwt: $cookies.jwt}
       })
       .success(function(data) {
-        console.log('here');
         $scope.sales = data.sales;
         $scope.user = data.user;
         $scope.items = data.items;
-        console.log($scope.user);
-        console.log($scope.sales);
-        console.log($scope.items);
+        $cookies.userDirectives = 'landingPage';
       })
       .error(function(err) {
         console.log(err);
+        $cookies.userDirectives = 'userLoadError';
       });
 
-      // $scope.sales = [{id: '1234', title: 'test Sale 1'},
-      //                 {id: '4567', title: 'test Sale 2'}];
-      // $scope.user = {basic:{email: 'test@example.com'}, firstName: 'Jake', lastName: 'Yang'};
-      $scope.activities = ['test activity 1',
-                           'test activity 2',
-                           'test activity 3',
-                           'test activity 4',
-                           'test activity 5',
-                           'test activity 6',
-                           'test activity 7',
-                           'test activity 8',
-                           'test activity 9',
-                           'test activity 10',
-                           'test activity 11',
-                           'test activity 12',
-                           'test activity 13',
-                           'test activity 14'];
-      // $scope.items = [[{img:'http://i.imgur.com/xlPwCD3b.jpg'}, {img:'http://i.imgur.com/zCYl13ib.jpg'}, {img:'http://i.imgur.com/AepHezBb.jpg'}],
-      //                 [{img:'http://i.imgur.com/r2o9wjhb.jpg'}, {img:'http://i.imgur.com/4xri5VCb.jpg'}, {img:'http://i.imgur.com/WPywseqb.jpg'}]];
-    }
+      $scope.activities = [
+        'test activity 1',
+        'test activity 2',
+        'test activity 3',
+        'test activity 4',
+        'test activity 5',
+        'test activity 6',
+        'test activity 7',
+        'test activity 8',
+        'test activity 9',
+        'test activity 10',
+        'test activity 11',
+        'test activity 12',
+        'test activity 13',
+        'test activity 14'
+      ];
+    };
 
     $scope.getItemThumbnail = function(item) {
       console.log(item);
     };
 
     $scope.scrollTo = function(id) {
-      console.log(id);
       var old = $location.hash();
       $location.hash(id);
       $anchorScroll();
@@ -58,7 +52,20 @@ module.exports = function(app) {
     };
 
     $scope.create = function() {
-      $location.path('/create');
+      $cookies.userDirectives = 'newSale';
     };
+
+    $scope.uploadGallery = function() {
+      $cookies.userDirectives = 'uploadGallery';
+    };
+
+    $scope.changeDirective = function(directive) {
+      $cookies.userDirectives = directive;
+    };
+
+    $scope.$watch(function() { return $cookies.userDirectives; }, function(newValue) {
+      $scope.userDirectives = newValue;
+      console.log($scope.userDirectives);
+    });
   }]);
 };
