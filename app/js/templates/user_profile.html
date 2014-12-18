@@ -36,8 +36,9 @@
     <article class="view-event" ng-repeat="sale in sales">
       <h4 class="gallery-title" id="sale{{$index+1}}">{{sale.title}}</h4>
       <h5 data-type="edit-event"><a href="">Edit Event</a></h5>
-      <section class="gallery-grid" ng-repeat="item in items">
-        <img src={{item.thumbnailUrl}} class="e-gallery" ng-init="getItemThumbnail(item)"></img>
-      </section>
+        <section class="gallery-grid" ng-repeat="item in items[$index]">
+          <img src={{item.img}} class="e-gallery" ng-init="getItemThumbnail(item)"></img>
+        </section>
+    </article>
   </aside>
 </div>
