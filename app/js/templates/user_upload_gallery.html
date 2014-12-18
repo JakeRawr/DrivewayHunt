@@ -1,11 +1,12 @@
 <!-- sub nav container -->
 <div class="sub-nav" data-ng-controller="Unicorns">
+   <div data-item-detail data-ng-if="itemModalShown"></div>
   <aside class="sub-container">
   <!-- permanent sub nav -->
     <ul class="profile">
       <h4 data-type="profile-header">Your Profile<h4>
-      <li><a class="user-event" href="#">Create Event</a></li>
-      <li><a class="user-activity" href="#">View Activity</a></li>
+      <li><a class="user-event">Create Event</a></li>
+      <li><a class="user-activity">View Activity</a></li>
     </ul>
     <!-- dynamic sub nav -->
     <ul class="events">
@@ -32,7 +33,7 @@
   <aside class="view-profile">
     <article class="view-event">
       <h4 class="image-drop">Drag and Upload Images</h4>
-      <section class="drop-images">
+      <section class="drop-images" data-ng-click="uploadSuccess()">
         <div ng-file-drop ng-model="myFiles" drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}" ng-multiple="false" allow-dir="true" accept="image/*,*pdf" ng-file-change="upload()"> Drop Images or PDFs<div>here</div>
         </div>
       </section>
@@ -48,7 +49,5 @@
         <div class="e-gallery"></div>
       </section>
     </article>
-
-
   </aside>
 </div>
