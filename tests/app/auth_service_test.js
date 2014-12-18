@@ -31,7 +31,7 @@ describe('auth service', function() {
     $httpBackend.verifyNoOutstandingRequest();
   });
 
-  it('should be able to sign up', function() {
+  it('should be able to sign a user up', function() {
     $httpBackend.expectPOST('/api/users').respond(200, {jwt:'1234abcd'});
     AuthServiceTest.signUp(newUser);
     $httpBackend.flush();
@@ -39,7 +39,7 @@ describe('auth service', function() {
     expect($cookies.jwt).toEqual('1234abcd');
   });
 
-  it('should be able to sign in', function() {
+  it('should be able to sign a user in', function() {
     $httpBackend.expectGET('/api/users').respond(200, {jwt:'1234abcd'});
     AuthServiceTest.signIn(existingUser);
     $httpBackend.flush();
@@ -47,7 +47,7 @@ describe('auth service', function() {
     expect($cookies.jwt).toEqual('1234abcd');
   });
 
-  it('should be able to sign out', function() {
+  it('should be able to sign a user out', function() {
     AuthServiceTest.signOut();
     expect($cookies.jwt).toBe(undefined);
   });

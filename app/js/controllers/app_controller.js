@@ -1,35 +1,27 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('AppController', ['$scope', 'AUTH_EVENTS', 'AuthService', function($scope, AUTH_EVENTS, AuthService) {
+  app.controller('AppController', ['$scope', 'AUTH_EVENTS', 'AuthService', '$cookies', function($scope, AUTH_EVENTS, AuthService, $cookies) {
     /**
      * Keep track of current user
+     * Initialize to null
      */
     $scope.currentUser = null;
-    /**
-     * Listen for broadcasted AUTH_EVENTS
-     */
-    $scope.$on(AUTH_EVENTS.loginSuccess, function(event, data) {
-      // TO-DO -> remember to fix this
-      $scope.currentUser = data.user;
-    });
-
-    $scope.$on(AUTH_EVENTS.logoutSuccess, function() {
-      $scope.currentUser = null;
-    });
 
     $scope.signIn = function() {
       $scope.$broadcast(AUTH_EVENTS.loginAttempt);
-    };
-
-    $scope.signOut = function() {
-      console.log('sign out event');
-      AuthService.signOut();
     };
 
     $scope.signUp = function() {
       $scope.$broadcast(AUTH_EVENTS.signupAttempt);
     };
 
+    $scope.signOut = function() {
+      AuthService.signOut();
+    };
+
+    $scope.$watch(function() { return $cookies.jwt; }, function(validUser) {
+      $scope.currentUser = validUser;
+    });
   }]);
 };

@@ -29,7 +29,7 @@ describe('User Controller', function() {
   };
 
    it('should be able to construct a controller', function() {
-      var userController = controllerConstructor('UserController', {$scope: $scope});
+      var userController = $controllerConstructor('UserController', {$scope: $scope});
       expect(typeof userController).toBe('object');
     });
 
@@ -37,6 +37,7 @@ describe('User Controller', function() {
     beforeEach(angular.mock.inject(function(_$httpBackend_, _$cookies_) {
       $httpBackend = _$httpBackend_;
       $cookies = _$cookies_;
+      $controllerConstructor('UserController', {$scope: $scope});
     }));
 
     afterEach(function() {

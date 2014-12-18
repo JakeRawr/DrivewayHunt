@@ -7,17 +7,19 @@
   color: purple
 .clearfix:before
   &:after
-  content: ""
-  display: table
+    content: ""
+    display: table
 .clearfix:after
   clear: both
 body
   height: 100%
-  overflow:scroll
+  overflow: scroll
   font-family: $font-family--primary
   font-size: 100%
   line-height: 1.25
   margin: 0
+  display: flex
+  flex-direction: column
 ul, ol
   padding: 0
   margin: 0
@@ -62,7 +64,6 @@ button
 input
   display: block
 section
-  padding: 10em 0 10em 0
   text-align: center
 @media screen and (max-width: 44.75em)
   section
