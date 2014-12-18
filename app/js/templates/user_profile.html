@@ -1,6 +1,6 @@
 <!-- sub nav container -->
 <div class="sub-nav" data-ng-controller="ProfileController">
-  <aside class="sub-container">
+  <aside id="sub-container">
   <!-- permanent sub nav -->
     <ul class="profile">
       <h4 data-type="profile-header">Your Profile<h4>
@@ -17,28 +17,7 @@
     </ul>
   </aside>
   <!-- user profile info bar -->
-  <aside class="view-profile">
-      <section class="user-info">
-        <h4>Your Profile</h4>
-        <ol data-type="user-details">
-          <li>Name: {{user.firstName}} {{user.lastName}}</li>
-          <li>Email: {{user.basic.email}}</li>
-        </ol>
-      </section>
-    <!-- gallery 1 -->
-    <article id="activity-log" class="activity-log">
-      <h4 class="activity-title">Your Recent Activities</h4>
-      <div ng-repeat="activity in activities">
-      <p class="activity">{{activity}}</p>
-      </div>
-      </section>
-    </article>
-    <article class="view-event" ng-repeat="sale in sales">
-      <h4 class="gallery-title" id="sale{{$index+1}}">{{sale.title}}</h4>
-      <h5 data-type="edit-event"><a href="">Edit Event</a></h5>
-        <section class="gallery-grid" ng-repeat="item in items[$index]">
-          <img src={{item.img}} class="e-gallery" ng-init="getItemThumbnail(item)"></img>
-        </section>
-    </article>
-  </aside>
+  <div data-user-landing-page data-ng-if="boolProfile"></div>
+  <div data-user-add-new-sale data-ng-if="somethingElse"></div>
+  <div data-user-upload-gallery data-ng-if="anotherBool"></div>
 </div>

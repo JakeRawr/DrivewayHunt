@@ -1,5 +1,5 @@
 <!-- sub nav container -->
-<div class="sub-nav" data-ng-controller="Unicorns">
+<div class="sub-nav" data-ng-controller="UploadGallery">
   <aside class="sub-container">
   <!-- permanent sub nav -->
     <ul class="profile">
@@ -33,7 +33,8 @@
     <article class="view-event">
       <h4 class="image-drop">Drag and Upload Images</h4>
       <section class="drop-images">
-        <div ng-file-drop ng-model="myFiles" drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}" ng-multiple="false" allow-dir="true" accept="image/*,*pdf" ng-file-change="upload()"> Drop Images or PDFs<div>here</div>
+        <div data-ng-file-drop ng-model="itemImage" data-ng-file-change="upload(itemImage)" data-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}" data-ng-multiple="false" data-allow-dir="false" data-accept="image/*,*pdf" data-hide-on-drop-not-available="true">Drop images here</div>
+        <div data-ng-no-file-drop>File drag/drop is not support by your browser</div>
         </div>
       </section>
     </article>
