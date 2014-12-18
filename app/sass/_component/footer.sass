@@ -1,0 +1,11 @@
+@import '../_utility/em-function'
+@import '../_mixin/flexbox-mixin'
+
+#footer
+  margin-top: em(200px)
+  order: 3
+  @include flexbox
+  @include justify-content($value: flex-end)
+
+  p
+    order: 1

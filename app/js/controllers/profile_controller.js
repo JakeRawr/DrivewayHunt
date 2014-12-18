@@ -41,5 +41,9 @@ module.exports = function(app) {
       $anchorScroll();
       $location.hash(old);
     };
+
+    $scope.create = function() {
+      $location.path('/create');
+    };
   }]);
 };

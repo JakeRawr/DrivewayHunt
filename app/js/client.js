@@ -30,6 +30,9 @@ app.config(['$routeProvider', function($routeProvider) {
   .when('/profile', {
     templateUrl: 'js/templates/user_profile.html'
   })
+  .when('/create', {
+    templateUrl: 'js/templates/user_upload_gallery.html'
+  })
   .otherwise({
     redirectTo: '/'
   });
