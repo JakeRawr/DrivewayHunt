@@ -1,0 +1,122 @@
+<link rel="stylesheet" type="text/css" href="sass/style.css" />
+
+<body>
+  <!-- sub nav container -->
+  <div class="sub-nav">
+    <aside class="sub-container">
+    <!-- permanent sub nav -->
+      <ul class="profile">
+        <h4 data-type="profile-header">Your Profile<h4>
+        <li><a class="user-event" href="#">Create Event</a></li>
+        <li><a class="user-activity" href="#">View Activity</a></li>
+      </ul>
+      <!-- dynamic sub nav -->
+      <ul class="events">
+        <h4 data-type="profile-header">Your Events</h4>
+        <li>
+          <a class="new-event" href="#">{{ Event 1 }}</a>
+          <p data-type="e-title">{{ Event Title Pulled Here...}}
+        </li>
+        <li>
+          <a class="new-event" href="#">{{ Event 2 }}</a>
+          <p data-type="e-title">{{ Event Title Pulled Here...}}
+        </li>
+        <li>
+          <a class="new-event" href="#">{{ Event 3 }}</a>
+          <p data-type="e-title">{{ Event Title Pulled Here...}}
+        </li>
+        <li>
+          <a class="new-event" href="#">{{ Event 4 }}</a>
+          <p data-type="e-title">{{ Event Title Pulled Here...}}
+        </li>
+      </ul>
+    </aside>
+    <!-- user profile info bar -->
+    <aside class="single-event">
+        <h4 class="event-header"><strong>{{ Event Title }}</strong></h4>
+      <section class="event-info">
+        <h4><strong>Event Date:</strong> {{ Janaury 12, 2015 }}</h4>
+        <h4><strong>Event Time:</strong> {{ 3:00 PM }}</h4>
+        <h4><strong>Description:</strong> {{ This is a fake description, you will like it.... }}</h4>
+        <h4><strong>Location:</strong> {{ Westlake }}</h4>
+      </section>
+
+    <!-- take this code below-->
+
+    <aside class="thumb-gallery"> <!-- container -->
+      <form class="single-thumb">
+        <img class="img-template" src="img/sample_sale.png" alt="{{image01}}">
+        <ol data-type="image-details">
+          <li class="image-view" data-id="image-title">
+            <label for="view-input">Title</label>
+            <div class="view-input">
+              {{ Pull Dynamic Title }}
+            </div>
+          </li>
+          <li class="image-view" data-id="image-title">
+            <label for="view-text">Description</label>
+            <div class="view-input">
+              {{ Pull Dynamic Description }}
+            </div>
+          </li>
+        </ol>
+      </form>
+      <!-- container ends  -->
+      <form class="single-thumb">
+        <img class="img-template" src="img/sample_sale.png" alt="{{image01}}">
+        <ol data-type="image-details">
+          <li class="image-view" data-id="image-title">
+            <label for="view-input">Title</label>
+            <div class="view-input">
+              {{ Pull Dynamic Title }}
+            </div>
+          </li>
+          <li class="image-view" data-id="image-title">
+            <label for="view-text">Description</label>
+            <div class="view-input">
+              {{ Pull Dynamic Description }}
+            </div>
+          </li>
+        </ol>
+      </form>
+      <!-- container ends  -->
+      <form class="single-thumb">
+        <img class="img-template" src="img/sample_sale.png" alt="{{image01}}">
+        <ol data-type="image-details">
+          <li class="image-view" data-id="image-title">
+            <label for="view-input">Title</label>
+            <div class="view-input">
+              {{ Pull Dynamic Title }}
+            </div>
+          </li>
+          <li class="image-view" data-id="image-title">
+            <label for="view-text">Description</label>
+            <div class="view-input">
+              {{ Pull Dynamic Description }}
+            </div>
+          </li>
+        </ol>
+      </form>
+      <!-- container ends  -->
+      <form class="single-thumb">
+        <img class="img-template" src="img/sample_sale.png" alt="{{image01}}">
+        <ol data-type="image-details">
+          <li class="image-view" data-id="image-title">
+            <label for="view-input">Title</label>
+            <div class="view-input">
+              {{ Pull Dynamic Title }}
+            </div>
+          </li>
+          <li class="image-view" data-id="image-title">
+            <label for="view-text">Description</label>
+            <div class="view-input">
+              {{ Pull Dynamic Description }}
+            </div>
+          </li>
+        </ol>
+      </form>
+    </aside>
+    <!-- container ends  -->
+  </div>
+  </body>
+</html>
