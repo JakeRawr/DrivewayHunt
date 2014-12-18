@@ -6,8 +6,9 @@ require('angular-cookies');
 require('angular-base64');
 window._ = require('lodash');
 require('angular-google-maps');
+require('ng-file-upload');
 
-var app = angular.module('drivewayApp', ['ngRoute', 'ngCookies', 'base64', 'uiGmapgoogle-maps']);
+var app = angular.module('drivewayApp', ['ngRoute', 'ngCookies', 'base64', 'uiGmapgoogle-maps', 'angularFileUpload']);
 
 //constants
 require('./constants/app_constants')(app);
