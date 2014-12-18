@@ -1,0 +1,89 @@
+@import '../_mixin/vertical-align-mixin'
+@import '../_mixin/input-placeholder-mixin'
+@import '../_global/variables'
+@import '../_mixin/flexbox-mixin'
+@import '../_mixin/border-radius-mixin'
+@import '../_utility/em-function'
+@import '../_mixin/transition-mixin'
+@import '../_mixin/transform-mixin'
+
+// modal base styles
+
+.userModal
+  color: white
+  background-color: $color-primary
+  width: em(350px)
+  position: relative
+  left: 8%
+  right: 20%
+  top: calc(50% - 600px/2)
+  border-radius: em(5px)
+  display: block
+  padding: em(15px) em(20px)
+  margin: em(60px) 0
+
+.headModal
+  display: block
+  text-transform: uppercase
+  text-align: center
+
+li[data-id="login-user"],
+li[data-id="new-user"]
+  font-size: $base__paragraph
+  margin: 0 em(10px) 0 em(15px)
+
+input[name="email"],
+  height: em(30px)
+  width: 100%
+  padding: em(5px)
+
+small[name="login-cta"]
+  display: block
+  text-align: center
+  padding: em(5px) 0 0 0
+  font-weight: $font-weight--light
+  font-size: $base__button
+
+/* Modal Buttons Base Style */
+
+button[data-id="login-user"],
+button[data-id="new-user"],
+button[data-id="reset-submit"]
+  position: relative
+  padding: em(10px) 0
+  margin-top: em(5px) 0
+  border: none
+  background-color: white
+  font-weight: $font-weight--normal
+  font-size: $base__button
+  text-transform: uppercase
+  text-align: center
+
+// Facebook and Google button
+button[data-id="login-user"],
+button[data-id="new-user"]
+  width: 90%
+  left: calc(50% - 95%/2)
+
+// Submit button styles, color and states
+button[data-id="login-submit"]
+  color: $color-primary
+  width: 40%
+  left: calc(73% - 40%/2)
+  &:hover,
+  &:active
+    background-color: $color-teal
+    color: white
+@media screen and (max-width: 32em)
+  body
+    font-size: 100%
+
+  .md-modal
+    font-weight: $font-weight--normal
+    left: calc(50% - 38%/2)
+  //look into full screen modal on device with close x
+
+.btn-reset
+  position: relative
+  margin-left: 100px
+

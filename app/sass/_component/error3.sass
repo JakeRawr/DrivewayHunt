@@ -1,0 +1,37 @@
+@import '../_mixin/vertical-align-mixin'
+@import '../_mixin/input-placeholder-mixin'
+@import '../_global/variables'
+@import '../_mixin/flexbox-mixin'
+@import '../_mixin/border-radius-mixin'
+@import '../_utility/em-function'
+@import '../_mixin/transition-mixin'
+@import '../_mixin/transform-mixin'
+
+// modal base styles
+.userModal
+  color: white
+  background-color: $color-primary
+  width: em(350px)
+  position: relative
+  left: 8%
+  right: 20%
+  top: calc(50% - 600px/2)
+  border-radius: em(5px)
+  display: block
+  padding: em(15px) em(20px)
+  margin: em(60px) 0
+
+.headModal
+  display: block
+  text-transform: uppercase
+  text-align: center
+
+@media screen and (max-width: 32em)
+  body
+    font-size: 100%
+
+.btn-goback
+  background-color: $color-google
+  position:relative
+  margin: 5% 30%
+
