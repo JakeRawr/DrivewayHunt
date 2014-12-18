@@ -7,6 +7,7 @@ module.exports = function(app) {
      * Initialize to null
      */
     $scope.currentUser = null;
+    $scope.appView = 'home-view';
 
     $scope.signIn = function() {
       $scope.$broadcast(AUTH_EVENTS.loginAttempt);
@@ -22,6 +23,10 @@ module.exports = function(app) {
 
     $scope.$watch(function() { return $cookies.jwt; }, function(validUser) {
       $scope.currentUser = validUser;
+    });
+
+    $scope.$on('searchSubmitted', function() {
+      if ($scope.appView) $scope.appView = null;
     });
   }]);
 };

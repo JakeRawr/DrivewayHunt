@@ -4,29 +4,44 @@
 #main-app-header
 	//flex child of body
 	order: 1
-	//flex parent
+	margin-top: em(20px)
+
+	//flex parent of #logo-container and #nav
 	@include flexbox
-	@include flex-direction($value: column)
+	@include flex-direction($value: row)
+	@include justify-content($value: flex-end)
 
 	#logo-container
 		order: 1
-		height: em(150px)
-		padding-top: em(20px)
+		height: em(80px)
+		padding-top: 0
 
 		.header-logo
-			position: absolute
-			width: em(275px)
-			left: calc(50% - 275px/2)
+			width: em(147px)
+			transition: all 0.75s ease
 
 	#nav
+		//flex child of #main-app-header
 		order: 2
+		margin-left: em(20px)
+
+		//flex parent of ol
 		@include flexbox
 		@include justify-content($value: flex-end)
 		@include flex-direction($value: row)
 
 	&.home-view
+		@include flex-direction($value: column)
+
 		#logo-container
 			order: 2
+			@include align-self($value: center)
+			height: em(150px)
+			padding-top: em(20px)
+
+			.header-logo
+				width: em(275px)
+
 		#nav
 			order: 1
 
