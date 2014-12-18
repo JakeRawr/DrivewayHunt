@@ -16,7 +16,7 @@ module.exports = function(app, jwtauth) {
     newItem.askingPrice = req.body.askingPrice;
     newItem.description = req.body.description;
     newItem.condition = req.body.condition;
-    newItem.img = req.body.imgUrl;
+    newItem.img = req.body.img;
     newItem.save(function(err, data) {
       if (err) return res.status(500).send('there was an error');
       res.json(data);

@@ -16,7 +16,6 @@ module.exports = function(req, res, next) {
 
   Items.find(queryObj, function(err, data) {
     if (err) return res.status(500).send('database error');
-    console.log('items', data);
     req.items.push(data);
     next();
   });
