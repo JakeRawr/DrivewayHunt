@@ -4,25 +4,13 @@
 @import '../_mixin/flexbox-mixin'
 @import '../_mixin/clearfix-mixin'
 @import '../_utility/em-function'
-//@import '../_mixin/icons-mixin'
-
 
 table
   text-align: left
 
-
-// grids
-
-// *,
-// *:before,
-// *:after
-//   -webkit-box-sizing: border-box
-//   -moz-box-sizing: border-box
-//   box-sizing: border-box
-
 .search-results-container
-  display: flex
-  flex-direction: column
+  @include flexbox
+  @include flex-direction($value: column)
 
   .searchform
     order: 1
@@ -33,23 +21,28 @@ table
     @include clearfix
 
   .search-results-view
-    border-top: 1px solid rgba(0,0,0,0.4)
+    border-top: $border_ltgrey
+    padding: em(10px) 0
     margin-top: em(50px)
     order: 2
     display: flex
-    flex-direction: row
-    justify-content: center
+    @include flex-direction($value: row)
+    @include justify-content($value: center)
 
     #results-table
       order: 1
+      width: 50%
+      padding: 0 em(15px)
 
     #google-map-container
       order: 2
+      width: 50%
+      padding: 0 em(15px)
 
       .angular-google-map-container
-        width: 400px
-        min-height: 400px
-        height: 400px
+        width: 100%
+        min-height: em(400px)
+        height: em(400px)
         padding-left: em(80px)
 // rows
 .row
@@ -67,11 +60,8 @@ table
 tbody
   white-space: nowrap
 
-table
-  width: 49%
-
 th
-  padding-right: 15px
+  padding-right: em(15px)
   width: 15%
 
 thead
@@ -82,10 +72,10 @@ thead,
 tbody,
 td
   border-bottom: $border_orange
-  padding: 15px 0
+  padding: em(15px) em(15px)
 
 table h4
-  margin-bottom: 10px
+  margin-bottom: em(10px)
 
 // table header styles
 #resultsHeader
