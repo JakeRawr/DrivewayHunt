@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>photo_enlarge</title>
   <link rel="stylesheet" type="text/css" href="sass/_global/normalize.css" />
   <link rel="stylesheet" type="text/css" href="sass/style.css" />
-</head>
-<body class="photo_enlarge">
-  <form class="viewphoto photoModal"action="#">
+</head> -->
+<div class="photo_enlarge mdoverlay" >
+  <form class="viewphoto photoModal">
     <!-- image -->
     <img src="img/sample_sale.png" alt="{{image01}}"><br>
     <!-- form -->
@@ -15,17 +15,17 @@
       <!-- title of the image -->
       <li class="image-view" data-id="image-title">
         <label for="image-title">Title</label><br>
-        <input id="image-title" type="text" name="image-title" title="image-title">
+        <input id="image-title" type="text" title="image-title" data-ng-model="titleName">
       </li>
       <!-- image description -->
       <li class="image-view" data-id="image-title">
         <label for="image-text">Description</label></br>
-        <textarea id="image-text" name="image-tex"></textarea>
+        <textarea id="image-text" data-ng-model="description"></textarea>
       </li>
         <!--item condition -->
-      <li class="image-view" data-id="image-title">
+     <li class="image-view" data-id="image-title">
         <label for="image-condition">Condition</label><br>
-        <select id ="image-condition"name="image-condition">
+        <select id ="image-condition" data-ng-model="condition">
           <option value="brandnew">&nbsp Brand New</option>
           <option selected="selected" value="likenew">&nbsp Like New</option>
           <option value="fair">&nbsp Fair &#x02717</option>
@@ -35,9 +35,9 @@
       </li>
     </ol>
     <div id="view-image">
-      <button data-id="image-close">Close</button>
-      <button data-id="image-save">Save</button>
+      <button data-id="image-close" data-ng-click="close()">Close</button>
+      <button data-id="image-save" data-ng-click="save(titleName, description, condition)">Save</button>
     </div>
   </form>
-</body>
-</html>
+</div>
+<!-- </html> -->
