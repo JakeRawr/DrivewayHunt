@@ -6,7 +6,6 @@ module.exports = function(app) {
 
     authService.signIn = function(credentials) {
       $http.defaults.headers.common.Authorization = 'Basic ' + $base64.encode(credentials.email + ':' + credentials.password);
-
       $http.get('/api/users')
       .success(function(data) {
         //set cookies
@@ -43,7 +42,6 @@ module.exports = function(app) {
       //broadcast signout signal
       $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
     };
-
     return authService;
   }]);
 };
