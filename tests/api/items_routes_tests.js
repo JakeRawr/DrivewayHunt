@@ -150,7 +150,7 @@ describe('items routes', function() {
       });
   });
 
-  it('should be able to delete an item', function(done) {
+  it.skip('should be able to delete an item', function(done) {
     chai.request(url)
       .delete('/api/items/single/' + testItem._id)
       .set('jwt', jwt)
