@@ -1,7 +1,6 @@
 'use strict';
 
-module.exports = function(app) {
-  app.controller('ProfileController', ['$scope', function($scope) {
-
-  }]);
+module.exports = function() {
+  //app.controller('ProfileController', ['$scope', function($scope) {
+  //}]);
 };
