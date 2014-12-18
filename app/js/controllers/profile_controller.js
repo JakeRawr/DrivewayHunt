@@ -12,10 +12,11 @@ module.exports = function(app) {
       .success(function(data) {
         $scope.sales = data.sales;
         $scope.user = data.user;
+        $scope.items = data.items;
       });*/
 
-      $scope.sales = [{id: '1234', title: 'test Sale 1', items:[{thumbnailUrl:'http://i.imgur.com/xlPwCD3b.jpg'}, {thumbnailUrl:'http://i.imgur.com/zCYl13ib.jpg'}, {thumbnailUrl:'http://i.imgur.com/AepHezBb.jpg'}]},
-                      {id: '4567', title: 'test Sale 2', items:[{thumbnailUrl:'http://i.imgur.com/r2o9wjhb.jpg'}, {thumbnailUrl:'http://i.imgur.com/4xri5VCb.jpg'}, {thumbnailUrl:'http://i.imgur.com/WPywseqb.jpg'}, {thumbnailUrl:'http://i.imgur.com/A7s55oPb.jpg'}]}];
+      $scope.sales = [{id: '1234', title: 'test Sale 1'},
+                      {id: '4567', title: 'test Sale 2'}];
       $scope.user = {basic:{email: 'test@example.com'}, firstName: 'Jake', lastName: 'Yang'};
       $scope.activities = ['test activity 1',
                            'test activity 2',
@@ -25,6 +26,8 @@ module.exports = function(app) {
                            'test activity 6',
                            'test activity 7',
                            'test activity 8'];
+      // $scope.items = [[{img:'http://i.imgur.com/xlPwCD3b.jpg'},{img:'http://i.imgur.com/zCYl13ib.jpg'},{img:'http://i.imgur.com/AepHezBb.jpg'}]]
+      //                 {thumbnailUrl: ['http://i.imgur.com/r2o9wjhb.jpg','http://i.imgur.com/4xri5VCb.jpg','http://i.imgur.com/WPywseqb.jpg','http://i.imgur.com/A7s55oPb.jpg']}];
     }
 
     $scope.getItemThumbnail = function(item) {
