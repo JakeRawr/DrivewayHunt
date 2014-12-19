@@ -20,7 +20,6 @@ module.exports = function(app) {
     });
 
     $scope.signIn = function(credentials) {
-      console.log($scope.loginModalShown);
       AuthService.signIn(credentials);
     };
 
