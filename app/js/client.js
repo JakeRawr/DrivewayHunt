@@ -31,6 +31,9 @@ app.config(['$routeProvider', function($routeProvider) {
   .when('/profile', {
     templateUrl: 'js/templates/user_profile.html'
   })
+  .when('/sale', {
+    templateUrl: 'js/templates/view_event.html'
+  })
   .otherwise({
     redirectTo: '/'
   });
