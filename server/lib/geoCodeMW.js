@@ -3,8 +3,6 @@
 var request = require('request');
 
 module.exports = function(req, res, next) {
-  console.log(req.body.city);
-  console.log(req.body.state);
   var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + req.body.city + '+' + req.body.state + '+' + req.body.zip + '&key=' + process.env.GEOCODE_API;
   request(url, function(err, response, body) {
     var data = JSON.parse(body).results;

@@ -3,6 +3,7 @@
 var Sale = require('../models/sale');
 var request = require('request');
 var geoCode = require('../lib/geoCodeMW');
+
 module.exports = function(app, jwtauth) {
 
   /**

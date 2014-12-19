@@ -1,23 +1,25 @@
 <div class="photo_enlarge mdoverlay" >
-  <form class="viewphoto photoModal">
-    <!-- image -->
-    <img data-ng-src="{{oneItem.img}}" alt="{{image.alt}}"><br>
-    <!-- form -->
-    <ol>
-      <!-- title of the image -->
-      <li class="image-view" data-id="image-title">
-        <label for="image-title">Title</label><br>
-        <p id="image-title">{{oneItem.title}}</p>
+  <form class="view-detail photoModal">
+    <!-- image container-->
+    <div class="detail-image-container">
+      <img data-ng-src="{{oneItem.img}}" alt="{{image.alt}}">
+    </div>
+    <!-- item detail info -->
+    <ol data-type="view-container">
+      <!-- title -->
+      <li class="view" data-id="image-title">
+        <label for="item-info">Title</label><br>
+        <p id="view-title">{{oneItem.title}}</p>
       </li>
-      <!-- image description -->
-      <li class="image-view" data-id="image-title">
-        <label for="image-text">Description</label></br>
-        <p id="image-text">{{oneItem.description}}</p>
+      <!-- description -->
+      <li class="view" data-id="image-title">
+        <label for="item-info">Description</label></br>
+        <p id="view-description">{{oneItem.description}}</p>
       </li>
-        <!--item condition -->
-     <li class="image-view" data-id="image-title">
-        <label for="image-condition">Condition</label><br>
-        <p id ="image-condition">{{oneItem.condition}}</p><br>
+        <!-- condition -->
+     <li class="view" data-id="image-title">
+        <label for="item-info">Condition</label><br>
+        <p id ="view-condition">{{oneItem.condition}}</p><br>
       </li>
     </ol>
     <div id="view-image">

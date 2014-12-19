@@ -20,7 +20,7 @@
   </thead>
   <!-- event 1 starts -->
   <tbody data-ng-repeat="sale in sales">
-    <tr data-ng-click="relocate($event, sale.lat, sale.lng)">
+    <tr>
       <td class="results" colspan="3">
         <ol name="event" data-type="event-info">
           <h4 id="redirectSale" data-ng-click="redirectSale(sale._id)" style="cursor:pointer;">{{sale.title}}</h4>
@@ -31,7 +31,7 @@
       </td>
       <!-- icon col -->
       <td class="icon" colspan="1">
-      <img data-icon="map" src="../../img/location.svg">
+      <img data-icon="map" src="../../img/location.svg" data-ng-click="relocate($event, sale.lat, sale.lng)" style="cursor:pointer;">
       </td>
     </tr>
   </tbody>
