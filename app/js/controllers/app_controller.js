@@ -30,6 +30,7 @@ module.exports = function(app) {
 
     $scope.home = function() {
       $location.path('/').search({});
+      delete $cookies.location;
     };
 
     $scope.$watch(function() { return $cookies.jwt; }, function(validUser) {
