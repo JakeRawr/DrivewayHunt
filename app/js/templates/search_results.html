@@ -6,9 +6,8 @@
       <h4>Results<h4>
       </td>
       <td class="dateColumn" colspan="1">
-      <ol data-type="filter">
-        <li>Sort by</li>
-        <li>Date</li>
+      <ol>
+        <li class="filter">Sort by Date</li>
       </ol>
       </td>
       <!-- expand icon column -->
@@ -24,7 +23,7 @@
     <tr data-ng-click="relocate($event, sale.lat, sale.lng)">
       <td class="results" colspan="3">
         <ol name="event" data-type="event-info">
-          <h4 id="redirectSale" data-ng-click="redirectSale()" style="cursor:pointer; text-decoration: underline;">{{sale.title}}</h4>
+          <h4 id="redirectSale" data-ng-click="redirectSale()" style="cursor:pointer;">{{sale.title}}</h4>
           <li><strong>Location: </strong>{{sale.address}}</li>
           <li><time datetime><strong>Date: </strong>{{(sale.dateStart  | date : 'mediumDate') + ' - ' + (sale.dateEnd  | date : 'mediumDate')}}</time></li>
           <li><time datetime><strong>Time: </strong>{{(sale.timeStart  | date : 'shortTime') + ' - ' + (sale.timeEnd  | date : 'shortTime')}}</time></li>
@@ -32,7 +31,7 @@
       </td>
       <!-- icon col -->
       <td class="icon" colspan="1">
-      <h4 data-icon="open"><h4/>
+      <img data-icon="map" src="../../img/location.svg">
       </td>
     </tr>
   </tbody>
