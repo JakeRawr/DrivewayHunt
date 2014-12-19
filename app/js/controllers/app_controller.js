@@ -19,16 +19,13 @@ module.exports = function(app) {
 
     $scope.signOut = function() {
       $location.path('/');
+      delete $cookies.profileClick;
       AuthService.signOut();
     };
 
     $scope.profileRedirect = function() {
-      if (!$cookies.profileClick) {
-        $location.path('/profile');
-        $cookies.profileClick = true;
-      } else {
-        $scope.$broadcast(EVENTS.profileClick);
-      }
+      $location.path('/profile');
+      $scope.$broadcast(EVENTS.profileClick);
     };
 
     $scope.home = function() {
