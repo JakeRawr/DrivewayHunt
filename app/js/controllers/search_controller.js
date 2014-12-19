@@ -20,8 +20,8 @@ module.exports = function(app) {
       });
     };
 
-     $scope.inItSearch = function() {
-      if($cookies.location) {
+    $scope.inItSearch = function() {
+      if ($cookies.location) {
         SaleSearch.search($cookies.location)
         .success(function(data) {
           $scope.$emit('searchSubmitted');
