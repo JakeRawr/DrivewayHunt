@@ -7,17 +7,17 @@
       <!-- title of the image -->
       <li class="image-view" data-id="image-title">
         <label for="image-title">Title</label><br>
-        <input id="image-title" type="text" title="image-title" data-ng-model="titleName">
+        <input id="image-title" type="text" title="image-title" data-ng-model="image.titleName">
       </li>
       <!-- image description -->
       <li class="image-view" data-id="image-title">
         <label for="image-text">Description</label></br>
-        <textarea id="image-text" data-ng-model="description"></textarea>
+        <textarea id="image-text" data-ng-model="image.description"></textarea>
       </li>
         <!--item condition -->
      <li class="image-view" data-id="image-title">
         <label for="image-condition">Condition</label><br>
-        <select id ="image-condition" data-ng-model="condition">
+        <select id ="image-condition" data-ng-model="image.condition">
           <option value="brandnew">&nbsp Brand New</option>
           <option selected="selected" value="likenew">&nbsp Like New</option>
           <option value="fair">&nbsp Fair &#x02717</option>
@@ -28,7 +28,7 @@
     </ol>
     <div id="view-image">
       <button data-id="image-close" data-ng-click="close()">Close</button>
-      <button data-id="image-save" data-ng-click="saveItem(titleName, description, condition, image.url, false)">Save</button>
+      <button data-id="image-save" data-ng-click="saveItem(image.titleName, image.description, image.condition, image.url)">Save</button>
     </div>
   </form>
 </div>

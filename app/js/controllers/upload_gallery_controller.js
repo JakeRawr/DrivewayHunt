@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.controller('UploadGallery', ['$rootScope', '$scope', '$upload', 'EVENTS', 'ItemSave', '$http', function($rootScope, $scope, $upload, EVENTS, ItemSave, $http) {
     $scope.items = $scope.$parent.items;
 
-    console.log('in UploadGallery', $scope.items);
+    console.log('in UploadGallery', $scope.saleInfo);
 
     $scope.itemModalShown = false;
 
@@ -51,11 +51,18 @@ module.exports = function(app) {
       $rootScope.$broadcast(EVENTS.existingEditFinished);
     };
 
-    $scope.saveItem = function(itemObject, existItemFlag) {
+    $scope.saveExistingItem = function(itemObject) {
       //call service
       $rootScope.$broadcast(EVENTS.existingEditFinished);
       $rootScope.$broadcast(EVENTS.itemEditFinished);
-      ItemSave.save(itemObject, existItemFlag);
+      ItemSave.saveExistingItem(itemObject);
+    };
+
+    $scope.saveItem = function(titleName, description, condition, url) {
+      //call service
+      $rootScope.$broadcast(EVENTS.existingEditFinished);
+      $rootScope.$broadcast(EVENTS.itemEditFinished);
+      ItemSave.saveItem(titleName, description, condition, url);
     };
 
     $scope.itemClick = function(oneItem) {

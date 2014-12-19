@@ -27,7 +27,8 @@ module.exports = function(app) {
 
     $scope.scrollTo = function(id) {
       var old = $location.hash();
-      $location.hash(id);
+      console.log(id);
+      $location.path('/profile').hash(id);
       $anchorScroll();
       $location.hash(old);
     };

@@ -7,7 +7,7 @@ module.exports = function(app) {
 
     $scope.editEvent = function(items, index) {
       $scope.eventExist = true;
-      $scope.items = items;
+      $scope.listItems = items;
       console.log('in editEvent', $scope.items);
       $cookies.currentSale = index;
       $scope.$parent.changeDirective('saleInfo');
@@ -15,7 +15,11 @@ module.exports = function(app) {
 
     $scope.saveNewEvent = function(saleInfo) {
       //TO-DO HANDLE ERRORS
-      SaleSave.save(saleInfo, $scope.eventExist);
+      if(SaleSave.validate(saleInfo)){
+        console.log('in save new event');
+        $scope.changeDirective('uploadGallery');
+        SaleSave.save(saleInfo, $scope.eventExist);
+      }
     };
   }]);
 };
