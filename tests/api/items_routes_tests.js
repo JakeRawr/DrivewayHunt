@@ -12,7 +12,7 @@ require('../../server');
 
 var url = 'http://localhost:3000';
 
-process.env.MONGO_URL = 'mongodb://localhost/gsale_test';
+//process.env.MONGO_URL = 'mongodb://localhost/gsale_test';
 
 describe('items routes', function() {
   var jwt;
@@ -46,7 +46,17 @@ describe('items routes', function() {
     title: 'applePie',
     askingPrice: 3.14,
     description: 'This is an apple pie',
-    condition: 'New'
+    condition: 'New',
+    img: 'http://i.imgur.com/xlPwCD3b.jpg'
+  };
+
+  var testItem2 = {
+    saleId: null,
+    title: 'CoffeePie',
+    askingPrice: 5.14,
+    description: 'This is an coffee pie',
+    condition: 'New',
+    img: 'http://i.imgur.com/r2o9wjhb.jpg'
   };
 
   var testSale = {
@@ -94,6 +104,7 @@ describe('items routes', function() {
         expect(res.body).to.include.keys('title', '_id');
         expect(res.body.title).to.eql('Capitol Hill Garage Sale');
         testItem.saleId = res.body._id;
+        testItem2.saleId = res.body._id;
         done();
       });
   });
@@ -112,6 +123,23 @@ describe('items routes', function() {
         expect(res.body.userId).to.be.an('string');
         expect(res.body.saleId).to.be.an('string');
         testItem = res.body;
+        done();
+      });
+  });
+
+  it('should be able to post an item again', function(done) {
+    chai.request(url)
+      .post('/api/items')
+      .set('jwt', jwt)
+      .send(testItem2)
+      .end(function(err, res) {
+        expect(err).to.be.null;
+        expect(res).to.not.have.status(403);
+        expect(res).to.not.have.status(500);
+        expect(res.body).to.be.an('object');
+        expect(res.body.title).to.eql('CoffeePie');
+        expect(res.body.userId).to.be.an('string');
+        expect(res.body.saleId).to.be.an('string');
         done();
       });
   });
@@ -150,7 +178,7 @@ describe('items routes', function() {
       });
   });
 
-  it('should be able to delete an item', function(done) {
+  it.skip('should be able to delete an item', function(done) {
     chai.request(url)
       .delete('/api/items/single/' + testItem._id)
       .set('jwt', jwt)

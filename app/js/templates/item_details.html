@@ -1,15 +1,7 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>photo_enlarge</title>
-  <link rel="stylesheet" type="text/css" href="sass/_global/normalize.css" />
-  <link rel="stylesheet" type="text/css" href="sass/style.css" />
-</head> -->
 <div class="photo_enlarge mdoverlay" >
   <form class="viewphoto photoModal">
     <!-- image -->
-    <img src="img/sample_sale.png" alt="{{image01}}"><br>
+    <img data-ng-src="{{image.url}}" alt="{{image.alt}}"><br>
     <!-- form -->
     <ol>
       <!-- title of the image -->
@@ -40,4 +32,3 @@
     </div>
   </form>
 </div>
-<!-- </html> -->

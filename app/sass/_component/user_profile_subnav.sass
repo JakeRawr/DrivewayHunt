@@ -16,12 +16,20 @@
 
 // left sub nav
 
-.sub-nav
+#user-profile-container
   @include flexbox
+  @include flex-direction($value: row)
 
-.sub-container
-  justify-content: flex-start
-  width: 300px
+  #user-sticky-sub-nav
+    //flex-child of #user-profile-container
+    @include order($int: 1)
+    width: em(350px)
+    margin-right: em(50px)
+
+  #user-directives-container
+    min-width: 60%
+    //flex-child of #user-profile-container
+    @include order($int: 2)
 
 .user-event,
 .user-activity
@@ -83,13 +91,12 @@ p[data-type="e-title"]
   font-size: 10px
 
 // user's info container
-
 .view-profile
   width: 100%
   justify-content: flex-start
   border-top: $border_ltgrey
 
-section[class="user-info"]
+div[class="user-info"]
   padding: em(10px) 0 em(10px) 0
   h4
     color: $color-font-accent

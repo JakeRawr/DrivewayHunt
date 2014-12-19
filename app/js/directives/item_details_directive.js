@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.directive('itemDetail', function() {
     return {
       restrict: 'EAC',
-      templateUrl: 'js/templates/photo_enlarge.html',
+      templateUrl: 'js/templates/item_details.html',
       transclude: true
     };
   });
