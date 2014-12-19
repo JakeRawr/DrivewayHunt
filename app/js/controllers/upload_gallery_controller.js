@@ -28,7 +28,7 @@ module.exports = function(app) {
       }).success(function(data) {
         $scope.image.url = data.url;
         var splitUrl = $scope.image.url.split('upload/');
-        $scope.image.url = splitUrl[0] + 'upload/w_100,h_100/' + splitUrl[1];
+        $scope.image.url = splitUrl[0] + 'upload/w_100,h_100,c_scale/' + splitUrl[1];
         $scope.image.alt = data.public_id;
         $rootScope.$broadcast(EVENTS.itemEditAttempt);
       });
