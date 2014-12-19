@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.controller('SearchController', ['$scope', 'SaleSearch', '$location', '$cookies', function($scope, SaleSearch, $location, $cookies) {
     $scope.sales = null;
     $scope.errors = [];
-  
+
     //search for results
     $scope.searchForSales = function(location) {
       SaleSearch.search(location)
