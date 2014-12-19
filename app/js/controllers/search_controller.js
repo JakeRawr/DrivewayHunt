@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('SearchController', ['$scope', 'SaleSearch', '$location', function($scope, SaleSearch, $location) {
+  app.controller('SearchController', ['$scope', 'SaleSearch', '$location', '$cookies', function($scope, SaleSearch, $location, $cookies) {
     $scope.sales = null;
     $scope.errors = [];
 
@@ -12,11 +12,27 @@ module.exports = function(app) {
         $scope.$emit('searchSubmitted');
         $scope.sales = data;
         $scope.changeState = 'home-view';
+        $cookies.location = location;
       })
       .error(function(err) {
         console.log(err);
         $scope.errors.push(err);
       });
+    };
+
+     $scope.inItSearch = function() {
+      if($cookies.location) {
+        SaleSearch.search($cookies.location)
+        .success(function(data) {
+          $scope.$emit('searchSubmitted');
+          $scope.sales = data;
+          $scope.changeState = 'home-view';
+        })
+        .error(function(err) {
+          console.log(err);
+          $scope.errors.push(err);
+        });
+      }
     };
 
     $scope.redirectSale = function(id) {

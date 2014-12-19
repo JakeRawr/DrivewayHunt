@@ -8,7 +8,7 @@
 </section>
 <!-- Search -->
 <!--CHANGE SEARCH RESULTS CONTAINER ON CLICK-->
-<section class="search-results-container" data-ng-controller="SearchController">
+<section class="search-results-container" data-ng-controller="SearchController" data-ng-init="inItSearch()">
   <form class="searchform" autocomplete="off" data-ng-submit="searchForSales(sale.searchParams)">
     <div class="searchFormInner">
       <main>
