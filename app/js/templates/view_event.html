@@ -1,13 +1,13 @@
-<div data-ng-controller="ViewEvent">
+<div data-ng-controller="ViewEvent" class="vw-event-container">
   <!-- user profile info bar -->
   <aside class="single-event">
       <h4 class="event-header"><strong> {{sale.title}}</strong></h4>
-    <section class="event-info">
-      <h4><strong>Event Date:</strong> {{(sale.dateStart  | date : 'mediumDate') + ' - ' + (sale.dateEnd  | date : 'mediumDate')}} </h4>
-      <h4><strong>Event Time:</strong> {{(sale.timeStart  | date : 'shortTime') + ' - ' + (sale.timeEnd  | date : 'shortTime')}}</h4>
-      <h4><strong>Description:</strong> {{sale.description}}</h4>
-      <h4><strong>Location:</strong> {{sale.address}}</h4>
-    </section>
+    <article class="event-info">
+      <h4><strong>Date: </strong> {{(sale.dateStart  | date : 'mediumDate') + ' - ' + (sale.dateEnd  | date : 'mediumDate')}} </h4>
+      <h4><strong>Time: </strong> {{(sale.timeStart  | date : 'shortTime') + ' - ' + (sale.timeEnd  | date : 'shortTime')}}</h4>
+      <h4><strong>Description: </strong> {{sale.description}}</h4>
+      <h4><strong>Location: </strong> {{sale.address}}</h4>
+    </article>
 
   <!-- take this code below-->
   <div data-view-item-detail data-ng-if="viewItemModalShown"></div>

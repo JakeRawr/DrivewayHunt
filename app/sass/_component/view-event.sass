@@ -9,6 +9,14 @@
 
 //  view event info bar
 
+.vw-event-container
+	@include flexbox
+	@mixin flex-just($value: center)
+	padding-left: 50px
+	padding-right: 50px
+	width: 100%
+
+
 .single-event
 	@include flex-shrink($int: 1)
 	width: 100%
@@ -20,6 +28,7 @@
 	padding-left: em(5px)
 	color: white
 	text-transform: uppercase
+	letter-spacing: 1px
 
 .event-info
 	@include flexbox
@@ -47,8 +56,11 @@ ol[data-type="event-details"]
 	@include flex-direction($value: flex-start)
 	padding: em(20px) em(20px)
 	width: em(225px) // scale down to this size thumb
-	border: $button_border_accent
+	border: 3px solid $color-drkgrey
 	margin-right: em(10px)
+	&:hover
+		border: 3px solid $color-accent
+
 
 .img-template
 	width: 100%
@@ -63,8 +75,6 @@ label[for="view-text"]
 
 .view-input
 	font-size: em(8px)
-	border: $border_dkgrey
-
 
 .single-event,
 .thumb-gallery
