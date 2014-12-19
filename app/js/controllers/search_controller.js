@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('SearchController', ['$scope', 'SaleSearch', function($scope, SaleSearch) {
+  app.controller('SearchController', ['$scope', 'SaleSearch', '$location', function($scope, SaleSearch, $location) {
     $scope.sales = null;
     $scope.errors = [];
 
@@ -19,10 +19,8 @@ module.exports = function(app) {
       });
     };
 
-    $scope.redirectSale = function() {
-      //redirect to sale html
-      console.log('redirected');
+    $scope.redirectSale = function(id) {
+      $location.path('/sale').search({id: id});
     };
-
   }]);
 };

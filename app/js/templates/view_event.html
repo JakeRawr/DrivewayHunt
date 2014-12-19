@@ -1,0 +1,36 @@
+<div data-ng-controller="ViewEvent">
+  <!-- user profile info bar -->
+  <aside class="single-event">
+      <h4 class="event-header"><strong> {{sale.title}}</strong></h4>
+    <section class="event-info">
+      <h4><strong>Event Date:</strong> {{(sale.dateStart  | date : 'mediumDate') + ' - ' + (sale.dateEnd  | date : 'mediumDate')}} </h4>
+      <h4><strong>Event Time:</strong> {{(sale.timeStart  | date : 'shortTime') + ' - ' + (sale.timeEnd  | date : 'shortTime')}}</h4>
+      <h4><strong>Description:</strong> {{sale.description}}</h4>
+      <h4><strong>Location:</strong> {{sale.address}}</h4>
+    </section>
+
+  <!-- take this code below-->
+  <div data-view-item-detail data-ng-if="viewItemModalShown"></div>
+
+  <aside class="thumb-gallery">
+    <!-- container -->
+    <form class="single-thumb" data-ng-repeat="item in items">
+      <img class="img-template" data-ng-click="itemDetail(item)" data-ng-src="{{item.img}}" alt="{{image01}}">
+      <ol data-type="image-details">
+        <li class="image-view" data-id="image-title">
+          <label for="view-input">Title</label>
+          <div class="view-input">
+             {{item.title}}
+          </div>
+        </li>
+        <li class="image-view" data-id="image-title">
+          <label for="view-text">Description</label>
+          <div class="view-input">
+             {{item.description}}
+          </div>
+        </li>
+      </ol>
+    </form>
+    <!-- container ends  -->
+  </aside>
+</div>
