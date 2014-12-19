@@ -6,7 +6,7 @@ module.exports = function(app) {
     $scope.eventExist = false;
 
     $scope.editEvent = function(index) {
-      $scope.eventExist = true
+      $scope.eventExist = true;
       $cookies.currentSale = index;
       $scope.$parent.changeDirective('saleInfo');
     };
