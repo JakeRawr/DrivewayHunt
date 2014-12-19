@@ -4,6 +4,19 @@
   <label for="eventname" data-type="event-input">Your Event Name</label>
   <input type="text" name="eventname" placeholder="event name" id="eventname" ng-model="saleInfo.title">
   <!-- address -->
+
+  <!--  -->
+
+   <label for="date" data-type="event-input">Date</label>
+  <input type="date" name="date" step="7" min="2014-09-08">
+  <!-- THIS IS DATE INPUT/ ADD ANGULAR -->
+
+    <label for="time" data-type="event-input">Time</label>
+  <input type="time" name="time" min="9:00" max="17:00" step="900">
+  <!-- THIS IS TIME INPUT/ ADD ANGULAR -->
+
+  <!--  -->
+
   <label for="address" data-type="event-input">address</label>
   <input type="text" name="address" placeholder="address" id="address" ng-model="saleInfo.address">
   <!-- city -->
@@ -70,8 +83,20 @@
   </section>
    <!-- link "upload photos next" -->
   <footer class="next-page">
+<<<<<<< HEAD
     <a data-ng-click="changeDirective('landingPage');saveNewEvent(saleInfo)">Save for later</a>
     <a data-ng-click="changeDirective('uploadGallery');saveNewEvent(saleInfo)">Next: Upload Images</a>
     <img src="">
+=======
+    <div class="icon-menu">
+      <a href=""><img class="back-icon" src="../../img/back.svg">Back</a>
+    </div>
+    <div class="icon-menu">
+      <a href="" data-ng-click="saveNewEvent(saleInfo)"><img class="save-icon" src="../../img/disk.svg">Save</a>
+    </div>
+    <div class="icon-menu">
+      <a href="" data-ng-click="saveNewEvent(saleInfo)"><img class="next-icon" src="../../img/next.svg">Next</a>
+    </div>
+>>>>>>> 591cca6750883d9f90ef1c8a93d8f90136ab4c0b
   </footer>
 </form>

@@ -1,4 +1,4 @@
-<div data-ng-controller="ViewEvent" class="vw-event-container">
+<div data-ng-controller="ViewEvent" class="vw-event-container" data-ng-init="initController()">
   <!-- user profile info bar -->
   <aside class="single-event">
       <h4 class="event-header"><strong> {{sale.title}}</strong></h4>
@@ -9,7 +9,8 @@
       <h4><strong>Location: </strong> {{sale.address}}</h4>
       <!-- back arrow start -->
         <div class="back-results">
-        <img data-icon="back-result-arrow" src="../../img/arrow-left-peach.svg" data-ng-click="backToSearch()">
+
+        <img data-icon="back-result-arrow" src="../../img/arrow-left-peach.svg"data-ng-click="backToSearch()">
         Search Results
         <div>
       <!-- back arrow end -->

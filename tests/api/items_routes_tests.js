@@ -184,7 +184,6 @@ describe('items routes', function() {
         expect(res.body).to.be.an('object');
         expect(res.body.title).to.eql('orangePie');
         expect(res.body.condition).to.eql('Old');
-        expect(res.body.askingPrice).to.eql(3.14);
         done();
       });
   });

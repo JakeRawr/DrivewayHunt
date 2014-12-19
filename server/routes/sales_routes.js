@@ -17,8 +17,8 @@ module.exports = function(app, jwtauth) {
     request(url, function(error, response, body) {
       if (error) return res.status(500).send('internal server error');
       var data = JSON.parse(body).results;
-      if (data[1]) return res.status(403).send('be more specific');
-      if (!data) return res.status(403).send('could not find location');
+      if (data[1]) return res.status(500).send('be more specific');
+      if (!data) return res.status(500).send('could not find location');
       var latLng = (data[0].geometry.location);
       var lat = latLng.lat;
       var lng = latLng.lng;

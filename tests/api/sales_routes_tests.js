@@ -169,7 +169,7 @@ describe('sales routes', function() {
       });
   });
 
-  it.skip('should be able to delete a sale', function(done) {
+  it('should be able to delete a sale', function(done) {
     chai.request(url)
       .delete('/api/sales/' + testSale._id)
       .set('jwt', jwt)
@@ -182,19 +182,4 @@ describe('sales routes', function() {
         done();
       });
   });
-
-  it('should be able to delete a sale', function(done) {
-    chai.request(url)
-      .delete('/api/sales/' + testSale2._id)
-      .set('jwt', jwt)
-      .send({userId: testSale2.userId})
-      .end(function(err, res) {
-        expect(err).to.be.null;
-        expect(res).to.not.have.status(403);
-        expect(res).to.not.have.status(500);
-        expect(res.text).to.eql('success');
-        done();
-      });
-  });
-
 });

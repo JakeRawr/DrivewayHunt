@@ -26,10 +26,8 @@ module.exports = function(app) {
     };
 
     $scope.scrollTo = function(id) {
-      var old = $location.hash();
       $location.hash(id);
       $anchorScroll();
-      $location.hash(old);
     };
 
     $scope.changeDirective = function(directive, newSale) {

@@ -1,17 +1,21 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('ViewEvent', ['$http', '$scope', '$location', '$routeParams',function($http, $scope, $location, $routeParams) {
+
+  app.controller('ViewEvent', ['$routeParams', '$http', '$scope', '$location', function($routeParams, $http, $scope, $location) {
     $scope.viewItemModalShown = false;
     var saleId = $routeParams.id;
-    $http.get('/api/items/all/' + saleId)
-    .success(function(data) {
-      $scope.sale = data.sale[0];
-      $scope.items = data.items;
-    })
-    .error(function(err) {
-      console.log(err);
-    });
+
+    $scope.initController = function() {
+      $http.get('/api/items/all/' + saleId)
+      .success(function(data) {
+        $scope.sale = data.sale[0];
+        $scope.items = data.items;
+      })
+      .error(function(err) {
+        alert(err);
+      });
+    };
 
     $scope.itemDetail = function(oneItem) {
       $scope.oneItem = oneItem;
@@ -23,7 +27,7 @@ module.exports = function(app) {
     };
 
     $scope.backToSearch = function() {
-     
-    }
-   }]);
+      $location.path('/').hash({});
+    };
+  }]);
 };

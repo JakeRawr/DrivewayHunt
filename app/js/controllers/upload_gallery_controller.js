@@ -3,10 +3,6 @@
 
 module.exports = function(app) {
   app.controller('UploadGallery', ['$rootScope', '$scope', '$upload', 'EVENTS', 'ItemSave', '$http', function($rootScope, $scope, $upload, EVENTS, ItemSave, $http) {
-    $scope.items = $scope.$parent.items;
-
-    console.log('in UploadGallery', $scope.items);
-
     $scope.itemModalShown = false;
 
     $scope.$on(EVENTS.itemEditAttempt, function() {
@@ -38,6 +34,7 @@ module.exports = function(app) {
       }).progress(function() {
 
       }).success(function(data) {
+
         $scope.image.url = data.url;
         var splitUrl = $scope.image.url.split('upload/');
         $scope.image.url = splitUrl[0] + 'upload/w_100,h_100,c_scale/' + splitUrl[1];
@@ -51,11 +48,27 @@ module.exports = function(app) {
       $rootScope.$broadcast(EVENTS.existingEditFinished);
     };
 
-    $scope.saveItem = function(itemObject, existItemFlag) {
+    $scope.saveExistingItem = function(itemObject) {
       //call service
       $rootScope.$broadcast(EVENTS.existingEditFinished);
       $rootScope.$broadcast(EVENTS.itemEditFinished);
-      ItemSave.save(itemObject, existItemFlag);
+      ItemSave.saveExistingItem(itemObject)
+      .error(function(err) {
+        alert(err);
+      });
+    };
+
+    $scope.saveItem = function(titleName, description, condition, url) {
+      //call service
+      $rootScope.$broadcast(EVENTS.existingEditFinished);
+      $rootScope.$broadcast(EVENTS.itemEditFinished);
+      ItemSave.saveItem(titleName, description, condition, url)
+      .success(function(data) {
+        $scope.listItems.push(data);
+      })
+      .error(function(err) {
+        alert(err);
+      });
     };
 
     $scope.itemClick = function(oneItem) {
