@@ -19,6 +19,8 @@ module.exports = function(app, jwtauth) {
     newItem.condition = req.body.condition;
     newItem.img = req.body.img;
     newItem.save(function(err, data) {
+      console.log(req.body);
+      console.log(err);
       if (err) return res.status(500).send('there was an error');
       res.json(data);
     });
