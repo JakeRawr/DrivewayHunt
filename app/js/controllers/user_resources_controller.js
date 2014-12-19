@@ -14,8 +14,7 @@ module.exports = function(app) {
 
     $scope.saveNewEvent = function(saleInfo) {
       //TO-DO HANDLE ERRORS
-      if(SaleSave.validate(saleInfo)){
-        console.log('in save new event');
+      if (SaleSave.validate(saleInfo)) {
         $scope.changeDirective('uploadGallery');
         SaleSave.save(saleInfo, $scope.eventExist);
       }

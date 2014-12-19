@@ -63,12 +63,12 @@ describe('UploadGallery Controller', function() {
     });
 
     it('should call the ItemSave service', function() {
-      spyOn(ItemSave, 'save');
+      spyOn(ItemSave, 'saveItem');
       spyOn($rootScope, '$broadcast');
       $scope.saveItem();
 
       expect($rootScope.$broadcast).toHaveBeenCalledWith(EVENTS.itemEditFinished);
-      expect(ItemSave.save).toHaveBeenCalled();
+      expect(ItemSave.saveItem).toHaveBeenCalled();
     });
   });
 });
