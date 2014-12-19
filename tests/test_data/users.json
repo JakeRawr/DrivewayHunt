@@ -1,0 +1,67 @@
+[
+  {
+    "_id": ObjectId("5493c2fac5da0100002c2851"),
+    "basic": {
+      "email": "test@example.com",
+      "password": "$2a$08$NztmnsmD4hJhQEgGd3bzQOQdKxjDZ1738XnUKflyA0zPtANSeXhsy"
+    },
+    "firstName": "John",
+    "lastName": "Wayne",
+    "city": "Seattle",
+    "state": "WA",
+    "zip": 98102,
+    "phone": "206-234-2345"
+  },
+  {
+    "_id": ObjectId("5493c2fac5da0100002c2852"),
+    "basic": {
+      "email": "sales@example.com",
+      "password": "$2a$08$NztmnsmD4hJhQEgGd3bzQOQdKxjDZ1738XnUKflyA0zPtANSeXhsy"
+    },
+    "firstName": "Clint",
+    "lastName": "Eastwood",
+    "city": "Seattle",
+    "state": "WA",
+    "zip": 98122,
+    "phone": "206-234-2345"
+  },
+  {
+    "_id": ObjectId("5493c2fac5da0100002c2853"),
+    "basic": {
+      "email": "gary@example.com",
+      "password": "$2a$08$NztmnsmD4hJhQEgGd3bzQOQdKxjDZ1738XnUKflyA0zPtANSeXhsy"
+    },
+    "firstName": "Gary",
+    "lastName": "Cooper",
+    "city": "Seattle",
+    "state": "WA",
+    "zip": 98133,
+    "phone": "206-452-9509"
+  },
+  {
+    "_id": ObjectId("5493c2fac5da0100002c2854"),
+    "basic": {
+      "email": "foo@example.com",
+      "password": "$2a$08$NztmnsmD4hJhQEgGd3bzQOQdKxjDZ1738XnUKflyA0zPtANSeXhsy"
+    },
+    "firstName": "James",
+    "lastName": "Stewart",
+    "city": "Seattle",
+    "state": "WA",
+    "zip": 98107,
+    "phone": "206-345-2343"
+  },
+  {
+    "_id": ObjectId("5493c2fac5da0100002c2855"),
+    "basic": {
+      "email": "bar@example.com",
+      "password": "$2a$08$NztmnsmD4hJhQEgGd3bzQOQdKxjDZ1738XnUKflyA0zPtANSeXhsy"
+    },
+    "firstName": "Tina",
+    "lastName": "Fey",
+    "city": "New York",
+    "state": "NY",
+    "zip": 020202,
+    "phone": "916-234-2342"
+  }
+]

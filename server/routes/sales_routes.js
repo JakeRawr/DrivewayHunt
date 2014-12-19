@@ -29,6 +29,7 @@ module.exports = function(app, jwtauth) {
                                          [lng - 0.5, lat - 0.5],
                                          [lng - 0.5, lat + 0.5]]]};
       Sale.find({ loc: { $within: { $geometry: geojsonPoly }}}, function(err, data) {
+        if (err) return res.status(500).send('database error');
         res.send(data);
       });
     });
