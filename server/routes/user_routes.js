@@ -31,7 +31,15 @@ module.exports = function(app, passport, jwtAuth) {
   });
 
   app.get('/api/userInfo', jwtAuth, getSaleByUserId, getItem, function(req, res) {
-    var data = {user: req.user, sales: req.sales, items: req.items};
+    for (var i = 0; i < req.sales.length; i++) {
+      req.sales[i].items = [];
+      for (var k = 0; k < req.items.length; k++) {
+        if (req.sales[i]._id === req.items[k].saleId) {
+          req.sale[i].items.push(req.items[k]);
+        }
+      }
+    }
+    var data = {user: req.user, sales: req.sales};
     res.json(data);
   });
 };

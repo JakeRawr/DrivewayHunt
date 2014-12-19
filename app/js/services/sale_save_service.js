@@ -26,7 +26,7 @@ module.exports = function(app) {
 
       console.log(saleInfo);
       $http.defaults.headers.common.jwt = $cookies.jwt;
-      if (eventExist) {
+      if (!eventExist) {
         $http.post('/api/sales', saleInfo)
         .success(function(data) {
           console.log(data);
