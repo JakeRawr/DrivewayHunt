@@ -1,5 +1,6 @@
 /*jscs:disable requireCamelCaseOrUpperCaseIdentifiers*/
 'use strict';
+var _ = require('underscore');
 
 module.exports = function(app) {
   app.controller('UploadGallery', ['$rootScope', '$scope', '$upload', 'EVENTS', 'ItemSave', '$http', function($rootScope, $scope, $upload, EVENTS, ItemSave, $http) {
@@ -54,6 +55,18 @@ module.exports = function(app) {
       .error(function(err) {
         alert(err);
       });
+    };
+
+    $scope.delete = function(oneItem) {
+      ItemSave.deleteItem(oneItem)
+      .success(function() {
+        $scope.listItems = _.without($scope.listItems, oneItem);
+      })
+      .error(function(err) {
+        alert(err);
+      });
+      $rootScope.$broadcast(EVENTS.existingEditFinished);
+      $rootScope.$broadcast(EVENTS.itemEditFinished);
     };
 
     $scope.saveItem = function(titleName, description, condition, url) {

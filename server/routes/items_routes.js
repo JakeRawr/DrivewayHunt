@@ -53,8 +53,6 @@ module.exports = function(app, jwtauth) {
    * Delete single garage sale item
    */
   app.delete('/api/items/single/:id', jwtauth, function(req, res) {
-    if (String(req.body.userId) !== String(req.user._id)) return res.status(403).send('Not Authorized');
-
     Item.findByIdAndRemove(req.params.id, function(err) {
       if (err) return res.status(500).send('there was an error');
       res.send('success');

@@ -22,6 +22,15 @@ module.exports = function(app) {
       });
     };
 
+    itemSave.deleteItem = function(itemObject) {
+      console.log(itemObject.userId);
+      return $http({
+        url: '/api/items/single/' + itemObject._id,
+        method: 'DELETE',
+        headers: {jwt: $cookies.jwt}
+      });
+    };
+
     return itemSave;
   }]);
 };
