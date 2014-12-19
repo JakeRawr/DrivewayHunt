@@ -8,31 +8,25 @@
 
 //Form component
 
-main[class="sale_form"]
-  background-color: blue
-  display: flex
-  flex-flow: column nowrap
-
-//set fonts
 .sale_form
   label
     text-transform: uppercase
-    font-size: 12px
+    font-size: em(12px)
     font-weight: $font-weight--bold
     letter-spacing: 1px
     color: $color-font-primary
-    display: inline-block
-    &[for="eventname"],
-    &[for="address"],
-    &[for="city"],
-    &[for="state_zip"],
-    &[for="zipcode"],
-    &[for="event_description"],
-      padding: 1% 0
-    &[for="eventname"],&[for="user_form_footer"]
-      color: $color-primary
-      font-weight: $font-weight--bold
-      padding-bottom: 2%
+
+h4[class="create-event"],
+p[data-type="event-input"],
+  text-align: left
+  color: $color-font-accent
+  font-size: $base__font-size
+  text-transform: uppercase
+  letter-spacing: em(1px)
+
+// all form input headers
+label[data-type="event-input"]
+  text-align: left
 
 //align state and zip
 .state_zip
@@ -50,41 +44,40 @@ input[name="state"],
 input[name="zipcode"],
   height: em(30px)
   width: 80%
-  padding: em(5px) em(10px)
-  maxlength: 50
-  margin: 1% 1px
-  border: 1px solid $color-medgrey
+  margin: 1% em(1px)
+  border: em(1px) solid $color-medgrey
 
 //textarea
 textarea[name="event_description"]
   width: 80%
   height: 20%
   -webkit-appearance: none
-  border: 1px solid $color-medgrey
+  border: em(1px) solid $color-medgrey
+  
 
-//keywords
-.keywords
+.keywords-container
   column-count: 3
   -webkit-column-count: 3 /* Chrome, Safari, Opera */
   -moz-column-count: 3 /* Firefox */
   li
     display: flex
     flex-flow: row wrap
+    padding-bottom: em(10px)
 
-//checkbox
-li[type="checkbox"]
-  -webkit-appearance: none
-  -moz-appearance: none
-
-//user_form_footer flys to the right
-label
+footer[class="next-page"]
+  @include flexbox
+  @include flex-direction($value: row)
+  @include justify-content($value: flex-end)
+  width: 80%
+  margin-right: em(150px)
+  margin-top: em(40px)
   a
-    -webkit-appearance: none
-    -moz-appearance: none
-    color: $color-primary
-    text-decoration: none
-    margin-left: 135px
-    width: 100%
+    color: $color-font-accent
+    font-size: $base__font-size
+    text-transform: uppercase
+    letter-spacing: em(1px)
+    padding-left: em(30px)
     &:hover
-      color: $color-secondary
+      color: $color-accent
+
 
