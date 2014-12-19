@@ -16,21 +16,22 @@ module.exports = function(grunt) {
     project: {
       app: ['app'],
       server: ['server'],
+      tests: ['tests'],
       scss: ['<%= project.app %>/sass/**/*.scss',  'app/sass/**/*.sass'],
       css: ['<%= project.app %>/**/*.css', '!<%= project.app %>/sass/**/*.*'],
       html: ['<%= project.app %>/**/*.html'],
-      alljs: ['<%= project.app %>/js/**/*.js', '<%= project.server %>/**/*.js']
+      alljs: ['<%= project.app %>/js/**/*.js', '<%= project.server %>/**/*.js', '<%= project.tests %>/**/*.js', '!tests/angular_test_bundle.js']
     },
 
     jshint: {
-      all: ['<%= project.alljs %>', 'Gruntfile.js', 'server.js', 'tests/api/**/*.js'],
+      all: ['<%= project.alljs %>', 'Gruntfile.js', 'server.js'],
       options: {
         jshintrc: true
       }
     },
 
     jscs: {
-      src: ['<%= project.alljs %>', 'Gruntfile.js', 'server.js', 'tests/api/**/*.js'],
+      src: ['<%= project.alljs %>', 'Gruntfile.js', 'server.js'],
       options: {
         config: '.jscsrc'
       }
@@ -85,7 +86,7 @@ module.exports = function(grunt) {
 
     watch: {
       sass: {
-        files: '<%= project.scss %>',//['<%= project.scss %>','<%= project.css %>', 'sass/**/*.sass', '<%= project.html %>'],
+        files: '<%= project.scss %>',
         tasks: ['sass'],
         options: {
           reload: true,
@@ -145,7 +146,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('sass:watch', ['watch:sass', 'watch:livereload']);
   grunt.registerTask('test', ['jshint', 'jscs', 'simplemocha', 'browserify:test', 'karma:unit']);
+  grunt.registerTask('test:client', ['jshint', 'jscs', 'browserify:test', 'karma:unit']);
   grunt.registerTask('build', ['clean', 'sass', 'browserify:dev', 'browserify:test', 'copy:dev']);
   grunt.registerTask('build:basic', ['clean', 'sass', 'browserify:dev', 'copy:dev']);
-  grunt.registerTask('test:client', ['browserify:test', 'karma:unit']);
 };
