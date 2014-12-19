@@ -10,17 +10,13 @@ module.exports = function(app) {
     //helper method
     saleSave.validate = function(saleInfo) {
       if (!_.contains(_.keys(saleInfo), 'title', 'description', 'address', 'city', 'state', 'zip')) {
-        this.errors.push('missing required fields');
         return false;
       }
       return true;
     };
 
     saleSave.save = function(saleInfo, eventExist) {
-      //call helper method that validates input
-      this.validate(saleInfo);
       //check if there were any errors
-      if (this.errors.length > 0) return this.errors;
       //save to DB
       //return promise
       $http.defaults.headers.common.jwt = $cookies.jwt;

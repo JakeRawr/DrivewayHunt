@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('UserResourcesController', ['$scope', '$cookies', 'ItemSave', 'SaleSave', '$location', function($scope, $cookies, ItemSave, SaleSave, $location) {
+  app.controller('UserResourcesController', ['$scope', '$cookies', 'ItemSave', 'SaleSave', 'EVENTS', function($scope, $cookies, ItemSave, SaleSave, EVENTS) {
     $scope.errors = [];
     $scope.eventExist = false;
 
@@ -12,16 +12,21 @@ module.exports = function(app) {
       $scope.$parent.changeDirective('saleInfo');
     };
 
-    $scope.saveNewEvent = function(saleInfo) {
+    $scope.saveNewEvent = function(saleInfo, justSave) {
       //TO-DO HANDLE ERRORS
       if (SaleSave.validate(saleInfo)) {
-        $scope.changeDirective('uploadGallery');
+        if (!justSave) {
+          $scope.changeDirective('uploadGallery');
+        }
         SaleSave.save(saleInfo, $scope.eventExist);
+      } else {
+        alert('missing required fields');
       }
     };
 
     $scope.back = function() {
-     $scope.changeDirective('landingPage');
-    }
+     $scope.$parent.changeDirective('landingPage');
+     $scope.$broadcast(EVENTS.profileClick);
+    };
   }]);
 };
