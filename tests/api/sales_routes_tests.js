@@ -13,7 +13,7 @@ var url = 'http://localhost:3000';
 chai.use(chaiHttp);
 require('../../server');
 
-describe.skip('sales routes', function() {
+describe('sales routes', function() {
 
   before(function() {
     //drop sales from test db before running tests

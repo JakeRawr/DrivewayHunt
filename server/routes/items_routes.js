@@ -29,7 +29,6 @@ module.exports = function(app, jwtauth) {
    */
   app.get('/api/items/all/:saleid', getSaleBySaleId, function(req, res) {
     Item.find({saleId:req.params.saleid}, function(err, items) {
-      console.log(items);
       if (err) return res.status(500).send('there was an error');
       if (!items) return res.status(500).send('This sale has no item');
       res.json({sale: req.sale, items: items});
