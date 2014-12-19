@@ -10,7 +10,6 @@ module.exports = function(app) {
         if (!scope) return;
         scope.saleInfo = scope.sales[$cookies.currentSale];
         scope.saveNewEvent = scope.$parent.saveNewEvent;
-        console.log(scope);
       }
     };
   }]);

@@ -8,7 +8,6 @@ module.exports = function(app) {
     $scope.editEvent = function(items, index) {
       $scope.eventExist = true;
       $scope.listItems = items;
-      console.log('in editEvent', $scope.items);
       $cookies.currentSale = index;
       $scope.$parent.changeDirective('saleInfo');
     };
