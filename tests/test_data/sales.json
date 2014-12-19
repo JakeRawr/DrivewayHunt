@@ -1,7 +1,7 @@
 [
   {
-    "_id": 1,
-    "userId": 1,
+    "_id": ObjectId("5493c2fac5da0100002c2861"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
     "title": "Spring cleaning",
     "description": "Getting rid of some things.",
     "address": "3411 Market St",
@@ -18,8 +18,8 @@
     "publish": true
   },
   {
-    "_id": 2,
-    "userId": 1,
+    "_id": ObjectId("5493c2fac5da0100002c2862"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
     "title": "Moving to Tahiti",
     "description": "Selling it all.",
     "address": "3411 Market St",
@@ -36,8 +36,8 @@
     "publish": true
   },
   {
-    "_id": 3,
-    "userId": 2,
+    "_id": ObjectId("5493c2fac5da0100002c2863"),
+    "userId": ObjectId("5493c2fac5da0100002c2852"),
     "title": "A descriptive title",
     "description": "Some words about a sale. Totally optional of course.",
     "address": "1729 Boylston Ave",
@@ -54,8 +54,8 @@
     "publish": true
   },
   {
-    "_id": 4,
-    "userId": 3,
+    "_id": ObjectId("5493c2fac5da0100002c2864"),
+    "userId": ObjectId("5493c2fac5da0100002c2853"),
     "title": "A descriptive title",
     "description": "Some words about a sale. Totally optional of course.",
     "address": "511 Boren Ave North",
@@ -72,8 +72,8 @@
     "publish": true
   },
   {
-    "_id": 5,
-    "userId": 3,
+    "_id": ObjectId("5493c2fac5da0100002c2865"),
+    "userId": ObjectId("5493c2fac5da0100002c2854"),
     "title": "A descriptive title",
     "description": "Some words about a sale. Totally optional of course.",
     "address": "511 Boren Ave North",
@@ -90,8 +90,8 @@
     "publish": true
   },
   {
-    "_id": 6,
-    "userId": 3,
+    "_id": ObjectId("5493c2fac5da0100002c2866"),
+    "userId": ObjectId("5493c2fac5da0100002c2855"),
     "title": "A descriptive title",
     "description": "Some words about a sale. Totally optional of course.",
     "address": "511 Boren Ave North",

@@ -1,7 +1,7 @@
 [
   {
-    "saleId": 1,
-    "userId": 1,
+    "saleId": ObjectId("5493c2fac5da0100002c2861"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
     "title": "Bench",
     "askingPrice": 20,
     "description": "solid bench. can sit on.",
@@ -9,8 +9,8 @@
     "condition": "used"
   },
   {
-    "saleId": 1,
-    "userId": 1,
+    "saleId": ObjectId("5493c2fac5da0100002c2861"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
     "title": "Hammer",
     "askingPrice": 20,
     "description": "Has handle. Can swing.",
@@ -18,8 +18,8 @@
     "condition": "used"
   },
   {
-    "saleId": 1,
-    "userId": 1,
+    "saleId": ObjectId("5493c2fac5da0100002c2861"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
     "title": "Table",
     "askingPrice": 20,
     "description": "Unstable",
@@ -27,8 +27,8 @@
     "condition": "Excellent"
   },
   {
-    "saleId": 1,
-    "userId": 1,
+    "saleId": ObjectId("5493c2fac5da0100002c2861"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
     "title": "Lamp",
     "askingPrice": 20,
     "description": "Light bulb not included.",
@@ -36,8 +36,8 @@
     "condition": "loved"
   },
   {
-    "saleId": 2,
-    "userId": 1,
+    "saleId": ObjectId("5493c2fac5da0100002c2862"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
     "title": "Foam",
     "askingPrice": 20,
     "description": "Firm.",
@@ -45,8 +45,8 @@
     "condition": "used"
   },
   {
-    "saleId": 2,
-    "userId": 1,
+    "saleId": ObjectId("5493c2fac5da0100002c2862"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
     "title": "Power strip",
     "askingPrice": 20,
     "description": "Conducts electricity.",
@@ -54,8 +54,8 @@
     "condition": "used"
   },
   {
-    "saleId": 2,
-    "userId": 1,
+    "saleId": ObjectId("5493c2fac5da0100002c2862"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
     "title": "Fine hypertext products",
     "askingPrice": 20,
     "description": "Linkable and styling.",
@@ -63,8 +63,8 @@
     "condition": "Excellent"
   },
   {
-    "saleId": 2,
-    "userId": 1,
+    "saleId": ObjectId("5493c2fac5da0100002c2862"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
     "title": "Spoon",
     "askingPrice": 20,
     "description": "Great for soup.",
@@ -72,8 +72,8 @@
     "condition": "loved"
   },
   {
-    "saleId": 3,
-    "userId": 2,
+    "saleId": ObjectId("5493c2fac5da0100002c2863"),
+    "userId": ObjectId("5493c2fac5da0100002c2852"),
     "title": "Bench",
     "askingPrice": 20,
     "description": "solid bench. can sit on.",
@@ -81,8 +81,8 @@
     "condition": "used"
   },
   {
-    "saleId": 3,
-    "userId": 2,
+    "saleId": ObjectId("5493c2fac5da0100002c2863"),
+    "userId": ObjectId("5493c2fac5da0100002c2852"),
     "title": "Hammer",
     "askingPrice": 20,
     "description": "Has handle. Can swing.",
@@ -90,8 +90,8 @@
     "condition": "used"
   },
   {
-    "saleId": 3,
-    "userId": 2,
+    "saleId": ObjectId("5493c2fac5da0100002c2863"),
+    "userId": ObjectId("5493c2fac5da0100002c2852"),
     "title": "Table",
     "askingPrice": 20,
     "description": "Unstable",
@@ -99,8 +99,8 @@
     "condition": "Excellent"
   },
   {
-    "saleId": 3,
-    "userId": 3,
+    "saleId": ObjectId("5493c2fac5da0100002c2863"),
+    "userId": ObjectId("5493c2fac5da0100002c2852"),
     "title": "Lamp",
     "askingPrice": 20,
     "description": "Light bulb not included.",
@@ -108,8 +108,8 @@
     "condition": "loved"
   },
   {
-    "saleId": 4,
-    "userId": 3,
+    "saleId": ObjectId("5493c2fac5da0100002c2864"),
+    "userId": ObjectId("5493c2fac5da0100002c2853"),
     "title": "Bench",
     "askingPrice": 20,
     "description": "solid bench. can sit on.",
@@ -117,8 +117,8 @@
     "condition": "used"
   },
   {
-    "saleId": 4,
-    "userId": 3,
+    "saleId": ObjectId("5493c2fac5da0100002c2864"),
+    "userId": ObjectId("5493c2fac5da0100002c2853"),
     "title": "Hammer",
     "askingPrice": 20,
     "description": "Has handle. Can swing.",
@@ -126,8 +126,8 @@
     "condition": "used"
   },
   {
-    "saleId": 4,
-    "userId": 3,
+    "saleId": ObjectId("5493c2fac5da0100002c2864"),
+    "userId": ObjectId("5493c2fac5da0100002c2853"),
     "title": "Table",
     "askingPrice": 20,
     "description": "Unstable",
@@ -135,8 +135,8 @@
     "condition": "Excellent"
   },
   {
-    "saleId": 4,
-    "userId": 3,
+    "saleId": ObjectId("5493c2fac5da0100002c2864"),
+    "userId": ObjectId("5493c2fac5da0100002c2853"),
     "title": "Lamp",
     "askingPrice": 20,
     "description": "Light bulb not included.",
