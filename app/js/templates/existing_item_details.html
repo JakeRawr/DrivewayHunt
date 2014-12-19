@@ -1,25 +1,26 @@
-<div class="photo_enlarge mdoverlay" >
+<div class="photo_enlarge mdoverlay">
   <form class="viewphoto photoModal">
     <!-- image -->
-    <img data-ng-src="{{image.url}}" alt="{{image.alt}}" style="width:100%;"><br>
+    <img data-ng-src="{{oneItem.img}}" alt="{{image.alt}}" style="width:100%;"><br>
     <!-- form -->
     <ol>
       <!-- title of the image -->
       <li class="image-view" data-id="image-title">
         <label for="image-title">Title</label><br>
-        <input id="image-title" type="text" title="image-title" data-ng-model="titleName">
+        <input id="image-title" type="text" title="image-title" data-ng-model="oneItem.title">
       </li>
       <!-- image description -->
       <li class="image-view" data-id="image-title">
         <label for="image-text">Description</label></br>
-        <textarea id="image-text" data-ng-model="description"></textarea>
+        <textarea id="image-text" data-ng-model="oneItem.description"></textarea>
       </li>
         <!--item condition -->
      <li class="image-view" data-id="image-title">
         <label for="image-condition">Condition</label><br>
-        <select id ="image-condition" data-ng-model="condition">
+        <select id="image-condition" data-ng-model="oneItem.condition">
+          <option ng-value="oneItem.condition" style="display:none;">{{oneItem.condition}}</option>
           <option value="brandnew">&nbsp Brand New</option>
-          <option selected="selected" value="likenew">&nbsp Like New</option>
+          <option value="likenew">&nbsp Like New</option>
           <option value="fair">&nbsp Fair &#x02717</option>
           <option value="good">&nbsp Good &#x02717 &#x02717</option>
           <option value="junk" >&nbsp Junk &#x02717 &#x02717 &#x02717</option>
@@ -28,7 +29,7 @@
     </ol>
     <div id="view-image">
       <button data-id="image-close" data-ng-click="close()">Close</button>
-      <button data-id="image-save" data-ng-click="saveItem(titleName, description, condition, image.url, false)">Save</button>
+      <button data-id="image-save" data-ng-click="saveItem(oneItem, true)">Save</button>
     </div>
   </form>
 </div>

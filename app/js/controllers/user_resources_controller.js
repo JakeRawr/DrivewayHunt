@@ -5,8 +5,10 @@ module.exports = function(app) {
     $scope.errors = [];
     $scope.eventExist = false;
 
-    $scope.editEvent = function(index) {
+    $scope.editEvent = function(items, index) {
       $scope.eventExist = true;
+      $scope.items = items;
+      console.log('in editEvent', $scope.items);
       $cookies.currentSale = index;
       $scope.$parent.changeDirective('saleInfo');
     };
