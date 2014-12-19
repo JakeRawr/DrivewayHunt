@@ -16,6 +16,9 @@
     letter-spacing: 1px
     color: $color-font-primary
 
+h4[class="create-event"]
+  margin-bottom: em(10px)
+
 h4[class="create-event"],
 p[data-type="event-input"],
   text-align: left
@@ -37,15 +40,27 @@ label[data-type="event-input"]
     margin: 0 2%
 
 //set the input field
+input[name="date"],
+input[name="time"],
 input[name="eventname"],
 input[name="address"],
 input[name="city"],
 input[name="state"],
 input[name="zipcode"],
   height: em(30px)
-  width: 80%
   margin: 1% em(1px)
   border: em(1px) solid $color-medgrey
+
+input[name="eventname"],
+input[name="address"],
+input[name="city"],
+input[name="state"],
+input[name="zipcode"],
+  width: 80%
+
+input[name="date"],
+input[name="time"],
+  width: 50%
 
 //textarea
 textarea[name="event_description"]
@@ -79,5 +94,15 @@ footer[class="next-page"]
     padding-left: em(30px)
     &:hover
       color: $color-accent
+
+.icon-menu
+  @include flex-direction($value: column)
+
+img[class="save-icon"],
+img[class="next-icon"],
+img[class="back-icon"],
+  width: 30px
+  padding: 0 em(5px)
+  align-self: flex-start
 
 
