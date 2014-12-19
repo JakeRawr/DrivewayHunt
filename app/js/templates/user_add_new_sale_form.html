@@ -4,19 +4,17 @@
   <label for="eventname" data-type="event-input">Your Event Name</label>
   <input type="text" name="eventname" placeholder="event name" id="eventname" ng-model="saleInfo.title">
   <!-- address -->
-
   <!--  -->
-
    <label for="date" data-type="event-input">Date</label>
   <input type="date" name="date" step="7" min="2014-09-08">
+
   <!-- THIS IS DATE INPUT/ ADD ANGULAR -->
 
     <label for="time" data-type="event-input">Time</label>
   <input type="time" name="time" min="9:00" max="17:00" step="900">
+
   <!-- THIS IS TIME INPUT/ ADD ANGULAR -->
-
   <!--  -->
-
   <label for="address" data-type="event-input">address</label>
   <input type="text" name="address" placeholder="address" id="address" ng-model="saleInfo.address">
   <!-- city -->
@@ -34,10 +32,9 @@
     </div>
   </div>
   <aside>
-    <label for="event_description" data-type="event-input">event description (40 words max)</label>
-    <textarea maxlength="40" name="event_description" id="event_description" cols="30" rows="10" ng-model="saleInfo.description"></textarea>
+    <label for="event_description" data-type="event-input">event description</label>
+    <textarea maxlength="150" name="event_description" id="event_description" cols="30" rows="10" ng-model="saleInfo.description"></textarea>
   </aside>
-
   <!-- add key words to your event -->
   <section class="add-keywords">
     <p data-type="event-input">add keywords</p>
