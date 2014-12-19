@@ -1,0 +1,146 @@
+[
+  {
+    "saleId": 1,
+    "userId": 1,
+    "title": "Bench",
+    "askingPrice": 20,
+    "description": "solid bench. can sit on.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": 1,
+    "userId": 1,
+    "title": "Hammer",
+    "askingPrice": 20,
+    "description": "Has handle. Can swing.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": 1,
+    "userId": 1,
+    "title": "Table",
+    "askingPrice": 20,
+    "description": "Unstable",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "Excellent"
+  },
+  {
+    "saleId": 1,
+    "userId": 1,
+    "title": "Lamp",
+    "askingPrice": 20,
+    "description": "Light bulb not included.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "loved"
+  },
+  {
+    "saleId": 2,
+    "userId": 1,
+    "title": "Foam",
+    "askingPrice": 20,
+    "description": "Firm.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": 2,
+    "userId": 1,
+    "title": "Power strip",
+    "askingPrice": 20,
+    "description": "Conducts electricity.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": 2,
+    "userId": 1,
+    "title": "Fine hypertext products",
+    "askingPrice": 20,
+    "description": "Linkable and styling.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "Excellent"
+  },
+  {
+    "saleId": 2,
+    "userId": 1,
+    "title": "Spoon",
+    "askingPrice": 20,
+    "description": "Great for soup.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "loved"
+  },
+  {
+    "saleId": 3,
+    "userId": 2,
+    "title": "Bench",
+    "askingPrice": 20,
+    "description": "solid bench. can sit on.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": 3,
+    "userId": 2,
+    "title": "Hammer",
+    "askingPrice": 20,
+    "description": "Has handle. Can swing.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": 3,
+    "userId": 2,
+    "title": "Table",
+    "askingPrice": 20,
+    "description": "Unstable",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "Excellent"
+  },
+  {
+    "saleId": 3,
+    "userId": 3,
+    "title": "Lamp",
+    "askingPrice": 20,
+    "description": "Light bulb not included.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "loved"
+  },
+  {
+    "saleId": 4,
+    "userId": 3,
+    "title": "Bench",
+    "askingPrice": 20,
+    "description": "solid bench. can sit on.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": 4,
+    "userId": 3,
+    "title": "Hammer",
+    "askingPrice": 20,
+    "description": "Has handle. Can swing.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": 4,
+    "userId": 3,
+    "title": "Table",
+    "askingPrice": 20,
+    "description": "Unstable",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "Excellent"
+  },
+  {
+    "saleId": 4,
+    "userId": 3,
+    "title": "Lamp",
+    "askingPrice": 20,
+    "description": "Light bulb not included.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "loved"
+  },
+]

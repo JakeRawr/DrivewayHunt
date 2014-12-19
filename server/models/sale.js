@@ -14,8 +14,6 @@ var saleSchema = mongoose.Schema({
   dateEnd: {type: Date, required: false},
   timeStart: {type: Date, required: false},
   timeEnd: {type: Date, required: false},
-  //lat: {type: Number, required: true},
-  //lng: {type: Number, required: true},
   phone: {type: String, required: false},
   email: {type: String, required: false},
   publish: {type: Boolean, required: true},

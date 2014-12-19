@@ -10,6 +10,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-mongoimport');
 
   grunt.initConfig({
     project: {
@@ -37,6 +38,41 @@ module.exports = function(grunt) {
 
     simplemocha: {
       src: ['tests/api/*.js']
+    },
+
+    mongoimport: {
+      options: {
+        db: 'gsale_development',
+        host: 'localhost',
+        port: '27017',
+        stopOnError: true,
+        collections: [
+          {
+            name: 'items',
+            type: 'json',
+            file: 'tests/test_data/items.json',
+            jsonArray: true,
+            upsert: true,
+            drop: true
+          },
+          {
+            name: 'sales',
+            type: 'json',
+            file: 'tests/test_data/sales.json',
+            jsonArray: true,
+            upsert: true,
+            drop: true
+          },
+          {
+            name: 'users',
+            type: 'json',
+            file: 'tests/test_data/users.json',
+            jsonArray: true,
+            upsert: true,
+            drop: true
+          }
+        ]
+      }
     },
 
     sass: {
