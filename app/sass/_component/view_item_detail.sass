@@ -1,0 +1,78 @@
+@import '../_mixin/vertical-align-mixin'
+@import '../_mixin/input-placeholder-mixin'
+@import '../_global/variables'
+@import '../_mixin/flexbox-mixin'
+@import '../_mixin/clearfix-mixin'
+@import '../_utility/em-function'
+@import '../_global/icons'
+
+.view-detail
+  
+
+.detail-image-container
+  @include flexbox
+  @include justify-content($value: flex-center)
+  @include align-items($value: center)
+  padding-bottom: 10px
+  width: 100%
+  background-color: red
+
+label[for="item-info"],
+  font-size: $base__font-size
+  text-transform: uppercase
+  font-weight: $font-weight--bold
+  color: $color-font-accent
+
+#view-title,
+#view-description,
+#view-condition,
+  font-size: $base__font-size
+  color: $color-font-primary
+
+ol[data-type="view-container"]
+  padding: em(50px) 0
+
+
+// //input field setting
+// input[id="image-description"],
+// input[id="image-title"],
+//   height: em(30px)
+//   width: 100%
+//   padding: em(5px)
+//   maxlength: 50
+//   border: 1px solid $color-drkgrey
+
+// //dropdown styling
+// #image-condition
+//   -moz-appearance: none
+//   -webkit-appearance: none
+//   font-family: $font-family--primary
+//   font-size: 12px
+//   padding-left: 5px
+//   height: em(20px)
+//   width: em(80px)
+
+// // button styles to rename
+// button[data-id="image-close"],
+// button[data-id="image-save"]
+//   position: relative
+//   padding: em(5px) 0
+//   margin: em(20px) em(3px)
+//   border: em(3px) solid $color-dkorange
+//   background-color: white
+//   font-weight: $font-weight--bold
+//   font-size: 12px
+//   text-transform: uppercase
+//   text-align: center
+
+//   // Submit button styles, color and states
+// button[data-id="image-close"],
+// button[data-id="image-save"]
+//   color: $color-dkorange
+//   width: 20%
+//   left: calc(67% - 20%/2)
+//   &:hover,
+//   &:active
+//     background-color: $color-teal
+//     color: white
+
