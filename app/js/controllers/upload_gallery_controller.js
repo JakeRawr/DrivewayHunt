@@ -5,8 +5,6 @@ module.exports = function(app) {
   app.controller('UploadGallery', ['$rootScope', '$scope', '$upload', 'EVENTS', 'ItemSave', '$http', function($rootScope, $scope, $upload, EVENTS, ItemSave, $http) {
     $scope.items = $scope.$parent.items;
 
-    console.log('in UploadGallery', $scope.items);
-
     $scope.itemModalShown = false;
 
     $scope.$on(EVENTS.itemEditAttempt, function() {
