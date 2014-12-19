@@ -91,16 +91,19 @@ table h4
   h4
     font-weight: $font-weight--bold
 
-.distanceColumn,
-.dateColumn
-  min-width: em(80px)
-  font-size: 11px
-  li:last-child
-    color: $color-primary
-  //@include icon(after, caret-down)
+#redirectSale
+  text-decoration: none
+  &:hover
+    color: $color-accent
+    text-decoration: underline
 
 .expandColumn
   min-width: em(25px)
+
+img[data-icon="map"]
+  width: 50px
+  color: $color-font-accent
+
 
 // table data styles
 ol[name="event"]
@@ -111,20 +114,13 @@ ol[name="event"]
     font-weight: $font-weight--bold
     color: $color-font-accent
 
-ol[data-type="filter"]
+.filter
   color: $color-font-primary
+  font-size: em(10px)
 
-// icon to expand
-//h4[data-icon="open"]
-//  @include icon(after, plus)
-//  color: $color-primary
-//  font-size: em(15px)
-
-// icon to close
-//h4[data-icon="close"]
-//  @include icon(after, minus)
-//  color: $color-primary
-//  font-size: em(15px)
+ol[data-type="event-info"]
+  li
+    padding-bottom: em(5px)
 
 // map
 
@@ -135,5 +131,3 @@ ol[data-type="filter"]
   text-align: right
   font-size: 2em
   color: white
-  //@include icon(after, arrow-up)
-  //@include icon(before, arrow-down)
