@@ -63,12 +63,19 @@ describe('UploadGallery Controller', function() {
     });
 
     it('should call the ItemSave service', function() {
-      spyOn(ItemSave, 'saveItem');
+      var item = {
+        titleName: 'lk',
+        description: 'asd',
+        condition: 'like new',
+        url: 'http://.com'
+      };
+      $httpBackend.expectPOST('/api/items').respond(200, item);
       spyOn($rootScope, '$broadcast');
-      $scope.saveItem();
-
+      $scope.listItems = [];
+      $scope.saveItem(item.titleName, item.description, item.condition, item.url);
+      $httpBackend.flush();
       expect($rootScope.$broadcast).toHaveBeenCalledWith(EVENTS.itemEditFinished);
-      expect(ItemSave.saveItem).toHaveBeenCalled();
+      expect($scope.listItems.length).toBeTruthy();
     });
   });
 });
