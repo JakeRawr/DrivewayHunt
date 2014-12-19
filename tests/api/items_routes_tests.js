@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 var expect = chai.expect;
+var nock = require('nock');
 
 chai.use(chaiHttp);
 require('../../server');
@@ -14,6 +15,7 @@ var url = 'http://localhost:3000';
 
 describe('items routes', function() {
   var jwt;
+  var geoUrl = 'https://maps.googleapis.com';
 
   before(function() {
     mongoose.connection.collections.users.drop(function(err) {
@@ -87,6 +89,16 @@ describe('items routes', function() {
         jwt = res.body.jwt;
         done();
       });
+  });
+
+  before(function() {
+    nock(geoUrl)
+    .get('/maps/api/geocode/json?address=Seattle+WA+98109&key=' + process.env.GEOCODE_API)
+    .reply(200, {results:[{geometry:{location:{lat: 47.6062095, lng: -122.3320708}}}]});
+
+    nock(geoUrl)
+    .get('/maps/api/geocode/json?address=Seattle&key=' + process.env.GEOCODE_API)
+    .reply(200, {results:[{geometry:{location:{lat: 47.6062095, lng: -122.3320708}}}]});
   });
 
   it('should be able to create a new sale', function(done) {
