@@ -31,6 +31,10 @@ module.exports = function(app) {
       }
     };
 
+    $scope.home = function() {
+      $location.path('/').search({});
+    };
+
     $scope.$watch(function() { return $cookies.jwt; }, function(validUser) {
       $scope.currentUser = validUser;
     });
