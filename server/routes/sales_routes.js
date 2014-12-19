@@ -2,6 +2,7 @@
 
 var Sale = require('../models/sale');
 var request = require('request');
+var geoCode = require('../lib/geoCodeMW');
 
 module.exports = function(app, jwtauth) {
 
@@ -37,7 +38,7 @@ module.exports = function(app, jwtauth) {
    * Create a new garage sale
    * Authenticated
    */
-  app.post('/api/sales', jwtauth, function(req, res) {
+  app.post('/api/sales', jwtauth, geoCode, function(req, res) {
     var newSale = new Sale();
 
     newSale.userId = req.user._id;
@@ -51,15 +52,18 @@ module.exports = function(app, jwtauth) {
     newSale.dateEnd = req.body.dateEnd;
     newSale.timeStart = req.body.timeStart;
     newSale.timeEnd = req.body.timeEnd;
-    newSale.lat = req.body.lat;
-    newSale.lng = req.body.lng;
+    // newSale.lat = req.body.lat;
+    // newSale.lng = req.body.lng;
     newSale.phone = req.body.phone;
     newSale.email = req.body.email;
     newSale.publish = req.body.publish;
-    newSale.loc = [req.body.lng, req.body.lat];
+    newSale.loc = req.loc;
 
     newSale.save(function(err, data) {
-      if (err) return res.status(500).send('there was an error');
+      if (err) {
+        console.log(err);
+        return res.status(500).send('there was an error');
+      }
       res.json(data);
     });
   });

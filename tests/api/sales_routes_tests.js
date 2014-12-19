@@ -62,8 +62,8 @@ describe('sales routes', function() {
   var testSale2 = {
     title: 'New York Test Sale',
     description: 'This is a test sale in NY',
-    address: '612 Westlake Avenue South, Manhattan, NY 023893',
-    city: 'Manhattan',
+    address: '612 Westlake Avenue South, Albany, NY 023893',
+    city: 'Albany',
     state: 'NY',
     zip: '02020',
     dateStart: '1-1-15',
@@ -78,6 +78,14 @@ describe('sales routes', function() {
   };
 
   before(function() {
+    nock(geoUrl)
+    .get('/maps/api/geocode/json?address=Albany+NY+02020&key=' + process.env.GEOCODE_API)
+    .reply(200, {results:[{geometry:{location:{lat: 40.7234, lng: -74.23243}}}]});
+
+    nock(geoUrl)
+    .get('/maps/api/geocode/json?address=Seattle+WA+98109&key=' + process.env.GEOCODE_API)
+    .reply(200, {results:[{geometry:{location:{lat: 47.6062095, lng: -122.3320708}}}]});
+
     nock(geoUrl)
     .get('/maps/api/geocode/json?address=Seattle&key=' + process.env.GEOCODE_API)
     .reply(200, {results:[{geometry:{location:{lat: 47.6062095, lng: -122.3320708}}}]});
