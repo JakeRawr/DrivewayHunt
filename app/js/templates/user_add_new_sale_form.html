@@ -1,28 +1,28 @@
-<form class="sale_form span_5_of_8" action="#">
+<form class="sale_form span_5_of_8" action="#" ng-model="saleInfo">
   <!-- creat your event -->
   <label for="eventname">Step. 1 Create your event
   event name (8 words maximum)</label>
-  <input type="text" name="eventname" placeholder="event name" id="eventname">
+  <input type="text" name="eventname" placeholder="event name" id="eventname" ng-model="saleInfo.title">
   <!-- address -->
   <label>address</label>
-  <input type="text" name="address" placeholder="address" id="address">
+  <input type="text" name="address" placeholder="address" id="address" ng-model="saleInfo.address">
   <!-- city -->
   <label for="city">city</label>
-  <input id ="city" type="text" name="city" placeholder="city">
+  <input id ="city" type="text" name="city" placeholder="city" ng-model="saleInfo.city">
   <!-- state and zipcode in one line -->
   <div class="state_zip">
     <div id="state">
       <label for="state">state</label>
-      <input  name="state" type="text" placeholder="state">
+      <input  name="state" type="text" placeholder="state" ng-model="saleInfo.state">
     </div>
     <div id="zipcode">
       <label for "zipcode">zip code</label>
-      <input name="zipcode" type="text" placeholder="zipcode">
+      <input name="zipcode" type="text" placeholder="zipcode" ng-model="saleInfo.zip">
     </div>
   </div>
   <!-- description -->
   <label for="event_description">description of your event (40 words max)</label><br>
-  <textarea name="event_description" id="event_description" cols="30" rows="10"></textarea><br>
+  <textarea name="event_description" id="event_description" cols="30" rows="10" ng-model="saleInfo.description"></textarea><br>
   <!-- add key words to your event -->
   <label>add key words to your event</label>
   <!-- first column -->
@@ -69,7 +69,8 @@
    <!-- link "upload photos next" -->
   <section>
   <label for="user_form_footer">
-    <a data-ng-click="uploadGallery()">UPLOAD PHOTOS NEXT (right arrow)</a>
+    <a data-ng-click="saveNewEvent(saleInfo)">Save</a>
+    <a data-ng-click="changeDirective('uploadGallery')">UPLOAD PHOTOS NEXT (right arrow)</a>
   </label>
   </section>
 </form>

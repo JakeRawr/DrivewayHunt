@@ -12,8 +12,6 @@ require('../../server');
 
 var url = 'http://localhost:3000';
 
-//process.env.MONGO_URL = 'mongodb://localhost/gsale_test';
-
 describe('items routes', function() {
   var jwt;
 

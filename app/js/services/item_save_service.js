@@ -2,12 +2,13 @@
 
 module.exports = function(app) {
   app.factory('ItemSave', ['$http', '$cookies', function() {
-    /*var service = {};
+    var itemSave = {};
 
-    service.save = function(title, description, url) {
-      $http.post('/api/items')
-      .send('')
-    }
-    */
+    itemSave.save = function() {
+
+    };
+
+    return itemSave;
+
   }]);
 };

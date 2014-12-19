@@ -4,7 +4,7 @@
   <!-- permanent sub nav -->
     <ul class="profile">
       <h4 data-type="profile-header">Your Profile<h4>
-      <li><a class="user-event" data-ng-click="create()">Create Event</a></li>
+      <li><a class="user-event" data-ng-click="changeDirective('saleInfo', true)">Create Event</a></li>
       <li><a class="user-activity" data-ng-click="scrollTo('activity-log')">View Activity</a></li>
     </ul>
     <!-- dynamic sub nav -->
@@ -17,10 +17,10 @@
     </ul>
   </aside>
 
-  <section id="user-directives-container" data-ng-switch="userDirectives">
+  <section id="user-directives-container" data-ng-switch="userDirectives" data-ng-controller="UserResourcesController">
     <div data-user-error-page data-ng-switch-when="userLoadError"></div>
     <div data-user-landing-page data-ng-switch-when="landingPage"></div>
-    <div data-user-add-new-sale data-ng-switch-when="newSale"></div>
+    <div data-user-add-new-sale data-ng-switch-when="saleInfo"></div>
     <div data-user-upload-gallery data-ng-switch-when="uploadGallery"></div>
     <div data-user-landing-page data-ng-switch-default></div>
   </section>

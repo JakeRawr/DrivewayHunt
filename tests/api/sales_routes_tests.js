@@ -9,7 +9,7 @@ var expect = chai.expect;
 var nock = require('nock');
 
 var url = 'http://localhost:3000';
-//process.env.MONGO_URL = 'mongodb://localhost/gsale_test';
+
 chai.use(chaiHttp);
 require('../../server');
 

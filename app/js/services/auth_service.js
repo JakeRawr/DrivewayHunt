@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.factory('AuthService', ['$rootScope', '$http', '$cookies', '$base64', '$location', 'AUTH_EVENTS', function($rootScope, $http, $cookies, $base64, $location, AUTH_EVENTS) {
+  app.factory('AuthService', ['$rootScope', '$http', '$cookies', '$base64', '$location', 'EVENTS', function($rootScope, $http, $cookies, $base64, $location, EVENTS) {
     var authService = {};
 
     authService.signIn = function(credentials) {
@@ -13,7 +13,7 @@ module.exports = function(app) {
 
         //change route
         //broadcast authevent
-        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+        $rootScope.$broadcast(EVENTS.loginSuccess);
       })
       .error(function(err) {
         console.log(err);
@@ -28,7 +28,7 @@ module.exports = function(app) {
 
         //change route
         //broadcast authevent
-        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+        $rootScope.$broadcast(EVENTS.loginSuccess);
       })
       .error(function(err) {
         console.log(err);
@@ -40,7 +40,7 @@ module.exports = function(app) {
       delete $cookies.jwt;
 
       //broadcast signout signal
-      $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
+      $rootScope.$broadcast(EVENTS.logoutSuccess);
     };
     return authService;
   }]);

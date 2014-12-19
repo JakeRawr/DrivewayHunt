@@ -32,7 +32,6 @@ module.exports = function(app, passport, jwtAuth) {
 
   app.get('/api/userInfo', jwtAuth, getSale, getItem, function(req, res) {
     var data = {user: req.user, sales: req.sales, items: req.items};
-    console.log(data);
     res.json(data);
   });
 };

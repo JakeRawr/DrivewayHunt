@@ -2,6 +2,7 @@
 
 var Sale = require('../models/sale');
 var request = require('request');
+
 module.exports = function(app, jwtauth) {
 
   /**
