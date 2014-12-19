@@ -12,8 +12,6 @@ require('../../server');
 
 var url = 'http://localhost:3000';
 
-//process.env.MONGO_URL = 'mongodb://localhost/gsale_test';
-
 describe('items routes', function() {
   var jwt;
 
@@ -178,7 +176,7 @@ describe('items routes', function() {
       });
   });
 
-  it.skip('should be able to delete an item', function(done) {
+  it('should be able to delete an item', function(done) {
     chai.request(url)
       .delete('/api/items/single/' + testItem._id)
       .set('jwt', jwt)

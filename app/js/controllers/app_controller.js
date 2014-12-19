@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('AppController', ['$scope', 'AUTH_EVENTS', 'AuthService', '$cookies', '$location', function($scope, AUTH_EVENTS, AuthService, $cookies, $location) {
+  app.controller('AppController', ['$scope', 'EVENTS', 'AuthService', '$cookies', '$location', function($scope, EVENTS, AuthService, $cookies, $location) {
     /**
      * Keep track of current user
      * Initialize to null
@@ -10,11 +10,11 @@ module.exports = function(app) {
     $scope.appView = 'home-view';
 
     $scope.signIn = function() {
-      $scope.$broadcast(AUTH_EVENTS.loginAttempt);
+      $scope.$broadcast(EVENTS.loginAttempt);
     };
 
     $scope.signUp = function() {
-      $scope.$broadcast(AUTH_EVENTS.signupAttempt);
+      $scope.$broadcast(EVENTS.signupAttempt);
     };
 
     $scope.signOut = function() {
@@ -23,7 +23,12 @@ module.exports = function(app) {
     };
 
     $scope.profileRedirect = function() {
-      $location.path('/profile');
+      if (!$cookies.profileClick) {
+        $location.path('/profile');
+        $cookies.profileClick = true;
+      } else {
+        $scope.$broadcast(EVENTS.profileClick);
+      }
     };
 
     $scope.home = function() {
