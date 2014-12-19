@@ -150,8 +150,8 @@ describe('items routes', function() {
         expect(err).to.be.null;
         expect(res).to.not.have.status(403);
         expect(res).to.not.have.status(500);
-        expect(res.body).to.be.an('array');
-        expect(res.body[0]).to.eql(testItem);
+        expect(res.body.items).to.be.an('array');
+        expect(res.body.items[0]).to.eql(testItem);
         done();
       });
   });

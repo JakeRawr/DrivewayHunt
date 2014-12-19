@@ -8,4 +8,5 @@ module.exports = function(app) {
   require('./search_controller')(app);
   require('./profile_controller')(app);
   require('./user_resources_controller')(app);
+  require('./view_event_controller')(app);
 };

@@ -1,7 +1,7 @@
 'use strict';
 
 var User = require('../models/user');
-var getSale = require('../../server/lib/getSaleMW');
+var getSaleByUserId = require('../../server/lib/getSaleByUserId');
 var getItem = require('../../server/lib/getItemMW');
 
 module.exports = function(app, passport, jwtAuth) {
@@ -30,7 +30,7 @@ module.exports = function(app, passport, jwtAuth) {
     });
   });
 
-  app.get('/api/userInfo', jwtAuth, getSale, getItem, function(req, res) {
+  app.get('/api/userInfo', jwtAuth, getSaleByUserId, getItem, function(req, res) {
     var data = {user: req.user, sales: req.sales, items: req.items};
     res.json(data);
   });
