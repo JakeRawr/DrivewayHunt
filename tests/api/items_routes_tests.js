@@ -17,6 +17,7 @@ describe('items routes', function() {
   var jwt;
   var geoUrl = 'https://maps.googleapis.com';
 
+  /*
   before(function() {
     mongoose.connection.collections.users.drop(function(err) {
       if (err) console.log(err);
@@ -28,7 +29,7 @@ describe('items routes', function() {
       if (err) console.log(err);
     });
   });
-
+*/
   var testUser = {
     email: 'item@example.com',
     password: 'foobar123',

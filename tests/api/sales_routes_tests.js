@@ -14,7 +14,7 @@ chai.use(chaiHttp);
 require('../../server');
 
 describe('sales routes', function() {
-
+  
   before(function() {
     //drop sales from test db before running tests
     mongoose.connection.collections.sales.drop(function(err) {
