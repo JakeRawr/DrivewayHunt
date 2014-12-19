@@ -16,6 +16,7 @@ module.exports = function(app) {
         $scope.sales = data.sales;
         $scope.user = data.user;
         $scope.items = data.items;
+        findItemsInSale();
         $cookies.userDirectives = 'landingPage';
       })
       .error(function(err) {
@@ -43,5 +44,16 @@ module.exports = function(app) {
     $scope.$watch(function() { return $cookies.userDirectives; }, function(newValue) {
       $scope.userDirectives = newValue;
     });
+
+    function findItemsInSale() {
+      for (var i = 0; i < $scope.sales.length; i++) {
+        $scope.sales[i].items = [];
+        for (var k = 0; k < $scope.items.length; k++) {
+          if (String($scope.sales[i]._id) === String($scope.items[k].saleId)) {
+            $scope.sales[i].items.push($scope.items[k]);
+          }
+        }
+      }
+    }
   }]);
 };
