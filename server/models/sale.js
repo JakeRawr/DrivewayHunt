@@ -16,7 +16,7 @@ var saleSchema = mongoose.Schema({
   timeEnd: {type: Date, required: false},
   phone: {type: String, required: false},
   email: {type: String, required: false},
-  publish: {type: Boolean, required: true},
+  publish: {type: Boolean, required: false},
   loc: { type: [Number], index: '2dsphere'}
 });
 

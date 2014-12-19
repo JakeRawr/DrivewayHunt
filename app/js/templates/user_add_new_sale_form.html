@@ -69,8 +69,8 @@
    <!-- link "upload photos next" -->
   <section>
   <label for="user_form_footer">
-    <a data-ng-click="saveNewEvent(saleInfo)">Save</a>
-    <a data-ng-click="changeDirective('uploadGallery')">UPLOAD PHOTOS NEXT (right arrow)</a>
+    <a data-ng-click="saveNewEvent(saleInfo)">Save and continue later</a>
+    <a data-ng-click="changeDirective('uploadGallery');saveNewEvent(saleInfo)">UPLOAD PHOTOS NEXT (right arrow)</a>
   </label>
   </section>
 </form>

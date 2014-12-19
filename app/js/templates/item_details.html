@@ -1,7 +1,7 @@
 <div class="photo_enlarge mdoverlay" >
   <form class="viewphoto photoModal">
     <!-- image -->
-    <img data-ng-src="{{image.url}}" alt="{{image.alt}}"><br>
+    <img data-ng-src="{{image.url}}" alt="{{image.alt}}" style="width:100%;"><br>
     <!-- form -->
     <ol>
       <!-- title of the image -->
@@ -28,7 +28,7 @@
     </ol>
     <div id="view-image">
       <button data-id="image-close" data-ng-click="close()">Close</button>
-      <button data-id="image-save" data-ng-click="saveItem(titleName, description, condition)">Save</button>
+      <button data-id="image-save" data-ng-click="saveItem(titleName, description, condition, image.url)">Save</button>
     </div>
   </form>
 </div>

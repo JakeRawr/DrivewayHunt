@@ -38,6 +38,7 @@ module.exports = function(app) {
     authService.signOut = function() {
       //delete jwt from cookie
       delete $cookies.jwt;
+      delete $cookies.profileClick;
 
       //broadcast signout signal
       $rootScope.$broadcast(EVENTS.logoutSuccess);

@@ -9,29 +9,42 @@ module.exports = function(app) {
 
     //helper method
     saleSave.validate = function(saleInfo) {
-      if (!_.contains(saleInfo, 'title', 'description', 'address', 'city', 'state', 'zip')) {
+      if (!_.contains(_.keys(saleInfo), 'title', 'description', 'address', 'city', 'state', 'zip')) {
         this.errors.push('missing required fields');
       }
       return;
     };
 
-    saleSave.save = function(saleInfo) {
+    saleSave.save = function(saleInfo, eventExist) {
       //call helper method that validates input
       this.validate(saleInfo);
-
       //check if there were any errors
       if (this.errors.length > 0) return this.errors;
 
       //save to DB
       //return promise
+
+      console.log(saleInfo);
       $http.defaults.headers.common.jwt = $cookies.jwt;
-      $http.post('/api/sales', saleInfo)
-      .success(function() {
-        return;
-      })
-      .error(function(err) {
-        return saleSave.errors.push(err);
-      });
+      if (eventExist) {
+        $http.post('/api/sales', saleInfo)
+        .success(function(data) {
+          console.log(data);
+        })
+        .error(function(err) {
+          console.log(err);
+          return saleSave.errors.push(err);
+        });
+      } else {
+        $http.put('/api/sales/' + saleInfo._id, saleInfo)
+        .success(function(data) {
+          console.log(data);
+        })
+        .error(function(err) {
+          console.log(err);
+          return saleSave.errors.push(err);
+        });
+      }
     };
 
     return saleSave;
