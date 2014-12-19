@@ -1,0 +1,146 @@
+[
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2861"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
+    "title": "Bench",
+    "askingPrice": 20,
+    "description": "solid bench. can sit on.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2861"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
+    "title": "Hammer",
+    "askingPrice": 20,
+    "description": "Has handle. Can swing.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2861"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
+    "title": "Table",
+    "askingPrice": 20,
+    "description": "Unstable",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "Excellent"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2861"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
+    "title": "Lamp",
+    "askingPrice": 20,
+    "description": "Light bulb not included.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "loved"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2862"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
+    "title": "Foam",
+    "askingPrice": 20,
+    "description": "Firm.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2862"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
+    "title": "Power strip",
+    "askingPrice": 20,
+    "description": "Conducts electricity.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2862"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
+    "title": "Fine hypertext products",
+    "askingPrice": 20,
+    "description": "Linkable and styling.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "Excellent"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2862"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
+    "title": "Spoon",
+    "askingPrice": 20,
+    "description": "Great for soup.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "loved"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2863"),
+    "userId": ObjectId("5493c2fac5da0100002c2852"),
+    "title": "Bench",
+    "askingPrice": 20,
+    "description": "solid bench. can sit on.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2863"),
+    "userId": ObjectId("5493c2fac5da0100002c2852"),
+    "title": "Hammer",
+    "askingPrice": 20,
+    "description": "Has handle. Can swing.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2863"),
+    "userId": ObjectId("5493c2fac5da0100002c2852"),
+    "title": "Table",
+    "askingPrice": 20,
+    "description": "Unstable",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "Excellent"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2863"),
+    "userId": ObjectId("5493c2fac5da0100002c2852"),
+    "title": "Lamp",
+    "askingPrice": 20,
+    "description": "Light bulb not included.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "loved"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2864"),
+    "userId": ObjectId("5493c2fac5da0100002c2853"),
+    "title": "Bench",
+    "askingPrice": 20,
+    "description": "solid bench. can sit on.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2864"),
+    "userId": ObjectId("5493c2fac5da0100002c2853"),
+    "title": "Hammer",
+    "askingPrice": 20,
+    "description": "Has handle. Can swing.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2864"),
+    "userId": ObjectId("5493c2fac5da0100002c2853"),
+    "title": "Table",
+    "askingPrice": 20,
+    "description": "Unstable",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "Excellent"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2864"),
+    "userId": ObjectId("5493c2fac5da0100002c2853"),
+    "title": "Lamp",
+    "askingPrice": 20,
+    "description": "Light bulb not included.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "loved"
+  },
+]
