@@ -17,22 +17,17 @@
   <div class="view-thumbnails">
   <!--<h5 data-type="left-right"><a href="">Edit Event</a></h5> -->
     <div class="gallery-thumbnails">
-      <div class="e-gallery">
-        <!-- plus image -->
-        <img data-icon="upload" src="../../img/plus-white.svg"></div>
-        <!-- end plus image -->
-      <div class="e-gallery"></div>
-      <div class="e-gallery"></div>
-      <div class="e-gallery"></div>
-      <div class="e-gallery"></div>
-
+      <div class="e-gallery" ng-repeat="item in items">
+        <img data-ng-src="{{item.img}}" style="width:100%;" data-ng-click="itemClick(item)">
+      </div>
     </div>
-<!-- this is where we put the orange bar, images. two, up and down -->
-  <div class="gallery_bottom_bar">
-    <img data-icon="left-arrow" src="../../img/arrow-left-white.svg">
-    <img data-icon="right-arrow" src="../../img/arrow-right-white.svg">
-  </div>
-<!-- end here -->
+  <!-- this is where we put the orange bar, images. two, up and down -->
+    <div class="gallery_bottom_bar">
+      <img data-icon="left-arrow" src="../../img/arrow-left-white.svg">
+      <img data-icon="right-arrow" src="../../img/arrow-right-white.svg">
+    </div>
+  <!-- end here -->
   </div>
   <div data-item-detail data-ng-if="itemModalShown"></div>
+  <div data-existing-item-detail data-ng-if="existingItemModalShown"></div>
 </div>

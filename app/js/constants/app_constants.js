@@ -8,6 +8,7 @@ module.exports = function(app) {
     loginAttempt: 'auth-login-attempt',
     signupAttempt: 'auth-signupAttempt',
     itemEditAttempt: 'item-editAttempt',
+    existingEditAttempt: 'existing-editAttempt',
     itemEditFinished: 'item-editFinished',
     profileClick: 'profile-button-clicked'
   });
