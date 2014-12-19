@@ -30,10 +30,15 @@ module.exports = function(app) {
 
     $scope.home = function() {
       $location.path('/').search({});
+      delete $cookies.location;
     };
 
     $scope.$watch(function() { return $cookies.jwt; }, function(validUser) {
       $scope.currentUser = validUser;
+    });
+
+    $scope.$on('searchSubmitted', function() {
+      if ($scope.appView) $scope.appView = null;
     });
 
     $scope.$on('searchSubmitted', function() {
