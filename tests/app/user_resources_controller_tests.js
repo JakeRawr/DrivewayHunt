@@ -42,10 +42,29 @@ describe('UserResourcesController Controller', function() {
     });
 
     it('should save a new event', function() {
-      var saleInfo = {userId: 1, dateStart: '12/19/2014'};
+      var spy = jasmine.createSpy('spy');
+      $scope.changeDirective = spy;
+      var testSale = {
+        title: 'Test Sale',
+        description: 'This is a test sale',
+        address: '511 Boren Avenue North, Seattle, WA 98109 ',
+        city: 'Seattle',
+        state: 'WA',
+        zip: '98109',
+        dateStart: '12-14-14',
+        dateEnd: '12-15-14',
+        timeStart: '955',
+        timeEnd: '955',
+        lat: '47.609',
+        lng: '-122.331',
+        phone: '123-123-1234',
+        email: 'email@email.com',
+        publish: 'true'
+      };
       spyOn(SaleSave, 'save');
-      $scope.saveNewEvent({userId: 1, dateStart: '12/19/2014'});
-      expect(SaleSave.save).toHaveBeenCalledWith(saleInfo, false);
+      $scope.saveNewEvent(testSale);
+      expect(SaleSave.save).toHaveBeenCalledWith(testSale, false);
+      expect(spy).toHaveBeenCalled();
     });
   });
 });

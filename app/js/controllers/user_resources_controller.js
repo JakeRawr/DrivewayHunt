@@ -7,14 +7,17 @@ module.exports = function(app) {
 
     $scope.editEvent = function(items, index) {
       $scope.eventExist = true;
-      $scope.items = items;
+      $scope.listItems = items;
       $cookies.currentSale = index;
       $scope.$parent.changeDirective('saleInfo');
     };
 
     $scope.saveNewEvent = function(saleInfo) {
       //TO-DO HANDLE ERRORS
-      SaleSave.save(saleInfo, $scope.eventExist);
+      if (SaleSave.validate(saleInfo)) {
+        $scope.changeDirective('uploadGallery');
+        SaleSave.save(saleInfo, $scope.eventExist);
+      }
     };
   }]);
 };
