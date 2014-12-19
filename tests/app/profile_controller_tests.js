@@ -36,7 +36,6 @@ describe('Profile Controller', function() {
   describe('profile controller functionality', function() {
     beforeEach(angular.mock.inject(function() {
       $controllerConstructor('ProfileController', {$scope: $scope});
-      spyOn($location, 'hash');
     }));
 
     afterEach(function() {
@@ -64,6 +63,25 @@ describe('Profile Controller', function() {
       expect($scope.sales.title).toBe(responseObj.sales.title);
       expect($scope.user.email).toBe(responseObj.user.email);
       expect($scope.items.askingPrice).toBe(responseObj.items.askingPrice);
+      expect($cookies.userDirectives).toBe('landingPage');
+    });
+
+    it('should scroll on the page when an event on the nav is clicked', function() {
+      spyOn($location, 'hash');
+      $anchorScroll();
+      expect($location.hash).toHaveBeenCalled();
+    });
+
+    it('should swap out directives', function() {
+      $scope.changeDirective('landingPage');
+      expect($cookies.userDirectives).toBe('landingPage');
+    });
+
+    it('should listen for requests to change directives', function() {
+      spyOn($scope, 'changeDirective');
+      $rootScope.$broadcast(EVENTS.profileClick);
+
+      expect($scope.changeDirective).toHaveBeenCalledWith('landingPage');
     });
   });
 });
