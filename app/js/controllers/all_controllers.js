@@ -7,4 +7,5 @@ module.exports = function(app) {
   require('./user_controller')(app);
   require('./search_controller')(app);
   require('./profile_controller')(app);
+  require('./view_event_controller')(app);
 };

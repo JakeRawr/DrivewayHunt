@@ -9,4 +9,5 @@ module.exports = function(app) {
   require('./user_add_new_sale_directive')(app);
   require('./user_upload_gallery_directive')(app);
   require('./item_details_directive')(app);
+  require('./view_item_details_directive')(app);
 };
