@@ -16,7 +16,7 @@ module.exports = function(app) {
         $rootScope.$broadcast(EVENTS.loginSuccess);
       })
       .error(function(err) {
-        console.log(err);
+        alert(err);
       });
     };
 
@@ -31,7 +31,7 @@ module.exports = function(app) {
         $rootScope.$broadcast(EVENTS.loginSuccess);
       })
       .error(function(err) {
-        console.log(err);
+        alert(err);
       });
     };
 

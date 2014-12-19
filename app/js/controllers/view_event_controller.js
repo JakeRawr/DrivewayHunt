@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('ViewEvent', ['$routeParams', '$http', '$scope', '$location', function($routeParams, $http, $scope, $location) {
 
+  app.controller('ViewEvent', ['$routeParams', '$http', '$scope', '$location', function($routeParams, $http, $scope, $location) {
     $scope.viewItemModalShown = false;
     var saleId = $routeParams.id;
 
@@ -13,7 +13,7 @@ module.exports = function(app) {
         $scope.items = data.items;
       })
       .error(function(err) {
-        console.log(err);
+        alert(err);
       });
     };
 

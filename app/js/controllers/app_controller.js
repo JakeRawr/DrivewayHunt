@@ -40,5 +40,9 @@ module.exports = function(app) {
     $scope.$on('searchSubmitted', function() {
       if ($scope.appView) $scope.appView = null;
     });
+
+    $scope.$on('searchSubmitted', function() {
+      if ($scope.appView) $scope.appView = null;
+    });
   }]);
 };

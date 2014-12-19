@@ -1,5 +1,5 @@
 'use strict';
-
+//var swal = require('sweetalert');
 module.exports = function(app) {
   app.controller('SearchController', ['$scope', 'SaleSearch', '$location', '$cookies', function($scope, SaleSearch, $location, $cookies) {
     $scope.sales = null;
@@ -15,7 +15,8 @@ module.exports = function(app) {
         $cookies.location = location;
       })
       .error(function(err) {
-        console.log(err);
+        alert(err);
+        //swal(err);
         $scope.errors.push(err);
       });
     };
@@ -29,7 +30,7 @@ module.exports = function(app) {
           $scope.changeState = 'home-view';
         })
         .error(function(err) {
-          console.log(err);
+          alert(err);
           $scope.errors.push(err);
         });
       }

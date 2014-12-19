@@ -54,7 +54,7 @@ module.exports = function(app) {
       $rootScope.$broadcast(EVENTS.itemEditFinished);
       ItemSave.saveExistingItem(itemObject)
       .error(function(err) {
-        console.log(err);
+        alert(err);
       });
     };
 
@@ -67,7 +67,7 @@ module.exports = function(app) {
         $scope.listItems.push(data);
       })
       .error(function(err) {
-        console.log(err);
+        alert(err);
       });
     };
 

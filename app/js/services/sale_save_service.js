@@ -23,7 +23,6 @@ module.exports = function(app) {
       if (this.errors.length > 0) return this.errors;
       //save to DB
       //return promise
-
       $http.defaults.headers.common.jwt = $cookies.jwt;
       if (!eventExist) {
         $http.post('/api/sales', saleInfo)
@@ -31,7 +30,7 @@ module.exports = function(app) {
           $cookies.saleId = data._id;
         })
         .error(function(err) {
-          console.log(err);
+          alert(err);
           return saleSave.errors.push(err);
         });
       } else {
@@ -40,7 +39,7 @@ module.exports = function(app) {
           $cookies.saleId = data._id;
         })
         .error(function(err) {
-          console.log(err);
+          alert(err);
           return saleSave.errors.push(err);
         });
       }
