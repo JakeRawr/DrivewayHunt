@@ -57,6 +57,7 @@ module.exports = function(app, jwtauth) {
     newSale.email = req.body.email;
     newSale.publish = req.body.publish;
     newSale.loc = [req.body.lng, req.body.lat];
+    console.log(newSale.loc);
 
     newSale.save(function(err, data) {
       if (err) return res.status(500).send('there was an error');
