@@ -23,13 +23,11 @@ module.exports = function(app) {
 
       //save to DB
       //return promise
-
-      console.log(saleInfo);
       $http.defaults.headers.common.jwt = $cookies.jwt;
       if (!eventExist) {
         $http.post('/api/sales', saleInfo)
         .success(function(data) {
-          console.log(data);
+          console.log('successful save of new Sale');
         })
         .error(function(err) {
           console.log(err);

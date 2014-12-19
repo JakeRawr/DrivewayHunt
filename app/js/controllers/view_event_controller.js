@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('ViewEvent', ['$routeParams', '$http', '$scope', function($routeParams, $http, $scope) {
+  app.controller('ViewEvent', ['$http', '$scope', '$location', '$routeParams',function($http, $scope, $location, $routeParams) {
     $scope.viewItemModalShown = false;
     var saleId = $routeParams.id;
     $http.get('/api/items/all/' + saleId)
@@ -21,5 +21,9 @@ module.exports = function(app) {
     $scope.close = function() {
       $scope.viewItemModalShown = false;
     };
-  }]);
+
+    $scope.backToSearch = function() {
+     
+    }
+   }]);
 };

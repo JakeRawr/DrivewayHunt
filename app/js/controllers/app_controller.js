@@ -24,8 +24,8 @@ module.exports = function(app) {
     };
 
     $scope.profileRedirect = function() {
-      $location.path('/profile');
-      $scope.$broadcast(EVENTS.profileClick);
+       $location.path('/profile');
++      $scope.$broadcast(EVENTS.profileClick);
     };
 
     $scope.home = function() {
