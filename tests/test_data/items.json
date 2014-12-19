@@ -2,8 +2,26 @@
   {
     "saleId": ObjectId("5493c2fac5da0100002c2861"),
     "userId": ObjectId("5493c2fac5da0100002c2851"),
-    "title": "Bench",
-    "askingPrice": 20,
+    "title": "Bench1",
+    "askingPrice": 30,
+    "description": "why so serious.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2861"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
+    "title": "Bench2",
+    "askingPrice": 40,
+    "description": "it's just a bench.",
+    "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
+    "condition": "used"
+  },
+  {
+    "saleId": ObjectId("5493c2fac5da0100002c2861"),
+    "userId": ObjectId("5493c2fac5da0100002c2851"),
+    "title": "Bench3",
+    "askingPrice": 50,
     "description": "solid bench. can sit on.",
     "img": "http://res.cloudinary.com/dqwea7i3j/image/upload/v1418941746/lvfwb7xxblqol1oai3vo.jpg",
     "condition": "used"
