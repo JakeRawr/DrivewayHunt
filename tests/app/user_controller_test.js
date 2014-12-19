@@ -28,10 +28,10 @@ describe('User Controller', function() {
     password: 'foobar123'
   };
 
-   it('should be able to construct a controller', function() {
-      var userController = $controllerConstructor('UserController', {$scope: $scope});
-      expect(typeof userController).toBe('object');
-    });
+  it('should be able to construct a controller', function() {
+    var userController = $controllerConstructor('UserController', {$scope: $scope});
+    expect(typeof userController).toBe('object');
+  });
 
   describe('methods', function() {
     beforeEach(angular.mock.inject(function(_$httpBackend_, _$cookies_) {
@@ -45,7 +45,6 @@ describe('User Controller', function() {
       $httpBackend.verifyNoOutstandingRequest();
     });
 
-  
     it('should be able to signup a new user', function() {
       $httpBackend.expectPOST('/api/users').respond(200, {jwt:'1234abcd'});
       $scope.signUp(newUser);

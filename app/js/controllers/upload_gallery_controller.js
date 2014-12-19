@@ -40,7 +40,6 @@ module.exports = function(app) {
 
     $scope.saveItem = function(title, description, condition, url) {
       //call service
-      console.log(title, description, condition, url);
       $rootScope.$broadcast(EVENTS.itemEditFinished);
       ItemSave.save(title, description, condition, url);
     };
