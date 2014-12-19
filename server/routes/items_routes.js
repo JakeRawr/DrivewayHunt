@@ -1,6 +1,7 @@
 'use strict';
 
 var Item = require('../models/item');
+var getSaleBySaleId = require('../../server/lib/getSaleBySaleId');
 
 module.exports = function(app, jwtauth) {
   /**
@@ -26,11 +27,12 @@ module.exports = function(app, jwtauth) {
   /**
    * Return all garage sale items from a sale
    */
-  app.get('/api/items/all/:saleid', jwtauth, function(req, res) {
+  app.get('/api/items/all/:saleid', getSaleBySaleId, function(req, res) {
     Item.find({saleId:req.params.saleid}, function(err, items) {
+      console.log(items);
       if (err) return res.status(500).send('there was an error');
       if (!items) return res.status(500).send('This sale has no item');
-      res.json(items);
+      res.json({sale: req.sale, items: items});
     });
   });
 

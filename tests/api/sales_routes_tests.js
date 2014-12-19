@@ -13,7 +13,7 @@ var url = 'http://localhost:3000';
 chai.use(chaiHttp);
 require('../../server');
 
-describe('sales routes', function() {
+describe.skip('sales routes', function() {
 
   before(function() {
     //drop sales from test db before running tests
@@ -125,6 +125,7 @@ describe('sales routes', function() {
         expect(res).to.not.have.status(500);
         expect(res.body).to.be.an('object');
         expect(res.body.title).to.eql('New York Test Sale');
+        testSale2 = res.body;
         done();
       });
   });
@@ -160,11 +161,25 @@ describe('sales routes', function() {
       });
   });
 
-  it.skip('should be able to delete a sale', function(done) {
+  it('should be able to delete a sale', function(done) {
     chai.request(url)
       .delete('/api/sales/' + testSale._id)
       .set('jwt', jwt)
       .send({userId: testSale.userId})
+      .end(function(err, res) {
+        expect(err).to.be.null;
+        expect(res).to.not.have.status(403);
+        expect(res).to.not.have.status(500);
+        expect(res.text).to.eql('success');
+        done();
+      });
+  });
+
+  it('should be able to delete a sale', function(done) {
+    chai.request(url)
+      .delete('/api/sales/' + testSale2._id)
+      .set('jwt', jwt)
+      .send({userId: testSale2.userId})
       .end(function(err, res) {
         expect(err).to.be.null;
         expect(res).to.not.have.status(403);
