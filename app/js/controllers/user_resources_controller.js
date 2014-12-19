@@ -25,8 +25,8 @@ module.exports = function(app) {
     };
 
     $scope.back = function() {
-     $scope.$parent.changeDirective('landingPage');
-     $scope.$broadcast(EVENTS.profileClick);
+      $scope.$parent.changeDirective('landingPage');
+      $scope.$broadcast(EVENTS.profileClick);
     };
   }]);
 };

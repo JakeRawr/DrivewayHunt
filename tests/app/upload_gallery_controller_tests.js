@@ -51,7 +51,7 @@ describe('UploadGallery Controller', function() {
       $scope.upload('animage');
       $httpBackend.flush();
 
-      expect($scope.image.url).toBe('http://www.example.com/upload/w_100,h_100,c_scale/something/');
+      expect($scope.image.url).toBe('http://www.example.com/upload/w_500,h_500,c_scale/something/');
       expect($scope.image.alt).toBe('892398389');
       expect($rootScope.$broadcast).toHaveBeenCalledWith(EVENTS.itemEditAttempt);
     });
